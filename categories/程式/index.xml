@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>程式 on Sky Blog</title>
+    <link>https://hanksky12.github.io/categories/%E7%A8%8B%E5%BC%8F/</link>
+    <description>Recent content in 程式 on Sky Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 31 May 2023 08:17:32 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/categories/%E7%A8%8B%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MFA與OTP</title>
+      <link>https://hanksky12.github.io/posts/2023-05-31_otp/</link>
+      <pubDate>Wed, 31 May 2023 08:17:32 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2023-05-31_otp/</guid>
+      <description>源起 最近在各地方的登入都需要2FA驗證，先用手機裝驗證軟體掃ＱRCode，之後的每次登入都要輸入6位</description>
+    </item>
+    
+  </channel>
+</rss>

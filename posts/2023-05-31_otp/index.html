@@ -3,18 +3,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Sky Blog | 心情</title>
-    <meta name="description" content=" ">
-    <link rel="canonical" href="https://hanksky12.github.io/tags/%E5%BF%83%E6%83%85/" />
+    <title>Sky Blog | MFA與OTP</title>
+    <meta name="description" content="源起 最近在各地方的登入都需要2FA驗證，先用手機裝驗證軟體掃ＱRCode，之後的每次登入都要輸入6位 ">
+    <link rel="canonical" href="https://hanksky12.github.io/posts/2023-05-31_otp/" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <meta property="og:title" content="心情" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://hanksky12.github.io/tags/%E5%BF%83%E6%83%85/" />
+    <meta property="og:title" content="MFA與OTP" />
+<meta property="og:description" content="源起 最近在各地方的登入都需要2FA驗證，先用手機裝驗證軟體掃ＱRCode，之後的每次登入都要輸入6位" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hanksky12.github.io/posts/2023-05-31_otp/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-05-31T08:17:32+08:00" />
+<meta property="article:modified_time" content="2023-05-31T08:17:32+08:00" />
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="心情"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="MFA與OTP"/>
+<meta name="twitter:description" content="源起 最近在各地方的登入都需要2FA驗證，先用手機裝驗證軟體掃ＱRCode，之後的每次登入都要輸入6位"/>
 
     
         
@@ -180,29 +182,41 @@
 
 
         <div id="content">
-    
 
 
 
 
-
-
-    
-        
-    
 
 
 
 
     <div class="hero">
         
-            
-                <div class="hero-img">
-                    <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt="">
-                </div>
-            
+            <div class="hero-img">
+                <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt="">
+            </div>
+        
         <div class="hero-content">
-            <h1 class="hero-title">Tag: 心情</h1>
+            <div class="hero-title">MFA與OTP</div>
+            <div class="hero-subtitle"></div>
+            <div class="hero-date">
+                    <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2023-5-31 &nbsp;</span>
+                    <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2023-5-31 &nbsp;</span>
+                    <span class="no-wrap"><i class="fa fa-folder"></i>
+                        includedIn:
+                        
+                            <a href='
+                                /categories/%E7%A8%8B%E5%BC%8F
+                            '>
+                                程式
+                            </a>
+                    </span>    
+            </div>
+            <div class="timelong">
+                <span class="no-wrap"><i class="fa fa-pencil"></i> wordsCount: 764 &nbsp;</span>
+                <span class="no-wrap"><i class="fa fa-clock-o"></i> readingTime: 2 mins &nbsp;</span>
+                
+            </div>
         </div>
     </div>
 
@@ -221,7 +235,7 @@
     
 
 
-<div class="terms-body">
+<div class="content-root">
     <div class="long">
         <button class="tosides-1 text-wbd">
             <i class="fa fa-arrow-right"></i>
@@ -234,74 +248,120 @@
         </button>
     </div>
     
-        <div class="terms-row">
+        <div class="content">
+            <div class="content-self">
+                <h1 id="源起">源起</h1>
+<p>最近在各地方的登入都需要2FA驗證，先用手機裝驗證軟體掃ＱRCode，之後的每次登入都要輸入6位數字，
+一直沒搞懂原理，但又覺得很酷，剛好最近要做一個python私人用的密碼管理程式，就在想能不能結合這個東西來驗證，
+以下就是各名詞最簡單的介紹</p>
+<h4 id="實作的github">實作的Github</h4>
+<p><a href="https://github.com/hanksky12/Personal-Password-Manager">https://github.com/hanksky12/Personal-Password-Manager</a></p>
+<hr>
+<h1 id="mfamulti---factor-authentication">MFA(Multi - Factor Authentication)</h1>
+<p>除了密碼之外，在登入時有其他驗證須通過就可以稱為多重驗證(多因子驗證)</p>
+<p>例子：輸入手機收到的簡訊數字、線上銀行ATM提款卡、手機TOTP的六位數字</p>
+<h2 id="2fa">2FA</h2>
+<p>MFA的特例，兩種驗證就是2FA，以此類推</p>
+<hr>
+<h1 id="otpone-time-password">OTP(One Time Password)</h1>
+<p>一次性驗證碼，用完就丟，只能用一次，其中有名的演算法是HOTP和TOTP</p>
+<h2 id="hotphmac-based-otp">HOTP(HMAC-based OTP)</h2>
+<p>HMAC雜湊訊息驗證碼
+<a href="https://datatracker.ietf.org/doc/html/rfc4226#page-5">RFC4226</a></p>
+<pre tabindex="0"><code>HOTP(K,C) = Truncate(HMAC-SHA-1(K,C))
+
+   C       8-byte counter value, the moving factor.  This counter
+           MUST be synchronized between the HOTP generator (client)
+           and the HOTP validator (server).
+
+   K       shared secret between client and server; each HOTP
+           generator has a different and unique secret K.
+</code></pre><h3 id="白話文">白話文：</h3>
+<p>用一串key string 加上 counter計數器，做Hash之後，取特定位數做比對</p>
+<h3 id="實作">實作：</h3>
+<p>產出器將key傳到比對器之後，兩邊各自跑counter計數器，看最後出來的值是否一致</p>
+<ol>
+<li>兩邊各自跑counter，所以可能有前後落差要處理</li>
+<li>最後只取特定位數 ，所以要限制比對次數，避免被大量嘗試攻擊</li>
+<li>重點在key必須隱蔽的傳到對方的比對器，不能外流</li>
+</ol>
+<h2 id="totptime-based-otp">TOTP(Time-based OTP)</h2>
+<p>HOTP的特化版，counter計數器使用timestamp</p>
+<h3 id="why-30秒">why 30秒?</h3>
+<p>必然server跟手機不可能時間永遠同步， 在兩邊跑出來的結果可能有落差，通常使用30秒才換一次，
+來容納兩邊的時間不同步，否則驗證失敗可能性太高，server壓力太大，</p>
+<h3 id="why-6位數">why 6位數?</h3>
+<p>6位數，是一百萬組可能性，在30秒內嘗試完成，每秒要驗證3.3萬次，早已經被server鎖定黑名單</p>
+<h3 id="qrcode">QRCode</h3>
+<p>用來傳遞key string，所以要確保隱蔽，通常網站讓你掃完就會消失，無法存檔，確保只有你的手機有這個key</p>
+<h3 id="python實作套件">python實作套件</h3>
+<p>Pyotp=&gt;生成限制base32的key才能使用</p>
+<pre tabindex="0"><code>_otp = pyotp.TOTP(base32_key)
+</code></pre><hr>
+<h1 id="參考資料">參考資料</h1>
+<p><a href="https://en.wikipedia.org/wiki/Time-based_one-time_password">https://en.wikipedia.org/wiki/Time-based_one-time_password</a>
+<a href="https://fullstackladder.dev/blog/2017/09/07/one-time-pass-introduce-with-hotp-totp-google-authenticator/">https://fullstackladder.dev/blog/2017/09/07/one-time-pass-introduce-with-hotp-totp-google-authenticator/</a>
+<a href="https://medium.com/starbugs/totp-2fa-algorithm-in-10-mins-25acc3c35df9">https://medium.com/starbugs/totp-2fa-algorithm-in-10-mins-25acc3c35df9</a></p>
+
+            </div>
             
-            <div class="terms-root">
-                
-                
-
-
-<div class="card-large">
-    <div class="card-large-img">
-
-        
-                <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt='image loading failed'>
-        
-    </div>
-    <div class="card-large-content">
-        <div class="up-title"><a href="https://hanksky12.github.io/posts/2023-05-18_hello_world/">Hello World</a></div>
-        <div class="up-date">
-            <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2023-5-18 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2023-5-18 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-folder"></i>
-                
-                    includedIn:
+                <div class="tags">
                     
-                        <a href='
-                                        /categories/%E6%89%8B%E6%9C%AD
+                    <span class="down-type-item">
+                        <div class="type-text">
+                            <a href='
+                                        /tags/%E7%9F%A5%E8%AD%98
                                     '>
-                                手札
+                                <i class="fa fa-tag"></i> 知識
                             </a>
-                
-            </span>
+                        </div>
+                    </span>
+                    
+                    <span class="down-type-item">
+                        <div class="type-text">
+                            <a href='
+                                        /tags/%E9%A9%97%E8%AD%89
+                                    '>
+                                <i class="fa fa-tag"></i> 驗證
+                            </a>
+                        </div>
+                    </span>
+                    
+                </div>
+            
         </div>
-        <div class="down-summary">Hello World! 就像每次學習新的語言， Hello world都是第一個印在console的字眼， 記得 第一次學習 &gt;程式</div>
-    </div>
-    <div class="card-readmore">
-        <a href="https://hanksky12.github.io/posts/2023-05-18_hello_world/">
-            <span><i class="fa fa-arrow-right"></i></span>
+        
+            
+                <div class="pre-next">
+                    
+    
+        
+        <a href="https://hanksky12.github.io/posts/2023-05-18_hello_world/" class="pre pre-last" style="text-align: center;">
+            <span class="pre-icon"><i class="fa fa-hand-o-left"></i></span>
+            <div class="pre-title-root">
+                <span>Hello World</span>
+            </div>
         </a>
-    </div>
-</div>
-
-
-
+        
+    
     
 
-
-    <div class="down-type">
+                </div>
+            
         
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/%E5%BF%83%E6%83%85
-                        '>
-                    <i class="fa fa-tag"></i> 心情
-                </a>
-            </div>
-        </span>
-        
-    </div>
+    
+</div>
 
-<div class="dang"></div>
-            </div>
+    
+        <div class="content-last">
+            
+                <button class="aixin content-last-item efct-button">
+                    <i class="fa fa-heart"></i>
+                </button>
+            
             
         </div>
     
-</div>
 
 
             </div>
@@ -378,33 +438,16 @@
 
 
 
+    
+    
+
 
 <div class="other">
     <div class="other-up">
-        <div class="other-qita text-wbd">latest Posts</div>
+        <div class="other-qita text-wbd">Related Posts</div>
         <div class="xian"></div>
     </div>
     <div class="list">
-        
-            <a href="https://hanksky12.github.io/posts/2023-05-31_otp/">
-                
-<a href="https://hanksky12.github.io/posts/2023-05-31_otp/">
-    <div class="list-item">
-        <div class="icon-other-root">
-            
-                <div class="icon-other" style="background-image: url(  );"></div>
-            
-        </div>
-        <div class="list-right">
-            <div class="other-title">
-                MFA與OTP
-            </div>
-            <div class="other-summary">源起 最近在各地方的登入都需要2FA驗證，先用手機裝驗證軟體掃ＱRCode，之後的每次登入都要輸入6位</div>
-            <div class="other-date">2023-5-31</div>
-        </div>
-    </div>
-</a>
-            </a>
         
             <a href="https://hanksky12.github.io/posts/2023-05-18_hello_world/">
                 
@@ -437,6 +480,46 @@
 
             </div>
         </div>
+    </div>
+</div>
+
+    
+
+<div class="sponsor">
+    <div class="sponsor-self">
+        <div class="sponsor-title">Sponsor</div>
+        <div class="sponsor-btn">
+            
+                
+                    
+                        <div class="sponsor-btn-1 border-r">Wechat</div>
+                    
+                
+                
+            
+                
+                    
+                        <div class="sponsor-btn-2 border-l">Alipay</div>
+                    
+                
+                
+            
+        </div>
+        
+        <div class="sponsor-img">
+            
+                
+                    <img class="sponsor-img-1" src="/images/sponsor/wechat.jpeg" alt="">
+                
+                
+            
+                
+                    <img class="sponsor-img-2" src="/images/sponsor/alipay.jpeg" alt="" style="display: none;">
+                
+                
+            
+        </div>
+        <div class="cancel efct-button">cancel</div>
     </div>
 </div>
 
