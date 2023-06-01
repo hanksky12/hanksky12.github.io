@@ -4,11 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Sky Blog | MFA與OTP</title>
-    <meta name="description" content="源起 最近在各地方的登入都需要2FA驗證，先用手機裝驗證軟體掃ＱRCode，之後的每次登入都要輸入6位 ">
+    <meta name="description" content="源起 最近自己在很多地方的登入都需要2FA驗證，先用手機裝驗證軟體掃ＱRCode，之後的每次登入都要輸 ">
     <link rel="canonical" href="https://hanksky12.github.io/posts/2023-05-31_otp/" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <meta property="og:title" content="MFA與OTP" />
-<meta property="og:description" content="源起 最近在各地方的登入都需要2FA驗證，先用手機裝驗證軟體掃ＱRCode，之後的每次登入都要輸入6位" />
+<meta property="og:description" content="源起 最近自己在很多地方的登入都需要2FA驗證，先用手機裝驗證軟體掃ＱRCode，之後的每次登入都要輸" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://hanksky12.github.io/posts/2023-05-31_otp/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-05-31T08:17:32+08:00" />
@@ -16,7 +16,7 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="MFA與OTP"/>
-<meta name="twitter:description" content="源起 最近在各地方的登入都需要2FA驗證，先用手機裝驗證軟體掃ＱRCode，之後的每次登入都要輸入6位"/>
+<meta name="twitter:description" content="源起 最近自己在很多地方的登入都需要2FA驗證，先用手機裝驗證軟體掃ＱRCode，之後的每次登入都要輸"/>
 
     
         
@@ -213,7 +213,7 @@
                     </span>    
             </div>
             <div class="timelong">
-                <span class="no-wrap"><i class="fa fa-pencil"></i> wordsCount: 764 &nbsp;</span>
+                <span class="no-wrap"><i class="fa fa-pencil"></i> wordsCount: 758 &nbsp;</span>
                 <span class="no-wrap"><i class="fa fa-clock-o"></i> readingTime: 2 mins &nbsp;</span>
                 
             </div>
@@ -251,13 +251,13 @@
         <div class="content">
             <div class="content-self">
                 <h1 id="源起">源起</h1>
-<p>最近在各地方的登入都需要2FA驗證，先用手機裝驗證軟體掃ＱRCode，之後的每次登入都要輸入6位數字，
+<p>最近自己在很多地方的登入都需要2FA驗證，先用手機裝驗證軟體掃ＱRCode，之後的每次登入都要輸入6位數字，
 一直沒搞懂原理，但又覺得很酷，剛好最近要做一個python私人用的密碼管理程式，就在想能不能結合這個東西來驗證，
-以下就是各名詞最簡單的介紹</p>
+以下就是自己理解後名詞的介紹</p>
 <h4 id="實作的github">實作的Github</h4>
 <p><a href="https://github.com/hanksky12/Personal-Password-Manager">https://github.com/hanksky12/Personal-Password-Manager</a></p>
 <hr>
-<h1 id="mfamulti---factor-authentication">MFA(Multi - Factor Authentication)</h1>
+<h1 id="mfamulti-factor-authentication">MFA(Multi-Factor Authentication)</h1>
 <p>除了密碼之外，在登入時有其他驗證須通過就可以稱為多重驗證(多因子驗證)</p>
 <p>例子：輸入手機收到的簡訊數字、線上銀行ATM提款卡、手機TOTP的六位數字</p>
 <h2 id="2fa">2FA</h2>
@@ -265,7 +265,7 @@
 <hr>
 <h1 id="otpone-time-password">OTP(One Time Password)</h1>
 <p>一次性驗證碼，用完就丟，只能用一次，其中有名的演算法是HOTP和TOTP</p>
-<h2 id="hotphmac-based-otp">HOTP(HMAC-based OTP)</h2>
+<h2 id="hotphmac-based">HOTP(HMAC-based)</h2>
 <p>HMAC雜湊訊息驗證碼
 <a href="https://datatracker.ietf.org/doc/html/rfc4226#page-5">RFC4226</a></p>
 <pre tabindex="0"><code>HOTP(K,C) = Truncate(HMAC-SHA-1(K,C))
@@ -285,23 +285,24 @@
 <li>最後只取特定位數 ，所以要限制比對次數，避免被大量嘗試攻擊</li>
 <li>重點在key必須隱蔽的傳到對方的比對器，不能外流</li>
 </ol>
-<h2 id="totptime-based-otp">TOTP(Time-based OTP)</h2>
+<h2 id="totptime-based">TOTP(Time-based)</h2>
 <p>HOTP的特化版，counter計數器使用timestamp</p>
 <h3 id="why-30秒">why 30秒?</h3>
 <p>必然server跟手機不可能時間永遠同步， 在兩邊跑出來的結果可能有落差，通常使用30秒才換一次，
 來容納兩邊的時間不同步，否則驗證失敗可能性太高，server壓力太大，</p>
 <h3 id="why-6位數">why 6位數?</h3>
-<p>6位數，是一百萬組可能性，在30秒內嘗試完成，每秒要驗證3.3萬次，早已經被server鎖定黑名單</p>
+<p>6位數，是一百萬組可能性，需在30秒內嘗試完成，每秒要驗證3.3萬次，server後台可以藉此鎖定黑名單</p>
 <h3 id="qrcode">QRCode</h3>
 <p>用來傳遞key string，所以要確保隱蔽，通常網站讓你掃完就會消失，無法存檔，確保只有你的手機有這個key</p>
 <h3 id="python實作套件">python實作套件</h3>
-<p>Pyotp=&gt;生成限制base32的key才能使用</p>
-<pre tabindex="0"><code>_otp = pyotp.TOTP(base32_key)
+<pre tabindex="0"><code>import pyotp  
+#限制base32的key才能使用
+_otp = pyotp.TOTP(base32_key)
 </code></pre><hr>
 <h1 id="參考資料">參考資料</h1>
-<p><a href="https://en.wikipedia.org/wiki/Time-based_one-time_password">https://en.wikipedia.org/wiki/Time-based_one-time_password</a>
-<a href="https://fullstackladder.dev/blog/2017/09/07/one-time-pass-introduce-with-hotp-totp-google-authenticator/">https://fullstackladder.dev/blog/2017/09/07/one-time-pass-introduce-with-hotp-totp-google-authenticator/</a>
-<a href="https://medium.com/starbugs/totp-2fa-algorithm-in-10-mins-25acc3c35df9">https://medium.com/starbugs/totp-2fa-algorithm-in-10-mins-25acc3c35df9</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Time-based_one-time_password">https://en.wikipedia.org/wiki/Time-based_one-time_password</a></p>
+<p><a href="https://fullstackladder.dev/blog/2017/09/07/one-time-pass-introduce-with-hotp-totp-google-authenticator/">https://fullstackladder.dev/blog/2017/09/07/one-time-pass-introduce-with-hotp-totp-google-authenticator/</a></p>
+<p><a href="https://medium.com/starbugs/totp-2fa-algorithm-in-10-mins-25acc3c35df9">https://medium.com/starbugs/totp-2fa-algorithm-in-10-mins-25acc3c35df9</a></p>
 
             </div>
             
@@ -603,7 +604,7 @@
 <script type="text/javascript">
     var mode_custom = "auto";
     var postsCount =  2 ;
-    var arrPosts = [{"link":"https://hanksky12.github.io/posts/2023-05-31_otp/","plain":"源起 最近在各地方的登入都需要2FA驗證，先用手機裝驗證軟體掃ＱRCode，之後的每次登入都要輸入6位數字， 一直沒搞懂原理，但又覺得很酷，剛好最近要做一個python私人用的密碼管理程式，就在想能不能結合這個東西來驗證， 以下就是各名詞最簡單的介紹\n實作的Github https://github.com/hanksky12/Personal-Password-Manager\nMFA(Multi - Factor Authentication) 除了密碼之外，在登入時有其他驗證須通過就可以稱為多重驗證(多因子驗證)\n例子：輸入手機收到的簡訊數字、線上銀行ATM提款卡、手機TOTP的六位數字\n2FA MFA的特例，兩種驗證就是2FA，以此類推\nOTP(One Time Password) 一次性驗證碼，用完就丟，只能用一次，其中有名的演算法是HOTP和TOTP\nHOTP(HMAC-based OTP) HMAC雜湊訊息驗證碼 RFC4226\nHOTP(K,C) = Truncate(HMAC-SHA-1(K,C)) C 8-byte counter value, the moving factor. This counter MUST be synchronized between the HOTP generator (client) and the HOTP validator (server). K shared secret between client and server; each HOTP generator has a different and unique secret K. 白話文： 用一串key string 加上 counter計數器，做Hash之後，取特定位數做比對\n實作： 產出器將key傳到比對器之後，兩邊各自跑counter計數器，看最後出來的值是否一致\n兩邊各自跑counter，所以可能有前後落差要處理 最後只取特定位數 ，所以要限制比對次數，避免被大量嘗試攻擊 重點在key必須隱蔽的傳到對方的比對器，不能外流 TOTP(Time-based OTP) HOTP的特化版，counter計數器使用timestamp\nwhy 30秒? 必然server跟手機不可能時間永遠同步， 在兩邊跑出來的結果可能有落差，通常使用30秒才換一次， 來容納兩邊的時間不同步，否則驗證失敗可能性太高，server壓力太大，\nwhy 6位數? 6位數，是一百萬組可能性，在30秒內嘗試完成，每秒要驗證3.3萬次，早已經被server鎖定黑名單\nQRCode 用來傳遞key string，所以要確保隱蔽，通常網站讓你掃完就會消失，無法存檔，確保只有你的手機有這個key\npython實作套件 Pyotp=\u0026gt;生成限制base32的key才能使用\n_otp = pyotp.TOTP(base32_key) 參考資料 https://en.wikipedia.org/wiki/Time-based_one-time_password https://fullstackladder.dev/blog/2017/09/07/one-time-pass-introduce-with-hotp-totp-google-authenticator/ https://medium.com/starbugs/totp-2fa-algorithm-in-10-mins-25acc3c35df9\n","pubDate":"2023-05-31","title":"MFA與OTP"},{"link":"https://hanksky12.github.io/posts/2023-05-18_hello_world/","plain":"Hello World!\n就像每次學習新的語言， Hello world都是第一個印在console的字眼，\n記得\n第一次學習 \u0026gt;程式語言Python\n第一次學習\u0026gt;處理資料用的語言R\n第一次學習\u0026gt;靜態語言C#\n第一次學習\u0026gt;前端語言Js\n第一次學習\u0026gt;網站語言Php\n待續\u0026hellip;\n","pubDate":"2023-05-18","title":"Hello World"}];
+    var arrPosts = [{"link":"https://hanksky12.github.io/posts/2023-05-31_otp/","plain":"源起 最近自己在很多地方的登入都需要2FA驗證，先用手機裝驗證軟體掃ＱRCode，之後的每次登入都要輸入6位數字， 一直沒搞懂原理，但又覺得很酷，剛好最近要做一個python私人用的密碼管理程式，就在想能不能結合這個東西來驗證， 以下就是自己理解後名詞的介紹\n實作的Github https://github.com/hanksky12/Personal-Password-Manager\nMFA(Multi-Factor Authentication) 除了密碼之外，在登入時有其他驗證須通過就可以稱為多重驗證(多因子驗證)\n例子：輸入手機收到的簡訊數字、線上銀行ATM提款卡、手機TOTP的六位數字\n2FA MFA的特例，兩種驗證就是2FA，以此類推\nOTP(One Time Password) 一次性驗證碼，用完就丟，只能用一次，其中有名的演算法是HOTP和TOTP\nHOTP(HMAC-based) HMAC雜湊訊息驗證碼 RFC4226\nHOTP(K,C) = Truncate(HMAC-SHA-1(K,C)) C 8-byte counter value, the moving factor. This counter MUST be synchronized between the HOTP generator (client) and the HOTP validator (server). K shared secret between client and server; each HOTP generator has a different and unique secret K. 白話文： 用一串key string 加上 counter計數器，做Hash之後，取特定位數做比對\n實作： 產出器將key傳到比對器之後，兩邊各自跑counter計數器，看最後出來的值是否一致\n兩邊各自跑counter，所以可能有前後落差要處理 最後只取特定位數 ，所以要限制比對次數，避免被大量嘗試攻擊 重點在key必須隱蔽的傳到對方的比對器，不能外流 TOTP(Time-based) HOTP的特化版，counter計數器使用timestamp\nwhy 30秒? 必然server跟手機不可能時間永遠同步， 在兩邊跑出來的結果可能有落差，通常使用30秒才換一次， 來容納兩邊的時間不同步，否則驗證失敗可能性太高，server壓力太大，\nwhy 6位數? 6位數，是一百萬組可能性，需在30秒內嘗試完成，每秒要驗證3.3萬次，server後台可以藉此鎖定黑名單\nQRCode 用來傳遞key string，所以要確保隱蔽，通常網站讓你掃完就會消失，無法存檔，確保只有你的手機有這個key\npython實作套件 import pyotp #限制base32的key才能使用 _otp = pyotp.TOTP(base32_key) 參考資料 https://en.wikipedia.org/wiki/Time-based_one-time_password\nhttps://fullstackladder.dev/blog/2017/09/07/one-time-pass-introduce-with-hotp-totp-google-authenticator/\nhttps://medium.com/starbugs/totp-2fa-algorithm-in-10-mins-25acc3c35df9\n","pubDate":"2023-05-31","title":"MFA與OTP"},{"link":"https://hanksky12.github.io/posts/2023-05-18_hello_world/","plain":"Hello World!\n就像每次學習新的語言， Hello world都是第一個印在console的字眼，\n記得\n第一次學習 \u0026gt;程式語言Python\n第一次學習\u0026gt;處理資料用的語言R\n第一次學習\u0026gt;靜態語言C#\n第一次學習\u0026gt;前端語言Js\n第一次學習\u0026gt;網站語言Php\n待續\u0026hellip;\n","pubDate":"2023-05-18","title":"Hello World"}];
     var search_theEnd = "The End";
     var search_nothing = "Nothing was found";
     var search_found = "Found";
