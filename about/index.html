@@ -12,6 +12,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://hanksky12.github.io/about/" />
 
+
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="About"/>
 <meta name="twitter:description" content=""/>
@@ -288,7 +289,7 @@
                     /posts/
                 '>
             <p>posts</p>
-            <p>2</p>
+            <p>5</p>
         </a>
         <a href='
                     /categories/
@@ -300,7 +301,7 @@
                     /tags/
                 '>
             <p>tags</p>
-            <p>3</p>
+            <p>4</p>
         </a>
     </div>
 
@@ -340,6 +341,66 @@
         <div class="xian"></div>
     </div>
     <div class="list">
+        
+            <a href="https://hanksky12.github.io/posts/2023-06-17_hugo/">
+                
+<a href="https://hanksky12.github.io/posts/2023-06-17_hugo/">
+    <div class="list-item">
+        <div class="icon-other-root">
+            
+                <div class="icon-other" style="background-image: url(  );"></div>
+            
+        </div>
+        <div class="list-right">
+            <div class="other-title">
+                Hugo架站紀錄
+            </div>
+            <div class="other-summary">安裝hugo 下載theme 設定config.toml ⇒ hugo new &quot;posts/first-pos</div>
+            <div class="other-date">2023-6-17</div>
+        </div>
+    </div>
+</a>
+            </a>
+        
+            <a href="https://hanksky12.github.io/posts/2023-06-17_dp_memento/">
+                
+<a href="https://hanksky12.github.io/posts/2023-06-17_dp_memento/">
+    <div class="list-item">
+        <div class="icon-other-root">
+            
+                <div class="icon-other" style="background-image: url(  );"></div>
+            
+        </div>
+        <div class="list-right">
+            <div class="other-title">
+                設計模式-備忘錄模式
+            </div>
+            <div class="other-summary">Memento-備忘錄模式 分類 行為模式-Behavioral Patterns 主要角色 Originator、Meme</div>
+            <div class="other-date">2023-6-17</div>
+        </div>
+    </div>
+</a>
+            </a>
+        
+            <a href="https://hanksky12.github.io/posts/2023-06-17_dp_templatemethod/">
+                
+<a href="https://hanksky12.github.io/posts/2023-06-17_dp_templatemethod/">
+    <div class="list-item">
+        <div class="icon-other-root">
+            
+                <div class="icon-other" style="background-image: url(  );"></div>
+            
+        </div>
+        <div class="list-right">
+            <div class="other-title">
+                設計模式-樣板模式
+            </div>
+            <div class="other-summary">Template Method-樣板模式 分類 行為模式-Behavioral Patterns 主要角色 Abstract Class、Concrete C</div>
+            <div class="other-date">2023-6-17</div>
+        </div>
+    </div>
+</a>
+            </a>
         
             <a href="https://hanksky12.github.io/posts/2023-05-31_otp/">
                 
@@ -511,11 +572,20 @@
     
     
 
+    
+    
+
+    
+    
+
+    
+    
+
 
 <script type="text/javascript">
     var mode_custom = "auto";
-    var postsCount =  2 ;
-    var arrPosts = [{"link":"https://hanksky12.github.io/posts/2023-05-31_otp/","plain":"源起 最近自己在很多地方的登入都需要2FA驗證，先用手機裝驗證軟體掃ＱRCode，之後的每次登入都要輸入6位數字， 一直沒搞懂原理，但又覺得很酷，剛好最近要做一個python私人用的密碼管理程式，就在想能不能結合這個東西來驗證， 以下就是自己理解後名詞的介紹\n實作的Github https://github.com/hanksky12/Personal-Password-Manager\nMFA(Multi-Factor Authentication) 除了密碼之外，在登入時有其他驗證須通過就可以稱為多重驗證(多因子驗證)\n例子：輸入手機收到的簡訊數字、線上銀行ATM提款卡、手機TOTP的六位數字\n2FA MFA的特例，兩種驗證就是2FA，以此類推\nOTP(One Time Password) 一次性驗證碼，用完就丟，只能用一次，其中有名的演算法是HOTP和TOTP\nHOTP(HMAC-based) HMAC雜湊訊息驗證碼 RFC4226\nHOTP(K,C) = Truncate(HMAC-SHA-1(K,C)) C 8-byte counter value, the moving factor. This counter MUST be synchronized between the HOTP generator (client) and the HOTP validator (server). K shared secret between client and server; each HOTP generator has a different and unique secret K. 白話文： 用一串key string 加上 counter計數器，做Hash之後，取特定位數做比對\n實作： 產出器將key傳到比對器之後，兩邊各自跑counter計數器，看最後出來的值是否一致\n兩邊各自跑counter，所以可能有前後落差要處理 最後只取特定位數 ，所以要限制比對次數，避免被大量嘗試攻擊 重點在key必須隱蔽的傳到對方的比對器，不能外流 TOTP(Time-based) HOTP的特化版，counter計數器使用timestamp\nwhy 30秒? 必然server跟手機不可能時間永遠同步， 在兩邊跑出來的結果可能有落差，通常使用30秒才換一次， 來容納兩邊的時間不同步，否則驗證失敗可能性太高，server壓力太大，\nwhy 6位數? 6位數，是一百萬組可能性，需在30秒內嘗試完成，每秒要驗證3.3萬次，server後台可以藉此鎖定黑名單\nQRCode 用來傳遞key string，所以要確保隱蔽，通常網站讓你掃完就會消失，無法存檔，確保只有你的手機有這個key\npython實作套件 import pyotp #限制base32的key才能使用 _otp = pyotp.TOTP(base32_key) 參考資料 https://en.wikipedia.org/wiki/Time-based_one-time_password\nhttps://fullstackladder.dev/blog/2017/09/07/one-time-pass-introduce-with-hotp-totp-google-authenticator/\nhttps://medium.com/starbugs/totp-2fa-algorithm-in-10-mins-25acc3c35df9\n","pubDate":"2023-05-31","title":"MFA與OTP"},{"link":"https://hanksky12.github.io/posts/2023-05-18_hello_world/","plain":"Hello World!\n就像每次學習新的語言， Hello world都是第一個印在console的字眼，\n記得\n第一次學習 \u0026gt;程式語言Python\n第一次學習\u0026gt;處理資料用的語言R\n第一次學習\u0026gt;靜態語言C#\n第一次學習\u0026gt;前端語言Js\n第一次學習\u0026gt;網站語言Php\n待續\u0026hellip;\n","pubDate":"2023-05-18","title":"Hello World"}];
+    var postsCount =  5 ;
+    var arrPosts = [{"link":"https://hanksky12.github.io/posts/2023-06-17_hugo/","plain":"安裝hugo 下載theme 設定config.toml\n⇒ hugo new \u0026quot;posts/first-post.md”\n⇒ hugo new \u0026quot;about/_index.md”\ndraft = false 才是從草稿變成要發布的網頁\nrun server ⇒ hugo server -D\nhugo 生成後網頁檔案在public\n佈置到github 先到github 新增項目 your_user_name.github.io 必須是這個名字\n第一次init 與設定 my-blog % cd public public % git init # 初始化仓库 public % git remote add origin https://github.com/你的Github账号名/你的Github账号名.github.io.git # 链接远程仓库 public % git add . public % git commit -m \u0026#34;first commit\u0026#34; public % git push -u origin main 之後的push my-blog % hugo my-blog % cd public public % git add . public % git commit -m \u0026#34;new commit\u0026#34; public % git push ","pubDate":"2023-06-17","title":"Hugo架站紀錄"},{"link":"https://hanksky12.github.io/posts/2023-06-17_dp_memento/","plain":"Memento-備忘錄模式 分類 行為模式-Behavioral Patterns\n主要角色 Originator、Memento、Caretaker\n目的 將Originator的部分狀態做儲存，可以做狀態回朔\n如何互動 在Originator內部，將狀態記錄到Memento生成物件，交由Caretaker管理，在需要的時候， 從Caretaker拿回Memento回復到之前紀錄\nGitHub練習 https://github.com/hanksky12/DesignPatterns/tree/main/Memento\n實務上 未運用過，沒經驗可分享\n","pubDate":"2023-06-17","title":"設計模式-備忘錄模式"},{"link":"https://hanksky12.github.io/posts/2023-06-17_dp_templatemethod/","plain":"Template Method-樣板模式 分類 行為模式-Behavioral Patterns\n主要角色 Abstract Class、Concrete Class1、Concrete Class2\n目的 提出共同流程到Abstract Class，避免重複程式碼\n如何互動 在Abstract Class定義整個演算法流程，並實現部分方法，將特定方法留到Concrete Class再去實作\nGitHub練習 https://github.com/hanksky12/DesignPatterns/tree/main/TemplateMethod\n實務上 在寫程式中，沒特別學習，自然而然就實現的模式，類似於小學數學的提出最大公因數\n","pubDate":"2023-06-17","title":"設計模式-樣板模式"},{"link":"https://hanksky12.github.io/posts/2023-05-31_otp/","plain":"源起 最近自己在很多地方的登入都需要2FA驗證，先用手機裝驗證軟體掃ＱRCode，之後的每次登入都要輸入6位數字， 一直沒搞懂原理，但又覺得很酷，剛好最近要做一個python私人用的密碼管理程式，就在想能不能結合這個東西來驗證， 以下就是自己理解後名詞的介紹\n實作的Github https://github.com/hanksky12/Personal-Password-Manager\nMFA(Multi-Factor Authentication) 除了密碼之外，在登入時有其他驗證須通過就可以稱為多重驗證(多因子驗證)\n例子：輸入手機收到的簡訊數字、線上銀行ATM提款卡、手機TOTP的六位數字\n2FA MFA的特例，兩種驗證就是2FA，以此類推\nOTP(One Time Password) 一次性驗證碼，用完就丟，只能用一次，其中有名的演算法是HOTP和TOTP\nHOTP(HMAC-based) HMAC雜湊訊息驗證碼 RFC4226\nHOTP(K,C) = Truncate(HMAC-SHA-1(K,C)) C 8-byte counter value, the moving factor. This counter MUST be synchronized between the HOTP generator (client) and the HOTP validator (server). K shared secret between client and server; each HOTP generator has a different and unique secret K. 白話文： 用一串key string 加上 counter計數器，做Hash之後，取特定位數做比對\n實作： 產出器將key傳到比對器之後，兩邊各自跑counter計數器，看最後出來的值是否一致\n兩邊各自跑counter，所以可能有前後落差要處理 最後只取特定位數 ，所以要限制比對次數，避免被大量嘗試攻擊 重點在key必須隱蔽的傳到對方的比對器，不能外流 TOTP(Time-based) HOTP的特化版，counter計數器使用timestamp\nwhy 30秒? 必然server跟手機不可能時間永遠同步， 在兩邊跑出來的結果可能有落差，通常使用30秒才換一次， 來容納兩邊的時間不同步，否則驗證失敗可能性太高，server壓力太大，\nwhy 6位數? 6位數，是一百萬組可能性，需在30秒內嘗試完成，每秒要驗證3.3萬次，server後台可以藉此鎖定黑名單\nQRCode 用來傳遞key string，所以要確保隱蔽，通常網站讓你掃完就會消失，無法存檔，確保只有你的手機有這個key\npython實作套件 import pyotp #限制base32的key才能使用 _otp = pyotp.TOTP(base32_key) 參考資料 https://en.wikipedia.org/wiki/Time-based_one-time_password\nhttps://fullstackladder.dev/blog/2017/09/07/one-time-pass-introduce-with-hotp-totp-google-authenticator/\nhttps://medium.com/starbugs/totp-2fa-algorithm-in-10-mins-25acc3c35df9\n","pubDate":"2023-05-31","title":"MFA與OTP"},{"link":"https://hanksky12.github.io/posts/2023-05-18_hello_world/","plain":"Hello World!\n就像每次學習新的語言， Hello world都是第一個印在console的字眼，\n記得\n第一次學習 \u0026gt;程式語言Python\n第一次學習\u0026gt;處理資料用的語言R\n第一次學習\u0026gt;靜態語言C#\n第一次學習\u0026gt;前端語言Js\n第一次學習\u0026gt;網站語言Php\n待續\u0026hellip;\n","pubDate":"2023-05-18","title":"Hello World"}];
     var search_theEnd = "The End";
     var search_nothing = "Nothing was found";
     var search_found = "Found";

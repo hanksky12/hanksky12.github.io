@@ -1,2 +1,3 @@
 # Hugo 架站
-安裝hugo
+網址
+https://hanksky12.github.io/

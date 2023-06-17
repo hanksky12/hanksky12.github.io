@@ -3,19 +3,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Sky Blog | Categories</title>
-    <meta name="description" content=" ">
-    <link rel="canonical" href="https://hanksky12.github.io/categories/" />
+    <title>Sky Blog | Hugo架站紀錄</title>
+    <meta name="description" content="安裝hugo 下載theme 設定config.toml ⇒ hugo new &quot;posts/first-pos ">
+    <link rel="canonical" href="https://hanksky12.github.io/posts/2023-06-17_hugo/" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <meta property="og:title" content="Categories" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://hanksky12.github.io/categories/" />
+    <meta property="og:title" content="Hugo架站紀錄" />
+<meta property="og:description" content="安裝hugo 下載theme 設定config.toml ⇒ hugo new &quot;posts/first-pos" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hanksky12.github.io/posts/2023-06-17_hugo/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-17T15:17:53+08:00" />
+<meta property="article:modified_time" content="2023-06-17T15:17:53+08:00" />
 
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Categories"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Hugo架站紀錄"/>
+<meta name="twitter:description" content="安裝hugo 下載theme 設定config.toml ⇒ hugo new &quot;posts/first-pos"/>
 
     
         
@@ -181,18 +183,10 @@
 
 
         <div id="content">
-    
 
 
 
 
-
-
-    
-        
-        
-        
-    
 
 
 
@@ -200,12 +194,30 @@
     <div class="hero">
         
             <div class="hero-img">
-                <img class="lazyload" src="/images/thumbnail.gif" data-src="/images/categories.jpg" alt="">
+                <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt="">
             </div>
         
         <div class="hero-content">
-            <div class="hero-title">Categories</div>
-            <div>分類</div>
+            <div class="hero-title">Hugo架站紀錄</div>
+            <div class="hero-subtitle"></div>
+            <div class="hero-date">
+                    <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2023-6-17 &nbsp;</span>
+                    <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2023-6-17 &nbsp;</span>
+                    <span class="no-wrap"><i class="fa fa-folder"></i>
+                        includedIn:
+                        
+                            <a href='
+                                /categories/%E7%A8%8B%E5%BC%8F
+                            '>
+                                程式
+                            </a>
+                    </span>    
+            </div>
+            <div class="timelong">
+                <span class="no-wrap"><i class="fa fa-pencil"></i> wordsCount: 288 &nbsp;</span>
+                <span class="no-wrap"><i class="fa fa-clock-o"></i> readingTime: 1 min &nbsp;</span>
+                
+            </div>
         </div>
     </div>
 
@@ -224,7 +236,7 @@
     
 
 
-<div class="taxo-body">
+<div class="content-root">
     <div class="long">
         <button class="tosides-1 text-wbd">
             <i class="fa fa-arrow-right"></i>
@@ -237,55 +249,82 @@
         </button>
     </div>
     
-        <div class='taxo-row '>
+        <div class="content">
+            <div class="content-self">
+                <h1 id="安裝hugo">安裝hugo</h1>
+<h1 id="下載theme">下載<strong>theme</strong></h1>
+<p>設定config.toml</p>
+<p>⇒ <code>hugo new &quot;posts/first-post.md”</code></p>
+<p>⇒ <code>hugo new &quot;about/_index.md”</code></p>
+<p>draft = false 才是從草稿變成要發布的網頁</p>
+<p>run server ⇒
+<code>hugo server -D</code></p>
+<p>hugo 生成後網頁檔案在public</p>
+<h1 id="佈置到github">佈置到github</h1>
+<p>先到github 新增項目 your_user_name.github.io  必須是這個名字</p>
+<h3 id="第一次init-與設定">第一次init 與設定</h3>
+<pre tabindex="0"><code>my-blog % cd public
+public % git init    # 初始化仓库
+public % git remote add origin https://github.com/你的Github账号名/你的Github账号名.github.io.git    # 链接远程仓库
+public % git add .
+public % git commit -m &#34;first commit&#34;
+public % git push -u origin main
+</code></pre><h3 id="之後的push">之後的push</h3>
+<pre tabindex="0"><code>my-blog % hugo
+my-blog % cd public
+public % git add .
+public % git commit -m &#34;new commit&#34;
+public % git push
+</code></pre>
+            </div>
             
-                
-
-
-
-<div class="taxo-col">
-    <a href="https://hanksky12.github.io/categories/%E7%A8%8B%E5%BC%8F/">
-        <div class="taxo-card">
-            <div class="folder-rear"></div>
-                
-                
-                    <div class="taxo-img" style="background-image: url(  );"></div>
-                
-            <div class="folder-front">
-                <div class="taxo-text">
-                    <div>程式</div>
-                    <div class="jipian">4 posts</div>
+                <div class="tags">
+                    
+                    <span class="down-type-item">
+                        <div class="type-text">
+                            <a href='
+                                        /tags/%E7%9F%A5%E8%AD%98
+                                    '>
+                                <i class="fa fa-tag"></i> 知識
+                            </a>
+                        </div>
+                    </span>
+                    
                 </div>
-            </div>
+            
         </div>
-    </a>
+        
+            
+                <div class="pre-next">
+                    
+    
+        
+        <a href="https://hanksky12.github.io/posts/2023-06-17_dp_memento/" class="pre pre-last" style="text-align: center;">
+            <span class="pre-icon"><i class="fa fa-hand-o-left"></i></span>
+            <div class="pre-title-root">
+                <span>設計模式-備忘錄模式</span>
+            </div>
+        </a>
+        
+    
+    
+
+                </div>
+            
+        
+    
 </div>
 
-
-
-<div class="taxo-col">
-    <a href="https://hanksky12.github.io/categories/%E6%89%8B%E6%9C%AD/">
-        <div class="taxo-card">
-            <div class="folder-rear"></div>
-                
-                
-                    <div class="taxo-img" style="background-image: url(  );"></div>
-                
-            <div class="folder-front">
-                <div class="taxo-text">
-                    <div>手札</div>
-                    <div class="jipian">1 post</div>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>
-
-
+    
+        <div class="content-last">
+            
+                <button class="aixin content-last-item efct-button">
+                    <i class="fa fa-heart"></i>
+                </button>
+            
             
         </div>
     
-</div>
 
 
             </div>
@@ -362,33 +401,16 @@
 
 
 
+    
+    
+
 
 <div class="other">
     <div class="other-up">
-        <div class="other-qita text-wbd">latest Posts</div>
+        <div class="other-qita text-wbd">Related Posts</div>
         <div class="xian"></div>
     </div>
     <div class="list">
-        
-            <a href="https://hanksky12.github.io/posts/2023-06-17_hugo/">
-                
-<a href="https://hanksky12.github.io/posts/2023-06-17_hugo/">
-    <div class="list-item">
-        <div class="icon-other-root">
-            
-                <div class="icon-other" style="background-image: url(  );"></div>
-            
-        </div>
-        <div class="list-right">
-            <div class="other-title">
-                Hugo架站紀錄
-            </div>
-            <div class="other-summary">安裝hugo 下載theme 設定config.toml ⇒ hugo new &quot;posts/first-pos</div>
-            <div class="other-date">2023-6-17</div>
-        </div>
-    </div>
-</a>
-            </a>
         
             <a href="https://hanksky12.github.io/posts/2023-06-17_dp_memento/">
                 
@@ -481,6 +503,46 @@
 
             </div>
         </div>
+    </div>
+</div>
+
+    
+
+<div class="sponsor">
+    <div class="sponsor-self">
+        <div class="sponsor-title">Sponsor</div>
+        <div class="sponsor-btn">
+            
+                
+                    
+                        <div class="sponsor-btn-1 border-r">Wechat</div>
+                    
+                
+                
+            
+                
+                    
+                        <div class="sponsor-btn-2 border-l">Alipay</div>
+                    
+                
+                
+            
+        </div>
+        
+        <div class="sponsor-img">
+            
+                
+                    <img class="sponsor-img-1" src="/images/sponsor/wechat.jpeg" alt="">
+                
+                
+            
+                
+                    <img class="sponsor-img-2" src="/images/sponsor/alipay.jpeg" alt="" style="display: none;">
+                
+                
+            
+        </div>
+        <div class="cancel efct-button">cancel</div>
     </div>
 </div>
 

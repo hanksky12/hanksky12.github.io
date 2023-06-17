@@ -6,7 +6,34 @@
     <description>Recent content in 知識 on Sky Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 31 May 2023 08:17:32 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/tags/%E7%9F%A5%E8%AD%98/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Jun 2023 15:17:53 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/tags/%E7%9F%A5%E8%AD%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo架站紀錄</title>
+      <link>https://hanksky12.github.io/posts/2023-06-17_hugo/</link>
+      <pubDate>Sat, 17 Jun 2023 15:17:53 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2023-06-17_hugo/</guid>
+      <description>安裝hugo 下載theme 設定config.toml ⇒ hugo new &amp;quot;posts/first-pos</description>
+    </item>
+    
+    <item>
+      <title>設計模式-備忘錄模式</title>
+      <link>https://hanksky12.github.io/posts/2023-06-17_dp_memento/</link>
+      <pubDate>Sat, 17 Jun 2023 14:06:36 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2023-06-17_dp_memento/</guid>
+      <description>Memento-備忘錄模式 分類 行為模式-Behavioral Patterns 主要角色 Originator、Meme</description>
+    </item>
+    
+    <item>
+      <title>設計模式-樣板模式</title>
+      <link>https://hanksky12.github.io/posts/2023-06-17_dp_templatemethod/</link>
+      <pubDate>Sat, 17 Jun 2023 14:06:36 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2023-06-17_dp_templatemethod/</guid>
+      <description>Template Method-樣板模式 分類 行為模式-Behavioral Patterns 主要角色 Abstract Class、Concrete C</description>
+    </item>
+    
     <item>
       <title>MFA與OTP</title>
       <link>https://hanksky12.github.io/posts/2023-05-31_otp/</link>
