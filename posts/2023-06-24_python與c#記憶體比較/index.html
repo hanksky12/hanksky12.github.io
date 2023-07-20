@@ -3,19 +3,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Sky Blog | Series</title>
-    <meta name="description" content=" ">
-    <link rel="canonical" href="https://hanksky12.github.io/series/" />
+    <title>Sky Blog | Python與C#記憶體比較</title>
+    <meta name="description" content="Python 基礎: 變數本身只有存參考地址（在Stack），物件全部都在Heap，變數只有指向作用，所以沒有任何 ">
+    <link rel="canonical" href="https://hanksky12.github.io/posts/2023-06-24_python%E8%88%87c#%E8%A8%98%E6%86%B6%E9%AB%94%E6%AF%94%E8%BC%83/" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <meta property="og:title" content="Series" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://hanksky12.github.io/series/" />
+    <meta property="og:title" content="Python與C#記憶體比較" />
+<meta property="og:description" content="Python 基礎: 變數本身只有存參考地址（在Stack），物件全部都在Heap，變數只有指向作用，所以沒有任何" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hanksky12.github.io/posts/2023-06-24_python%E8%88%87c#%E8%A8%98%E6%86%B6%E9%AB%94%E6%AF%94%E8%BC%83/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-06-24T14:20:52+08:00" />
+<meta property="article:modified_time" content="2023-06-24T14:20:52+08:00" />
 
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Series"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Python與C#記憶體比較"/>
+<meta name="twitter:description" content="Python 基礎: 變數本身只有存參考地址（在Stack），物件全部都在Heap，變數只有指向作用，所以沒有任何"/>
 
     
         
@@ -181,18 +183,10 @@
 
 
         <div id="content">
-    
 
 
 
 
-
-
-    
-        
-        
-        
-    
 
 
 
@@ -200,12 +194,30 @@
     <div class="hero">
         
             <div class="hero-img">
-                <img class="lazyload" src="/images/thumbnail.gif" data-src="/images/series.jpg" alt="">
+                <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt="">
             </div>
         
         <div class="hero-content">
-            <div class="hero-title">Series</div>
-            <div>系列</div>
+            <div class="hero-title">Python與C#記憶體比較</div>
+            <div class="hero-subtitle"></div>
+            <div class="hero-date">
+                    <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2023-6-24 &nbsp;</span>
+                    <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2023-6-24 &nbsp;</span>
+                    <span class="no-wrap"><i class="fa fa-folder"></i>
+                        includedIn:
+                        
+                            <a href='
+                                /categories/%E7%A8%8B%E5%BC%8F
+                            '>
+                                程式
+                            </a>
+                    </span>    
+            </div>
+            <div class="timelong">
+                <span class="no-wrap"><i class="fa fa-pencil"></i> wordsCount: 343 &nbsp;</span>
+                <span class="no-wrap"><i class="fa fa-clock-o"></i> readingTime: 1 min &nbsp;</span>
+                
+            </div>
         </div>
     </div>
 
@@ -224,7 +236,7 @@
     
 
 
-<div class="taxo-body">
+<div class="content-root">
     <div class="long">
         <button class="tosides-1 text-wbd">
             <i class="fa fa-arrow-right"></i>
@@ -237,55 +249,100 @@
         </button>
     </div>
     
-        <div class='taxo-row '>
+        <div class="content">
+            <div class="content-self">
+                <h1 id="python">Python</h1>
+<h2 id="基礎">基礎:</h2>
+<p>變數本身只有存參考地址（在Stack），物件全部都在Heap，變數只有指向作用，所以沒有任何型別問題，
+不一樣的變數，只是將地址指向不同的物件，所以是動態語言，到底變數是什麼型態，在執行期才會確定</p>
+<p>分為mutable 與 Immutable，區分方法為當變數想要改變參考的物件的值，會不會改變數存的參考地址</p>
+<h3 id="immutable-當一個物件值要換值需要換原本變數內的地址把變數存新創物件的地址">Immutable 當一個物件值，要換值，需要換原本變數內的地址（把變數存新創物件的地址）</h3>
+<h3 id="mutable-物件的值存的是指向其他物件的地址所以要改變物件值不會影響到變數內存的物件參考地址">mutable 物件的值存的是指向其他物件的地址，所以要改變物件值不會影響到變數內存的物件參考地址</h3>
+<h1 id="c">C#</h1>
+<h2 id="基礎-1">基礎:</h2>
+<p>分為value type與reference type，區分方法為在Stack的變數裡面存的是值還是地址</p>
+<h3 id="value-變數直接在stack存值宣告一定的記憶體空間不能改變">value 變數直接在Stack存值（宣告一定的記憶體空間，不能改變）</h3>
+<h3 id="reference-變數類似python存地址去指向在heap創造的物件">reference 變數類似python存地址，去指向在Heap創造的物件</h3>
+
+            </div>
             
-                
-
-
-
-<div class="taxo-col">
-    <a href="https://hanksky12.github.io/series/%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F/">
-        <div class="taxo-card">
-            <div class="folder-rear"></div>
-                
-                
-                    <div class="taxo-img" style="background-image: url(  );"></div>
-                
-            <div class="folder-front">
-                <div class="taxo-text">
-                    <div>設計模式</div>
-                    <div class="jipian">2 posts</div>
+                <div class="tags">
+                    
+                    <span class="down-type-item">
+                        <div class="type-text">
+                            <a href='
+                                        /tags/%E7%9F%A5%E8%AD%98
+                                    '>
+                                <i class="fa fa-tag"></i> 知識
+                            </a>
+                        </div>
+                    </span>
+                    
+                    <span class="down-type-item">
+                        <div class="type-text">
+                            <a href='
+                                        /tags/python
+                                    '>
+                                <i class="fa fa-tag"></i> Python
+                            </a>
+                        </div>
+                    </span>
+                    
+                    <span class="down-type-item">
+                        <div class="type-text">
+                            <a href='
+                                        /tags/c
+                                    '>
+                                <i class="fa fa-tag"></i> C#
+                            </a>
+                        </div>
+                    </span>
+                    
                 </div>
-            </div>
+            
         </div>
-    </a>
+        
+            
+                <div class="pre-next">
+                    
+    
+        
+        <a href="https://hanksky12.github.io/posts/2023-06-24_pool/" class="pre">
+            <span class="pre-icon"><i class="fa fa-hand-o-left"></i></span>
+            <div class="pre-title-root">
+                <span>Pool池的概念</span>
+            </div>
+        </a>
+        
+
+        
+        <a href="https://hanksky12.github.io/posts/2023-07-16_rpa/" class="next">
+            <div class="next-title-root">
+                <span>RPA，過去工作經驗分享</span>
+            </div>
+            <span class="next-icon"><i class="fa fa-hand-o-right"></i></span>
+        </a>
+        
+
+    
+    
+
+                </div>
+            
+        
+    
 </div>
 
-
-
-<div class="taxo-col">
-    <a href="https://hanksky12.github.io/series/computer-science/">
-        <div class="taxo-card">
-            <div class="folder-rear"></div>
-                
-                
-                    <div class="taxo-img" style="background-image: url(  );"></div>
-                
-            <div class="folder-front">
-                <div class="taxo-text">
-                    <div>Computer Science</div>
-                    <div class="jipian">1 post</div>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>
-
-
+    
+        <div class="content-last">
+            
+                <button class="aixin content-last-item efct-button">
+                    <i class="fa fa-heart"></i>
+                </button>
+            
             
         </div>
     
-</div>
 
 
             </div>
@@ -362,10 +419,13 @@
 
 
 
+    
+    
+
 
 <div class="other">
     <div class="other-up">
-        <div class="other-qita text-wbd">latest Posts</div>
+        <div class="other-qita text-wbd">Related Posts</div>
         <div class="xian"></div>
     </div>
     <div class="list">
@@ -385,26 +445,6 @@
             </div>
             <div class="other-summary">RPA 機器流程自動化，以程式模擬人類操作系統，去取代人工達成自動化 白話:能自動打怪的外掛 為何能存在 當公司</div>
             <div class="other-date">2023-7-16</div>
-        </div>
-    </div>
-</a>
-            </a>
-        
-            <a href="https://hanksky12.github.io/posts/2023-06-24_python%E8%88%87c#%E8%A8%98%E6%86%B6%E9%AB%94%E6%AF%94%E8%BC%83/">
-                
-<a href="https://hanksky12.github.io/posts/2023-06-24_python%E8%88%87c#%E8%A8%98%E6%86%B6%E9%AB%94%E6%AF%94%E8%BC%83/">
-    <div class="list-item">
-        <div class="icon-other-root">
-            
-                <div class="icon-other" style="background-image: url(  );"></div>
-            
-        </div>
-        <div class="list-right">
-            <div class="other-title">
-                Python與C#記憶體比較
-            </div>
-            <div class="other-summary">Python 基礎: 變數本身只有存參考地址（在Stack），物件全部都在Heap，變數只有指向作用，所以沒有任何</div>
-            <div class="other-date">2023-6-24</div>
         </div>
     </div>
 </a>
@@ -470,6 +510,26 @@
 </a>
             </a>
         
+            <a href="https://hanksky12.github.io/posts/2023-06-17_dp_templatemethod/">
+                
+<a href="https://hanksky12.github.io/posts/2023-06-17_dp_templatemethod/">
+    <div class="list-item">
+        <div class="icon-other-root">
+            
+                <div class="icon-other" style="background-image: url(  );"></div>
+            
+        </div>
+        <div class="list-right">
+            <div class="other-title">
+                設計模式-樣板模式
+            </div>
+            <div class="other-summary">Template Method-樣板模式 分類 行為模式-Behavioral Patterns 主要角色 Abstract Class、Concrete C</div>
+            <div class="other-date">2023-6-17</div>
+        </div>
+    </div>
+</a>
+            </a>
+        
     </div>
 </div>
         </div>
@@ -481,6 +541,46 @@
 
             </div>
         </div>
+    </div>
+</div>
+
+    
+
+<div class="sponsor">
+    <div class="sponsor-self">
+        <div class="sponsor-title">Sponsor</div>
+        <div class="sponsor-btn">
+            
+                
+                    
+                        <div class="sponsor-btn-1 border-r">Wechat</div>
+                    
+                
+                
+            
+                
+                    
+                        <div class="sponsor-btn-2 border-l">Alipay</div>
+                    
+                
+                
+            
+        </div>
+        
+        <div class="sponsor-img">
+            
+                
+                    <img class="sponsor-img-1" src="/images/sponsor/wechat.jpeg" alt="">
+                
+                
+            
+                
+                    <img class="sponsor-img-2" src="/images/sponsor/alipay.jpeg" alt="" style="display: none;">
+                
+                
+            
+        </div>
+        <div class="cancel efct-button">cancel</div>
     </div>
 </div>
 

@@ -6,7 +6,34 @@
     <description>Recent content in 程式 on Sky Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 17 Jun 2023 15:17:53 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/categories/%E7%A8%8B%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Jul 2023 11:19:09 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/categories/%E7%A8%8B%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RPA，過去工作經驗分享</title>
+      <link>https://hanksky12.github.io/posts/2023-07-16_rpa/</link>
+      <pubDate>Sun, 16 Jul 2023 11:19:09 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2023-07-16_rpa/</guid>
+      <description>RPA 機器流程自動化，以程式模擬人類操作系統，去取代人工達成自動化 白話:能自動打怪的外掛 為何能存在 當公司</description>
+    </item>
+    
+    <item>
+      <title>Python與C#記憶體比較</title>
+      <link>https://hanksky12.github.io/posts/2023-06-24_python%E8%88%87c#%E8%A8%98%E6%86%B6%E9%AB%94%E6%AF%94%E8%BC%83/</link>
+      <pubDate>Sat, 24 Jun 2023 14:20:52 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2023-06-24_python%E8%88%87c#%E8%A8%98%E6%86%B6%E9%AB%94%E6%AF%94%E8%BC%83/</guid>
+      <description>Python 基礎: 變數本身只有存參考地址（在Stack），物件全部都在Heap，變數只有指向作用，所以沒有任何</description>
+    </item>
+    
+    <item>
+      <title>Pool池的概念</title>
+      <link>https://hanksky12.github.io/posts/2023-06-24_pool/</link>
+      <pubDate>Sat, 24 Jun 2023 09:09:32 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2023-06-24_pool/</guid>
+      <description>What is Pool ? 一個用來管理某種資源，保持某個狀態，降低反覆創建資源的開銷，當你需要使用時，就到Pool拿取</description>
+    </item>
+    
     <item>
       <title>Hugo架站紀錄</title>
       <link>https://hanksky12.github.io/posts/2023-06-17_hugo/</link>

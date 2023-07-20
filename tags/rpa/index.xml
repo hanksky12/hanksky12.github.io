@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RPA on Sky Blog</title>
+    <link>https://hanksky12.github.io/tags/rpa/</link>
+    <description>Recent content in RPA on Sky Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 16 Jul 2023 11:19:09 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/tags/rpa/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RPA，過去工作經驗分享</title>
+      <link>https://hanksky12.github.io/posts/2023-07-16_rpa/</link>
+      <pubDate>Sun, 16 Jul 2023 11:19:09 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2023-07-16_rpa/</guid>
+      <description>RPA 機器流程自動化，以程式模擬人類操作系統，去取代人工達成自動化 白話:能自動打怪的外掛 為何能存在 當公司</description>
+    </item>
+    
+  </channel>
+</rss>

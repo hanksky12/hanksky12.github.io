@@ -6,13 +6,40 @@
     <description>Recent content in Tags on Sky Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 17 Jun 2023 15:17:53 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Jul 2023 11:19:09 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RPA</title>
+      <link>https://hanksky12.github.io/tags/rpa/</link>
+      <pubDate>Sun, 16 Jul 2023 11:19:09 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/tags/rpa/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>知識</title>
       <link>https://hanksky12.github.io/tags/%E7%9F%A5%E8%AD%98/</link>
-      <pubDate>Sat, 17 Jun 2023 15:17:53 +0800</pubDate>
+      <pubDate>Sun, 16 Jul 2023 11:19:09 +0800</pubDate>
       
       <guid>https://hanksky12.github.io/tags/%E7%9F%A5%E8%AD%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C#</title>
+      <link>https://hanksky12.github.io/tags/c#/</link>
+      <pubDate>Sat, 24 Jun 2023 14:20:52 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/tags/c#/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://hanksky12.github.io/tags/python/</link>
+      <pubDate>Sat, 24 Jun 2023 14:20:52 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/tags/python/</guid>
       <description></description>
     </item>
     

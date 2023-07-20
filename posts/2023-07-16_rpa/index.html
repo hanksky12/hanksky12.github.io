@@ -3,19 +3,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Sky Blog | Series</title>
-    <meta name="description" content=" ">
-    <link rel="canonical" href="https://hanksky12.github.io/series/" />
+    <title>Sky Blog | RPA，過去工作經驗分享</title>
+    <meta name="description" content="RPA 機器流程自動化，以程式模擬人類操作系統，去取代人工達成自動化 白話:能自動打怪的外掛 為何能存在 當公司 ">
+    <link rel="canonical" href="https://hanksky12.github.io/posts/2023-07-16_rpa/" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <meta property="og:title" content="Series" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://hanksky12.github.io/series/" />
+    <meta property="og:title" content="RPA，過去工作經驗分享" />
+<meta property="og:description" content="RPA 機器流程自動化，以程式模擬人類操作系統，去取代人工達成自動化 白話:能自動打怪的外掛 為何能存在 當公司" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hanksky12.github.io/posts/2023-07-16_rpa/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-07-16T11:19:09+08:00" />
+<meta property="article:modified_time" content="2023-07-16T11:19:09+08:00" />
 
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Series"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="RPA，過去工作經驗分享"/>
+<meta name="twitter:description" content="RPA 機器流程自動化，以程式模擬人類操作系統，去取代人工達成自動化 白話:能自動打怪的外掛 為何能存在 當公司"/>
 
     
         
@@ -181,18 +183,10 @@
 
 
         <div id="content">
-    
 
 
 
 
-
-
-    
-        
-        
-        
-    
 
 
 
@@ -200,12 +194,30 @@
     <div class="hero">
         
             <div class="hero-img">
-                <img class="lazyload" src="/images/thumbnail.gif" data-src="/images/series.jpg" alt="">
+                <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt="">
             </div>
         
         <div class="hero-content">
-            <div class="hero-title">Series</div>
-            <div>系列</div>
+            <div class="hero-title">RPA，過去工作經驗分享</div>
+            <div class="hero-subtitle"></div>
+            <div class="hero-date">
+                    <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2023-7-16 &nbsp;</span>
+                    <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2023-7-16 &nbsp;</span>
+                    <span class="no-wrap"><i class="fa fa-folder"></i>
+                        includedIn:
+                        
+                            <a href='
+                                /categories/%E7%A8%8B%E5%BC%8F
+                            '>
+                                程式
+                            </a>
+                    </span>    
+            </div>
+            <div class="timelong">
+                <span class="no-wrap"><i class="fa fa-pencil"></i> wordsCount: 712 &nbsp;</span>
+                <span class="no-wrap"><i class="fa fa-clock-o"></i> readingTime: 2 mins &nbsp;</span>
+                
+            </div>
         </div>
     </div>
 
@@ -224,7 +236,7 @@
     
 
 
-<div class="taxo-body">
+<div class="content-root">
     <div class="long">
         <button class="tosides-1 text-wbd">
             <i class="fa fa-arrow-right"></i>
@@ -237,55 +249,93 @@
         </button>
     </div>
     
-        <div class='taxo-row '>
+        <div class="content">
+            <div class="content-self">
+                <h1 id="rpa">RPA</h1>
+<p>機器流程自動化，以程式模擬人類操作系統，去取代人工達成自動化</p>
+<p>白話:能自動打怪的外掛</p>
+<h2 id="為何能存在">為何能存在</h2>
+<p>當公司內部有多系統，之間需要交流資訊，而系統都非自建，RPA是一種不錯的膠水，因不可能把所有系統重一整套，
+資料庫如果也不開放外部連入，或者即使能連入，不敢確定程式如何與表連動，直接對底層做寫入，可能有異常問題，
+那這種方式是一種選擇</p>
+<h3 id="機緣">機緣</h3>
+<p>工作上剛好需要我需要將資料放入一個ERP系統，因為有使用selenium做爬蟲，其實也類似對網站自動化抓取，
+於是一開始用python做RPA，發現有很多困難點，是爬蟲不會遇到的，尤其我要做的是全自動，人工完全不介入</p>
+<h1 id="難點">難點</h1>
+<h2 id="非侵入式的操作系統">非侵入式的操作系統</h2>
+<p>有沒有遇到問題，程式本身不會知道，即使查詢log，也無法直接看出問題，
+因為系統不會跟你的程式互動(至少爬蟲還有瀏覽器的反饋)， 就像瞎眼讓你打鍵盤，解決方法就是加上眼睛，以非傳統方式紀錄，協助判斷問題</p>
+<h2 id="大量的畫面判斷">大量的畫面判斷</h2>
+<p>要以畫面定位方式，確認按鈕位置或數字</p>
+<h2 id="當系統改變就要立刻改變rpa程式">當系統改變就要立刻改變RPA程式</h2>
+<p>這一點跟爬蟲類似，依附在別人的系統上，要隨即應變</p>
+<h3 id="工作後期">工作後期:</h3>
+<p>發現以python做開發速度真的太慢，尤其做畫面判斷，自己需要做圖片定位，對圖片數字判斷後期壓到2~5趴錯誤率，還是覺得不好用，
+後來學習UiPath，國外成熟的RPA軟體，開發速度才快又穩定</p>
+<h3 id="個人看法">個人看法:</h3>
+<p>與資料庫溝通，是資料存取最準確的方式，真的沒辦法再採用這種間接的方式，這個方式有一個很大的缺點，就是速度，當工作量大時，
+只能多開電腦並行操作系統，也必須卡在模擬操作的繁複性，以資源與時間利用率觀點是很浪費</p>
+<p>如果能對資料庫操作，只要一台電腦，跑多進程或多線程，就能以更佳的方式解決，但在工作方式上，還是不失為解決問題的一種手段</p>
+
+            </div>
             
-                
-
-
-
-<div class="taxo-col">
-    <a href="https://hanksky12.github.io/series/%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F/">
-        <div class="taxo-card">
-            <div class="folder-rear"></div>
-                
-                
-                    <div class="taxo-img" style="background-image: url(  );"></div>
-                
-            <div class="folder-front">
-                <div class="taxo-text">
-                    <div>設計模式</div>
-                    <div class="jipian">2 posts</div>
+                <div class="tags">
+                    
+                    <span class="down-type-item">
+                        <div class="type-text">
+                            <a href='
+                                        /tags/%E7%9F%A5%E8%AD%98
+                                    '>
+                                <i class="fa fa-tag"></i> 知識
+                            </a>
+                        </div>
+                    </span>
+                    
+                    <span class="down-type-item">
+                        <div class="type-text">
+                            <a href='
+                                        /tags/rpa
+                                    '>
+                                <i class="fa fa-tag"></i> RPA
+                            </a>
+                        </div>
+                    </span>
+                    
                 </div>
-            </div>
+            
         </div>
-    </a>
+        
+            
+                <div class="pre-next">
+                    
+    
+        
+        <a href="https://hanksky12.github.io/posts/2023-06-24_python%E8%88%87c#%E8%A8%98%E6%86%B6%E9%AB%94%E6%AF%94%E8%BC%83/" class="pre pre-last" style="text-align: center;">
+            <span class="pre-icon"><i class="fa fa-hand-o-left"></i></span>
+            <div class="pre-title-root">
+                <span>Python與C#記憶體比較</span>
+            </div>
+        </a>
+        
+    
+    
+
+                </div>
+            
+        
+    
 </div>
 
-
-
-<div class="taxo-col">
-    <a href="https://hanksky12.github.io/series/computer-science/">
-        <div class="taxo-card">
-            <div class="folder-rear"></div>
-                
-                
-                    <div class="taxo-img" style="background-image: url(  );"></div>
-                
-            <div class="folder-front">
-                <div class="taxo-text">
-                    <div>Computer Science</div>
-                    <div class="jipian">1 post</div>
-                </div>
-            </div>
-        </div>
-    </a>
-</div>
-
-
+    
+        <div class="content-last">
+            
+                <button class="aixin content-last-item efct-button">
+                    <i class="fa fa-heart"></i>
+                </button>
+            
             
         </div>
     
-</div>
 
 
             </div>
@@ -362,33 +412,16 @@
 
 
 
+    
+    
+
 
 <div class="other">
     <div class="other-up">
-        <div class="other-qita text-wbd">latest Posts</div>
+        <div class="other-qita text-wbd">Related Posts</div>
         <div class="xian"></div>
     </div>
     <div class="list">
-        
-            <a href="https://hanksky12.github.io/posts/2023-07-16_rpa/">
-                
-<a href="https://hanksky12.github.io/posts/2023-07-16_rpa/">
-    <div class="list-item">
-        <div class="icon-other-root">
-            
-                <div class="icon-other" style="background-image: url(  );"></div>
-            
-        </div>
-        <div class="list-right">
-            <div class="other-title">
-                RPA，過去工作經驗分享
-            </div>
-            <div class="other-summary">RPA 機器流程自動化，以程式模擬人類操作系統，去取代人工達成自動化 白話:能自動打怪的外掛 為何能存在 當公司</div>
-            <div class="other-date">2023-7-16</div>
-        </div>
-    </div>
-</a>
-            </a>
         
             <a href="https://hanksky12.github.io/posts/2023-06-24_python%E8%88%87c#%E8%A8%98%E6%86%B6%E9%AB%94%E6%AF%94%E8%BC%83/">
                 
@@ -470,6 +503,26 @@
 </a>
             </a>
         
+            <a href="https://hanksky12.github.io/posts/2023-06-17_dp_templatemethod/">
+                
+<a href="https://hanksky12.github.io/posts/2023-06-17_dp_templatemethod/">
+    <div class="list-item">
+        <div class="icon-other-root">
+            
+                <div class="icon-other" style="background-image: url(  );"></div>
+            
+        </div>
+        <div class="list-right">
+            <div class="other-title">
+                設計模式-樣板模式
+            </div>
+            <div class="other-summary">Template Method-樣板模式 分類 行為模式-Behavioral Patterns 主要角色 Abstract Class、Concrete C</div>
+            <div class="other-date">2023-6-17</div>
+        </div>
+    </div>
+</a>
+            </a>
+        
     </div>
 </div>
         </div>
@@ -481,6 +534,46 @@
 
             </div>
         </div>
+    </div>
+</div>
+
+    
+
+<div class="sponsor">
+    <div class="sponsor-self">
+        <div class="sponsor-title">Sponsor</div>
+        <div class="sponsor-btn">
+            
+                
+                    
+                        <div class="sponsor-btn-1 border-r">Wechat</div>
+                    
+                
+                
+            
+                
+                    
+                        <div class="sponsor-btn-2 border-l">Alipay</div>
+                    
+                
+                
+            
+        </div>
+        
+        <div class="sponsor-img">
+            
+                
+                    <img class="sponsor-img-1" src="/images/sponsor/wechat.jpeg" alt="">
+                
+                
+            
+                
+                    <img class="sponsor-img-2" src="/images/sponsor/alipay.jpeg" alt="" style="display: none;">
+                
+                
+            
+        </div>
+        <div class="cancel efct-button">cancel</div>
     </div>
 </div>
 

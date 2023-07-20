@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Computer Science on Sky Blog</title>
+    <link>https://hanksky12.github.io/series/computer-science/</link>
+    <description>Recent content in Computer Science on Sky Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 24 Jun 2023 09:09:32 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/series/computer-science/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pool池的概念</title>
+      <link>https://hanksky12.github.io/posts/2023-06-24_pool/</link>
+      <pubDate>Sat, 24 Jun 2023 09:09:32 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2023-06-24_pool/</guid>
+      <description>What is Pool ? 一個用來管理某種資源，保持某個狀態，降低反覆創建資源的開銷，當你需要使用時，就到Pool拿取</description>
+    </item>
+    
+  </channel>
+</rss>
