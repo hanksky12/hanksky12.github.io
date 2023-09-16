@@ -6,7 +6,16 @@
     <description>Recent content in 知識 on Sky Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Jul 2023 11:19:09 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/tags/%E7%9F%A5%E8%AD%98/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 16 Sep 2023 06:13:08 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/tags/%E7%9F%A5%E8%AD%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python Logging 在多線程進階應用</title>
+      <link>https://hanksky12.github.io/posts/2023-09-16_python_logging/</link>
+      <pubDate>Sat, 16 Sep 2023 06:13:08 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2023-09-16_python_logging/</guid>
+      <description>前言 最近工作上碰到自己的需求，想在定期專案中，對多線程中，同類型放同一個檔案，方便之後做trace code</description>
+    </item>
+    
     <item>
       <title>RPA，過去工作經驗分享</title>
       <link>https://hanksky12.github.io/posts/2023-07-16_rpa/</link>

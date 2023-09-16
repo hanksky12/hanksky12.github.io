@@ -3,22 +3,21 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Sky Blog | 設計模式-備忘錄模式</title>
-    <meta name="description" content="Memento-備忘錄模式 分類 行為模式-Behavioral Patterns 主要角色 Originator、Meme ">
-    <link rel="canonical" href="https://hanksky12.github.io/posts/2023-06-17_dp_memento/" />
+    <title>Sky Blog | Python Logging 在多線程進階應用</title>
+    <meta name="description" content="前言 最近工作上碰到自己的需求，想在定期專案中，對多線程中，同類型放同一個檔案，方便之後做trace code ">
+    <link rel="canonical" href="https://hanksky12.github.io/posts/2023-09-16_python_logging/" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <meta property="og:title" content="設計模式-備忘錄模式" />
-<meta property="og:description" content="Memento-備忘錄模式 分類 行為模式-Behavioral Patterns 主要角色 Originator、Meme" />
+    <meta property="og:title" content="Python Logging 在多線程進階應用" />
+<meta property="og:description" content="前言 最近工作上碰到自己的需求，想在定期專案中，對多線程中，同類型放同一個檔案，方便之後做trace code" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://hanksky12.github.io/posts/2023-06-17_dp_memento/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-06-17T14:06:36+08:00" />
-<meta property="article:modified_time" content="2023-06-17T14:06:36+08:00" />
-
+<meta property="og:url" content="https://hanksky12.github.io/posts/2023-09-16_python_logging/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-09-16T06:13:08+08:00" />
+<meta property="article:modified_time" content="2023-09-16T06:13:08+08:00" />
 
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="設計模式-備忘錄模式"/>
-<meta name="twitter:description" content="Memento-備忘錄模式 分類 行為模式-Behavioral Patterns 主要角色 Originator、Meme"/>
+<meta name="twitter:title" content="Python Logging 在多線程進階應用"/>
+<meta name="twitter:description" content="前言 最近工作上碰到自己的需求，想在定期專案中，對多線程中，同類型放同一個檔案，方便之後做trace code"/>
 
     
         
@@ -199,11 +198,11 @@
             </div>
         
         <div class="hero-content">
-            <div class="hero-title">設計模式-備忘錄模式</div>
+            <div class="hero-title">Python Logging 在多線程進階應用</div>
             <div class="hero-subtitle"></div>
             <div class="hero-date">
-                    <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2023-6-17 &nbsp;</span>
-                    <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2023-6-17 &nbsp;</span>
+                    <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2023-9-16 &nbsp;</span>
+                    <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2023-9-16 &nbsp;</span>
                     <span class="no-wrap"><i class="fa fa-folder"></i>
                         includedIn:
                         
@@ -215,8 +214,8 @@
                     </span>    
             </div>
             <div class="timelong">
-                <span class="no-wrap"><i class="fa fa-pencil"></i> wordsCount: 198 &nbsp;</span>
-                <span class="no-wrap"><i class="fa fa-clock-o"></i> readingTime: 1 min &nbsp;</span>
+                <span class="no-wrap"><i class="fa fa-pencil"></i> wordsCount: 553 &nbsp;</span>
+                <span class="no-wrap"><i class="fa fa-clock-o"></i> readingTime: 2 mins &nbsp;</span>
                 
             </div>
         </div>
@@ -252,20 +251,78 @@
     
         <div class="content">
             <div class="content-self">
-                <h1 id="memento-備忘錄模式">Memento-備忘錄模式</h1>
-<h2 id="分類">分類</h2>
-<p>行為模式-Behavioral Patterns</p>
-<h2 id="主要角色">主要角色</h2>
-<p>Originator、Memento、Caretaker</p>
-<h2 id="目的">目的</h2>
-<p>將Originator的部分狀態做儲存，可以做狀態回朔</p>
-<h2 id="如何互動">如何互動</h2>
-<p>在Originator內部，將狀態記錄到Memento生成物件，交由Caretaker管理，在需要的時候，
-從Caretaker拿回Memento回復到之前紀錄</p>
-<h2 id="github練習">GitHub練習</h2>
-<p><a href="https://github.com/hanksky12/DesignPatterns/tree/main/Memento">https://github.com/hanksky12/DesignPatterns/tree/main/Memento</a></p>
-<h2 id="實務上">實務上</h2>
-<p>未運用過，沒經驗可分享</p>
+                <h2 id="前言">前言</h2>
+<p>最近工作上碰到自己的需求，想在定期專案中，對多線程中，同類型放同一個檔案，方便之後做trace code</p>
+<p>因定期程式時間頻率高，一個工作內，還有併發，需做好log檔案管理，否則之後很難debug</p>
+<h2 id="實際問題">實際問題</h2>
+<p>在APScheduler定時任務中，一個job預設是一個主線程任務，當其中一個主線程併發的子線程任務要分類回該主線程的紀錄檔案內，要如何做到？</p>
+<h1 id="主要程式邏輯">主要程式邏輯</h1>
+<h2 id="第一步">第一步</h2>
+<ol>
+<li>對入口點建立logger</li>
+</ol>
+<h2 id="第二步">第二步</h2>
+<ol>
+<li>進入主要線程，加入TimedRotatingFileHandler(線程安全)</li>
+<li>對主要線程命名，FileHandler檔案名稱</li>
+<li>退出主要線程時，關閉FileHandler</li>
+</ol>
+<h2 id="第三步">第三步</h2>
+<ol>
+<li>在要併發的線程池，加上主要線程名稱當前綴</li>
+</ol>
+<h1 id="線程邏輯">線程邏輯</h1>
+<p>對同類線程做重命名</p>
+<h1 id="logging邏輯">Logging邏輯</h1>
+<p>在FileHandler 加上filter，對線程名稱做分類檢查</p>
+<p>在logging模組中，自定義Filter需繼承logging.Filter與實作介面filter，利用filter回傳true 或 false來判斷，這筆log record需不需要紀錄，
+所以可以用把線程名稱當判斷依據，實作分類檢查的可能</p>
+<pre><code>class LogUtil:    
+    .....
+    @classmethod
+    def start_thread_logging(cls, log_path, file_name):
+        thread_name = threading.Thread.getName(threading.current_thread())
+        log_handler = self.__get_file_handler(log_path, file_name)
+        log_filter = ThreadLogFilter(thread_name)
+        log_handler.addFilter(log_filter)
+        logger = logging.getLogger()
+        logger.addHandler(log_handler)
+        return log_handler
+
+    @classmethod
+    def stop_thread_logging(cls, log_handler):
+        logging.getLogger().removeHandler(log_handler)
+        log_handler.close()
+
+
+class ThreadLogFilter(logging.Filter):
+    def __init__(self, thread_name, *args, **kwargs):
+        logging.Filter.__init__(self, *args, **kwargs)
+        self.thread_name = thread_name
+
+    def filter(self, record):
+        return self.thread_name in record.threadName
+
+
+def main()
+    log init ...
+    APScheduler
+    add_job..
+    
+
+def job():
+    thread_name = &quot;job_name&quot;
+    threading.current_thread().name = thread_name
+    log_handler = LogUtil.start_thread_logging(log_path=..., file_name=...)
+    do_job(thread_name)
+    LogUtil.stop_thread_logging(log_handler=log_handler)
+
+def do_job(thread_name):
+    ...
+    with ThreadPoolExecutor(thread_name_prefix=thread_name) as executor:
+        for item in rows:
+            executor.submit(work)
+</code></pre>
 
             </div>
             
@@ -284,9 +341,9 @@
                     <span class="down-type-item">
                         <div class="type-text">
                             <a href='
-                                        /tags/%E8%A1%8C%E7%82%BA%E6%A8%A1%E5%BC%8F
+                                        /tags/python
                                     '>
-                                <i class="fa fa-tag"></i> 行為模式
+                                <i class="fa fa-tag"></i> Python
                             </a>
                         </div>
                     </span>
@@ -300,23 +357,13 @@
                     
     
         
-        <a href="https://hanksky12.github.io/posts/2023-06-17_dp_templatemethod/" class="pre">
+        <a href="https://hanksky12.github.io/posts/2023-08-12-courage_to_be_hated/" class="pre pre-last" style="text-align: center;">
             <span class="pre-icon"><i class="fa fa-hand-o-left"></i></span>
             <div class="pre-title-root">
-                <span>設計模式-樣板模式</span>
+                <span>被討厭的勇氣</span>
             </div>
         </a>
         
-
-        
-        <a href="https://hanksky12.github.io/posts/2023-06-17_hugo/" class="next">
-            <div class="next-title-root">
-                <span>Hugo架站紀錄</span>
-            </div>
-            <span class="next-icon"><i class="fa fa-hand-o-right"></i></span>
-        </a>
-        
-
     
     
 
@@ -423,9 +470,9 @@
     </div>
     <div class="list">
         
-            <a href="https://hanksky12.github.io/posts/2023-06-17_dp_templatemethod/">
+            <a href="https://hanksky12.github.io/posts/2023-06-24_python%E8%88%87c#%E8%A8%98%E6%86%B6%E9%AB%94%E6%AF%94%E8%BC%83/">
                 
-<a href="https://hanksky12.github.io/posts/2023-06-17_dp_templatemethod/">
+<a href="https://hanksky12.github.io/posts/2023-06-24_python%E8%88%87c#%E8%A8%98%E6%86%B6%E9%AB%94%E6%AF%94%E8%BC%83/">
     <div class="list-item">
         <div class="icon-other-root">
             
@@ -434,30 +481,10 @@
         </div>
         <div class="list-right">
             <div class="other-title">
-                設計模式-樣板模式
+                Python與C#記憶體比較
             </div>
-            <div class="other-summary">Template Method-樣板模式 分類 行為模式-Behavioral Patterns 主要角色 Abstract Class、Concrete C</div>
-            <div class="other-date">2023-6-17</div>
-        </div>
-    </div>
-</a>
-            </a>
-        
-            <a href="https://hanksky12.github.io/posts/2023-09-16_python_logging/">
-                
-<a href="https://hanksky12.github.io/posts/2023-09-16_python_logging/">
-    <div class="list-item">
-        <div class="icon-other-root">
-            
-                <div class="icon-other" style="background-image: url(  );"></div>
-            
-        </div>
-        <div class="list-right">
-            <div class="other-title">
-                Python Logging 在多線程進階應用
-            </div>
-            <div class="other-summary">前言 最近工作上碰到自己的需求，想在定期專案中，對多線程中，同類型放同一個檔案，方便之後做trace code</div>
-            <div class="other-date">2023-9-16</div>
+            <div class="other-summary">Python 基礎: 變數本身只有存參考地址（在Stack），物件全部都在Heap，變數只有指向作用，所以沒有任何</div>
+            <div class="other-date">2023-6-24</div>
         </div>
     </div>
 </a>
@@ -483,26 +510,6 @@
 </a>
             </a>
         
-            <a href="https://hanksky12.github.io/posts/2023-06-24_python%E8%88%87c#%E8%A8%98%E6%86%B6%E9%AB%94%E6%AF%94%E8%BC%83/">
-                
-<a href="https://hanksky12.github.io/posts/2023-06-24_python%E8%88%87c#%E8%A8%98%E6%86%B6%E9%AB%94%E6%AF%94%E8%BC%83/">
-    <div class="list-item">
-        <div class="icon-other-root">
-            
-                <div class="icon-other" style="background-image: url(  );"></div>
-            
-        </div>
-        <div class="list-right">
-            <div class="other-title">
-                Python與C#記憶體比較
-            </div>
-            <div class="other-summary">Python 基礎: 變數本身只有存參考地址（在Stack），物件全部都在Heap，變數只有指向作用，所以沒有任何</div>
-            <div class="other-date">2023-6-24</div>
-        </div>
-    </div>
-</a>
-            </a>
-        
             <a href="https://hanksky12.github.io/posts/2023-06-24_pool/">
                 
 <a href="https://hanksky12.github.io/posts/2023-06-24_pool/">
@@ -518,6 +525,46 @@
             </div>
             <div class="other-summary">What is Pool ? 一個用來管理某種資源，保持某個狀態，降低反覆創建資源的開銷，當你需要使用時，就到Pool拿取</div>
             <div class="other-date">2023-6-24</div>
+        </div>
+    </div>
+</a>
+            </a>
+        
+            <a href="https://hanksky12.github.io/posts/2023-06-17_hugo/">
+                
+<a href="https://hanksky12.github.io/posts/2023-06-17_hugo/">
+    <div class="list-item">
+        <div class="icon-other-root">
+            
+                <div class="icon-other" style="background-image: url(  );"></div>
+            
+        </div>
+        <div class="list-right">
+            <div class="other-title">
+                Hugo架站紀錄
+            </div>
+            <div class="other-summary">安裝hugo 下載theme 設定config.toml ⇒ hugo new &quot;posts/first-pos</div>
+            <div class="other-date">2023-6-17</div>
+        </div>
+    </div>
+</a>
+            </a>
+        
+            <a href="https://hanksky12.github.io/posts/2023-06-17_dp_memento/">
+                
+<a href="https://hanksky12.github.io/posts/2023-06-17_dp_memento/">
+    <div class="list-item">
+        <div class="icon-other-root">
+            
+                <div class="icon-other" style="background-image: url(  );"></div>
+            
+        </div>
+        <div class="list-right">
+            <div class="other-title">
+                設計模式-備忘錄模式
+            </div>
+            <div class="other-summary">Memento-備忘錄模式 分類 行為模式-Behavioral Patterns 主要角色 Originator、Meme</div>
+            <div class="other-date">2023-6-17</div>
         </div>
     </div>
 </a>
