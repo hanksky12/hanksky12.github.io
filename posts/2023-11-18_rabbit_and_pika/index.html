@@ -3,19 +3,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Sky Blog | 行為模式</title>
-    <meta name="description" content=" ">
-    <link rel="canonical" href="https://hanksky12.github.io/tags/%E8%A1%8C%E7%82%BA%E6%A8%A1%E5%BC%8F/" />
+    <title>Sky Blog | MQ[二] RabbitMq &amp; Pika Pika</title>
+    <meta name="description" content="緣由 在工作上，因為需要導入發布訂閱模式，故在幾種常見的Mq中做選擇 發布/訂閱 速度 訊息保證 訊息大小 訊息 ">
+    <link rel="canonical" href="https://hanksky12.github.io/posts/2023-11-18_rabbit_and_pika/" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <meta property="og:title" content="行為模式" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://hanksky12.github.io/tags/%E8%A1%8C%E7%82%BA%E6%A8%A1%E5%BC%8F/" />
+    <meta property="og:title" content="MQ[二] RabbitMq &amp; Pika Pika" />
+<meta property="og:description" content="緣由 在工作上，因為需要導入發布訂閱模式，故在幾種常見的Mq中做選擇 發布/訂閱 速度 訊息保證 訊息大小 訊息" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hanksky12.github.io/posts/2023-11-18_rabbit_and_pika/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-11-18T07:09:33+08:00" />
+<meta property="article:modified_time" content="2023-11-18T07:09:33+08:00" />
+<meta property="og:see_also" content="https://hanksky12.github.io/posts/2023-11-18_mq/" />
 
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="行為模式"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="MQ[二] RabbitMq &amp; Pika Pika"/>
+<meta name="twitter:description" content="緣由 在工作上，因為需要導入發布訂閱模式，故在幾種常見的Mq中做選擇 發布/訂閱 速度 訊息保證 訊息大小 訊息"/>
 
     
         
@@ -187,29 +190,41 @@
 
 
         <div id="content">
-    
 
 
 
 
-
-
-    
-        
-    
 
 
 
 
     <div class="hero">
         
-            
-                <div class="hero-img">
-                    <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt="">
-                </div>
-            
+            <div class="hero-img">
+                <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt="">
+            </div>
+        
         <div class="hero-content">
-            <h1 class="hero-title">Tag: 行為模式</h1>
+            <div class="hero-title">MQ[二] RabbitMq &amp; Pika Pika</div>
+            <div class="hero-subtitle"></div>
+            <div class="hero-date">
+                    <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2023-11-18 &nbsp;</span>
+                    <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2023-11-18 &nbsp;</span>
+                    <span class="no-wrap"><i class="fa fa-folder"></i>
+                        includedIn:
+                        
+                            <a href='
+                                /categories/%E7%A8%8B%E5%BC%8F
+                            '>
+                                程式
+                            </a>
+                    </span>    
+            </div>
+            <div class="timelong">
+                <span class="no-wrap"><i class="fa fa-pencil"></i> wordsCount: 1250 &nbsp;</span>
+                <span class="no-wrap"><i class="fa fa-clock-o"></i> readingTime: 3 mins &nbsp;</span>
+                <span class="no-wrap"><i class="fa fa-eye"></i> viewers: <span id="busuanzi_value_page_pv"></span></span>
+            </div>
         </div>
     </div>
 
@@ -228,7 +243,7 @@
     
 
 
-<div class="terms-body">
+<div class="content-root">
     <div class="long">
         <button class="tosides-1 text-wbd">
             <i class="fa fa-arrow-right"></i>
@@ -241,163 +256,173 @@
         </button>
     </div>
     
-        <div class="terms-row">
+        <div class="content">
+            <div class="content-self">
+                <h1 id="緣由">緣由</h1>
+<p>在工作上，因為需要導入發布訂閱模式，故在幾種常見的Mq中做選擇</p>
+<h2 id="發布訂閱">發布/訂閱</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>速度</th>
+<th>訊息保證</th>
+<th>訊息大小</th>
+<th>訊息量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>redis</td>
+<td>快</td>
+<td>沒有</td>
+<td>小</td>
+<td>小</td>
+</tr>
+<tr>
+<td>rabbitMQ</td>
+<td>稍慢</td>
+<td>ACK 模式，確認拿走才刪</td>
+<td>中</td>
+<td>中</td>
+</tr>
+<tr>
+<td>kafka</td>
+<td>有點慢</td>
+<td>透過歷史紀錄</td>
+<td>大</td>
+<td>大</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="rabbitmq">RabbitMq</h1>
+<p>基於AMQP協議</p>
+<h2 id="simple-模式">Simple 模式</h2>
+<p>producer將massage直接放到queue，一位consumer去消費</p>
+<h2 id="worker-模式">Worker 模式</h2>
+<p>同Simple模式，但是改為多位consumer去消費，其中一位拿走，訊息就沒了，常見於分散式爬蟲的目標網址，
+這邊還可以設定欲取數量</p>
+<h2 id="publishsubscribe-模式">Publish/Subscribe 模式</h2>
+<p>producer將massage送到exchange，藉由多個queue去綁定到exchange，一次送給多個queue，每個queue對應一位消費者</p>
+<h2 id="routing-模式">Routing 模式</h2>
+<p>同Publish/Subscribe模式，多加了訊息的走向篩選機制</p>
+<p>加入了routing key概念，producer發送時加入routing key，每個queue在綁定到exchange同時</p>
+<p>先宣告自己要監聽的routing key，讓exchange可以知道訊息應該發送到哪些queue，篩選機制是要完全match的，才會送達</p>
+<h2 id="topics-模式">Topics 模式</h2>
+<p>同Routing模式的升級版，篩選機制改用模糊比對</p>
+<h2 id="rpc模式">RPC模式</h2>
+<p>在原producer發送訊息前，先定義要回傳的queue與關聯id，發送後，producer轉為consumer等待[處理後的訊息]回傳</p>
+<p>在原consumer收到訊息後，對訊息做處理後，轉為producer，並根據要回傳的queue與關聯id，傳送[處理後的訊息]</p>
+<p><a href="https://github.com/hanksky12/RabbitMQ_Tutorials">https://github.com/hanksky12/RabbitMQ_Tutorials</a></p>
+<hr>
+<h1 id="port">Port</h1>
+<p>:5672 server  :15672 後台</p>
+<h1 id="exchange-交換機">Exchange 交換機</h1>
+<p>決定訊息走向的人，單純做篩選，訊息不停留在此</p>
+<h1 id="queue-貯列">Queue 貯列</h1>
+<p>會將訊息累積的人，當消費者不在線上或還未消費的，訊息會積累在此</p>
+<h1 id="ack-機制">Ack 機制</h1>
+<p>可以在訊息處理完，決定此訊息是否已經消費完成，</p>
+<p>用ack確認處理成功，或nack代表訊息接下來的走向，返回queue重新排隊，或者丟棄此訊息</p>
+<h1 id="dead-letter-死信機制">Dead Letter 死信機制</h1>
+<p>Why 死信要處理？</p>
+<p>當處理訊息失敗，應該直接丟棄？</p>
+<p>或重回queue排隊，可能一直每次失敗，導致漸漸阻塞queue</p>
+<h2 id="死信條件">死信條件:</h2>
+<ol>
+<li>訊息在queue上面超過max可停留時間</li>
+<li>訊息在queue上面超過max訊息數量</li>
+<li>消費時，使用nack或reject</li>
+</ol>
+<p>當上面發生時，訊息會由queue去到死信交換機，死信exchange和queue與普通的一樣，
+只是看在死信的消費者想要如何統一處理這些訊息</p>
+<p>這邊要注意的是，死信的如何處理，由每個的queue去決定，不互相干涉</p>
+<h2 id="會刪除的queue">會刪除的queue</h2>
+<p>在rabbit mq裡面只有兩種機制</p>
+<ol>
+<li>在宣告queue的同時，設定auto_delete=True</li>
+<li>使用臨時queue，消費後，自動刪除</li>
+</ol>
+<p>使用這兩種queue，都會導致消費者離線後，如果exchange還有送new message，會直接消失</p>
+<h1 id="heartbeats">Heartbeats</h1>
+<p>在pika要特別注意，沒有實作重連機制，且客戶端與server端間，有心跳檢測，如果太久沒收到，會關閉Tcp連線，
+導致訊息要送的時間跳出ConnectError，所以要try except，去自動重連，
+在宣告連線參數時，可以設定HeartbeatsTimeOut，官方不建議設0(不檢測)，不是真正解決問題</p>
+
+            </div>
             
-            <div class="terms-root">
-                
-                
-
-
-<div class="card-large">
-    <div class="card-large-img">
-
-        
-                <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt='image loading failed'>
-        
-    </div>
-    <div class="card-large-content">
-        <div class="up-title"><a href="https://hanksky12.github.io/posts/2023-06-17_dp_memento/">設計模式-備忘錄模式</a></div>
-        <div class="up-date">
-            <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2023-6-17 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2023-6-17 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-folder"></i>
-                
-                    includedIn:
+                <div class="tags">
                     
-                        <a href='
-                                        /categories/%E7%A8%8B%E5%BC%8F
+                    <span class="down-type-item">
+                        <div class="type-text">
+                            <a href='
+                                        /tags/rabbit-mq
                                     '>
-                                程式
+                                <i class="fa fa-tag"></i> rabbit mq
                             </a>
-                
-            </span>
-        </div>
-        <div class="down-summary">Memento-備忘錄模式 分類 行為模式-Behavioral Patterns 主要角色 Originator、Meme</div>
-    </div>
-    <div class="card-readmore">
-        <a href="https://hanksky12.github.io/posts/2023-06-17_dp_memento/">
-            <span><i class="fa fa-arrow-right"></i></span>
-        </a>
-    </div>
-</div>
-
-
-
-    
-
-
-    <div class="down-type">
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/%E7%9F%A5%E8%AD%98
-                        '>
-                    <i class="fa fa-tag"></i> 知識
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/%E8%A1%8C%E7%82%BA%E6%A8%A1%E5%BC%8F
-                        '>
-                    <i class="fa fa-tag"></i> 行為模式
-                </a>
-            </div>
-        </span>
-        
-    </div>
-
-<div class="dang"></div>
-            </div>
-            
-            <div class="terms-root">
-                
-                
-
-
-<div class="card-large">
-    <div class="card-large-img">
-
-        
-                <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt='image loading failed'>
-        
-    </div>
-    <div class="card-large-content">
-        <div class="up-title"><a href="https://hanksky12.github.io/posts/2023-06-17_dp_templatemethod/">設計模式-樣板模式</a></div>
-        <div class="up-date">
-            <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2023-6-17 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2023-6-17 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-folder"></i>
-                
-                    includedIn:
+                        </div>
+                    </span>
                     
-                        <a href='
-                                        /categories/%E7%A8%8B%E5%BC%8F
+                    <span class="down-type-item">
+                        <div class="type-text">
+                            <a href='
+                                        /tags/pika
                                     '>
-                                程式
+                                <i class="fa fa-tag"></i> pika
                             </a>
-                
-            </span>
+                        </div>
+                    </span>
+                    
+                </div>
+            
         </div>
-        <div class="down-summary">Template Method-樣板模式 分類 行為模式-Behavioral Patterns 主要角色 Abstract Class、Concrete C</div>
-    </div>
-    <div class="card-readmore">
-        <a href="https://hanksky12.github.io/posts/2023-06-17_dp_templatemethod/">
-            <span><i class="fa fa-arrow-right"></i></span>
+        
+            
+                <div class="pre-next">
+                    
+    
+        
+        <a href="https://hanksky12.github.io/posts/2023-09-30_python%E8%AA%9E%E8%A8%80%E8%88%87%E5%BF%83%E5%BE%97/" class="pre">
+            <span class="pre-icon"><i class="fa fa-hand-o-left"></i></span>
+            <div class="pre-title-root">
+                <span>Python語言 與 工程師的職涯</span>
+            </div>
         </a>
-    </div>
-</div>
+        
 
-
+        
+        <a href="https://hanksky12.github.io/posts/2023-11-18_mq/" class="next">
+            <div class="next-title-root">
+                <span>MQ[一] Mq基礎</span>
+            </div>
+            <span class="next-icon"><i class="fa fa-hand-o-right"></i></span>
+        </a>
+        
 
     
+    
 
+                </div>
+            
+        
+    
+</div>
 
-    <div class="down-type">
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/%E7%9F%A5%E8%AD%98
-                        '>
-                    <i class="fa fa-tag"></i> 知識
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/%E8%A1%8C%E7%82%BA%E6%A8%A1%E5%BC%8F
-                        '>
-                    <i class="fa fa-tag"></i> 行為模式
-                </a>
-            </div>
-        </span>
-        
-    </div>
-
-<div class="dang"></div>
-            </div>
+    
+        <div class="content-last">
+            
+                <button class="aixin content-last-item efct-button">
+                    <i class="fa fa-heart"></i>
+                </button>
+            
+            
+                <button class="pinglun content-last-item efct-button">
+                    <i class="fa fa-comment"></i>
+                </button>
             
         </div>
     
-</div>
 
 
             </div>
@@ -405,6 +430,11 @@
                 
 <div class="zhuti-r-0">
     <div class="zhuti-r-1">
+        
+            <div class="button-r">
+                <button class="button-mulu efct-button" type="button"><span><i class="fa fa-bars"></i></span><span class="bars-text"> content</span></button>
+                <button class="button-comment efct-button" type="button"><span><i class="fa fa-comment"></i></span><span class="comment-text"> comment</span></button>
+            </div>
         
         <div id="r1">
             
@@ -474,10 +504,13 @@
 
 
 
+    
+    
+
 
 <div class="other">
     <div class="other-up">
-        <div class="other-qita text-wbd">latest Posts</div>
+        <div class="other-qita text-wbd">Related Posts</div>
         <div class="xian"></div>
     </div>
     <div class="list">
@@ -497,46 +530,6 @@
             </div>
             <div class="other-summary">MessageQueue(MQ) 訊息貯列，協助訊息以非同步方式溝通，常見協議MQTT,AMQP 訊息代理人 經紀人Broker 訊息發送</div>
             <div class="other-date">2023-11-18</div>
-        </div>
-    </div>
-</a>
-            </a>
-        
-            <a href="https://hanksky12.github.io/posts/2023-11-18_rabbit_and_pika/">
-                
-<a href="https://hanksky12.github.io/posts/2023-11-18_rabbit_and_pika/">
-    <div class="list-item">
-        <div class="icon-other-root">
-            
-                <div class="icon-other" style="background-image: url(  );"></div>
-            
-        </div>
-        <div class="list-right">
-            <div class="other-title">
-                MQ[二] RabbitMq &amp; Pika Pika
-            </div>
-            <div class="other-summary">緣由 在工作上，因為需要導入發布訂閱模式，故在幾種常見的Mq中做選擇 發布/訂閱 速度 訊息保證 訊息大小 訊息</div>
-            <div class="other-date">2023-11-18</div>
-        </div>
-    </div>
-</a>
-            </a>
-        
-            <a href="https://hanksky12.github.io/posts/2023-09-30_python%E8%AA%9E%E8%A8%80%E8%88%87%E5%BF%83%E5%BE%97/">
-                
-<a href="https://hanksky12.github.io/posts/2023-09-30_python%E8%AA%9E%E8%A8%80%E8%88%87%E5%BF%83%E5%BE%97/">
-    <div class="list-item">
-        <div class="icon-other-root">
-            
-                <div class="icon-other" style="background-image: url(  );"></div>
-            
-        </div>
-        <div class="list-right">
-            <div class="other-title">
-                Python語言 與 工程師的職涯
-            </div>
-            <div class="other-summary">python語言 以前看到其他靜態語言的基礎觀念，在python裡面都不特別鼓吹，不懂也能開發，若不是</div>
-            <div class="other-date">2023-9-30</div>
         </div>
     </div>
 </a>
@@ -582,17 +575,111 @@
 </a>
             </a>
         
+            <a href="https://hanksky12.github.io/posts/2023-07-16_rpa/">
+                
+<a href="https://hanksky12.github.io/posts/2023-07-16_rpa/">
+    <div class="list-item">
+        <div class="icon-other-root">
+            
+                <div class="icon-other" style="background-image: url(  );"></div>
+            
+        </div>
+        <div class="list-right">
+            <div class="other-title">
+                RPA，過去工作經驗分享
+            </div>
+            <div class="other-summary">RPA 機器流程自動化，以程式模擬人類操作系統，去取代人工達成自動化 白話:能自動打怪的外掛 為何能存在 當公司</div>
+            <div class="other-date">2023-7-16</div>
+        </div>
+    </div>
+</a>
+            </a>
+        
+            <a href="https://hanksky12.github.io/posts/2023-06-24_python%E8%88%87c#%E8%A8%98%E6%86%B6%E9%AB%94%E6%AF%94%E8%BC%83/">
+                
+<a href="https://hanksky12.github.io/posts/2023-06-24_python%E8%88%87c#%E8%A8%98%E6%86%B6%E9%AB%94%E6%AF%94%E8%BC%83/">
+    <div class="list-item">
+        <div class="icon-other-root">
+            
+                <div class="icon-other" style="background-image: url(  );"></div>
+            
+        </div>
+        <div class="list-right">
+            <div class="other-title">
+                Python與C#記憶體比較
+            </div>
+            <div class="other-summary">Python 基礎: 變數本身只有存參考地址（在Stack），物件全部都在Heap，變數只有指向作用，所以沒有任何</div>
+            <div class="other-date">2023-6-24</div>
+        </div>
+    </div>
+</a>
+            </a>
+        
     </div>
 </div>
         </div>
         <div id="r2">
-            
+            <div id="vcomments"></div>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        appId: "BbBzDAiKcoWMhYtxAf4UQe2j-MdYXbMMI",
+        appKey: "iBFYxS5U7Zno8VbVhCicaAaL",
+        avatar: "robohash",
+        placeholder: "输入你的想法",
+        requiredFields: ["nick"],
+        visitor:  true ,
+        pageSize:  5 ,
+});
+</script>
+
         </div> 
     </div>
 </div>
 
             </div>
         </div>
+    </div>
+</div>
+
+    
+
+<div class="sponsor">
+    <div class="sponsor-self">
+        <div class="sponsor-title">Sponsor</div>
+        <div class="sponsor-btn">
+            
+                
+                    
+                        <div class="sponsor-btn-1 border-r">Wechat</div>
+                    
+                
+                
+            
+                
+                    
+                        <div class="sponsor-btn-2 border-l">Alipay</div>
+                    
+                
+                
+            
+        </div>
+        
+        <div class="sponsor-img">
+            
+                
+                    <img class="sponsor-img-1" src="/images/sponsor/wechat.jpeg" alt="">
+                
+                
+            
+                
+                    <img class="sponsor-img-2" src="/images/sponsor/alipay.jpeg" alt="" style="display: none;">
+                
+                
+            
+        </div>
+        <div class="cancel efct-button">cancel</div>
     </div>
 </div>
 
