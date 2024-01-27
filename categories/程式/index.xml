@@ -6,9 +6,36 @@
     <description>Recent content in 程式 on Sky Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 Nov 2023 07:09:33 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/categories/%E7%A8%8B%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Jan 2024 09:10:43 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/categories/%E7%A8%8B%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>MQ[一] Mq基礎</title>
+      <title>Task queue[三] Celery(二)</title>
+      <link>https://hanksky12.github.io/posts/2024_01_27_celery2/</link>
+      <pubDate>Sat, 27 Jan 2024 09:10:43 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2024_01_27_celery2/</guid>
+      <description>任務定義 將裝飾器綁到函數 celery = Celery(__name__,broker=broker) @celery.task def add(x: int, y: int) -&amp;gt; int: time.sleep(5) return x + y add 就是一個task 任務使用 完整版 apply_async(args[, kwargs[, …]])</description>
+    </item>
+    
+    <item>
+      <title>Task queue[二] Celery</title>
+      <link>https://hanksky12.github.io/posts/2024_01_27_celery/</link>
+      <pubDate>Sat, 27 Jan 2024 09:10:43 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2024_01_27_celery/</guid>
+      <description>緣由 在工作上，因為單機已經承擔太多負荷，所以開始做分散式爬蟲 Celery 分散式任務隊列處理 任務流 任務發啟=&amp;g</description>
+    </item>
+    
+    <item>
+      <title>Task queue[一] Tq基礎</title>
+      <link>https://hanksky12.github.io/posts/2024_01_26_tq/</link>
+      <pubDate>Fri, 26 Jan 2024 09:10:43 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2024_01_26_tq/</guid>
+      <description>TaskQueue &amp;amp; MessageQueue 傳送物件 抽象層級 主要設定 相同 Tq 任務 高(基於mq的封裝) 任務的使用方式與處理 異步與分散式 Mq 訊息 低</description>
+    </item>
+    
+    <item>
+      <title>Message Queue[一] Mq基礎</title>
       <link>https://hanksky12.github.io/posts/2023-11-18_mq/</link>
       <pubDate>Sat, 18 Nov 2023 07:09:33 +0800</pubDate>
       
@@ -17,7 +44,7 @@
     </item>
     
     <item>
-      <title>MQ[二] RabbitMq &amp; Pika Pika</title>
+      <title>Message Queue[二] RabbitMq &amp; Pika Pika</title>
       <link>https://hanksky12.github.io/posts/2023-11-18_rabbit_and_pika/</link>
       <pubDate>Sat, 18 Nov 2023 07:09:33 +0800</pubDate>
       

@@ -3,19 +3,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Sky Blog | pika</title>
-    <meta name="description" content=" ">
-    <link rel="canonical" href="https://hanksky12.github.io/tags/pika/" />
+    <title>Sky Blog | Task queue[三] Celery(二)</title>
+    <meta name="description" content="任務定義 將裝飾器綁到函數 celery = Celery(__name__,broker=broker) @celery.task def add(x: int, y: int) -&gt; int: time.sleep(5) return x &#43; y add 就是一個task 任務使用 完整版 apply_async(args[, kwargs[, …]]) ">
+    <link rel="canonical" href="https://hanksky12.github.io/posts/2024_01_27_celery2/" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <meta property="og:title" content="pika" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://hanksky12.github.io/tags/pika/" />
+    <meta property="og:title" content="Task queue[三] Celery(二)" />
+<meta property="og:description" content="任務定義 將裝飾器綁到函數 celery = Celery(__name__,broker=broker) @celery.task def add(x: int, y: int) -&gt; int: time.sleep(5) return x &#43; y add 就是一個task 任務使用 完整版 apply_async(args[, kwargs[, …]])" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hanksky12.github.io/posts/2024_01_27_celery2/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-01-27T09:10:43+08:00" />
+<meta property="article:modified_time" content="2024-01-27T09:10:43+08:00" />
+<meta property="og:see_also" content="https://hanksky12.github.io/posts/2024_01_27_celery/" /><meta property="og:see_also" content="https://hanksky12.github.io/posts/2024_01_26_tq/" /><meta property="og:see_also" content="https://hanksky12.github.io/posts/2023-11-18_mq/" /><meta property="og:see_also" content="https://hanksky12.github.io/posts/2023-11-18_rabbit_and_pika/" />
 
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="pika"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Task queue[三] Celery(二)"/>
+<meta name="twitter:description" content="任務定義 將裝飾器綁到函數 celery = Celery(__name__,broker=broker) @celery.task def add(x: int, y: int) -&gt; int: time.sleep(5) return x &#43; y add 就是一個task 任務使用 完整版 apply_async(args[, kwargs[, …]])"/>
 
     
         
@@ -187,29 +190,41 @@
 
 
         <div id="content">
-    
 
 
 
 
-
-
-    
-        
-    
 
 
 
 
     <div class="hero">
         
-            
-                <div class="hero-img">
-                    <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt="">
-                </div>
-            
+            <div class="hero-img">
+                <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt="">
+            </div>
+        
         <div class="hero-content">
-            <h1 class="hero-title">Tag: pika</h1>
+            <div class="hero-title">Task queue[三] Celery(二)</div>
+            <div class="hero-subtitle"></div>
+            <div class="hero-date">
+                    <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2024-1-27 &nbsp;</span>
+                    <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2024-1-27 &nbsp;</span>
+                    <span class="no-wrap"><i class="fa fa-folder"></i>
+                        includedIn:
+                        
+                            <a href='
+                                /categories/%E7%A8%8B%E5%BC%8F
+                            '>
+                                程式
+                            </a>
+                    </span>    
+            </div>
+            <div class="timelong">
+                <span class="no-wrap"><i class="fa fa-pencil"></i> wordsCount: 503 &nbsp;</span>
+                <span class="no-wrap"><i class="fa fa-clock-o"></i> readingTime: 2 mins &nbsp;</span>
+                <span class="no-wrap"><i class="fa fa-eye"></i> viewers: <span id="busuanzi_value_page_pv"></span></span>
+            </div>
         </div>
     </div>
 
@@ -228,7 +243,7 @@
     
 
 
-<div class="terms-body">
+<div class="content-root">
     <div class="long">
         <button class="tosides-1 text-wbd">
             <i class="fa fa-arrow-right"></i>
@@ -241,113 +256,171 @@
         </button>
     </div>
     
-        <div class="terms-row">
+        <div class="content">
+            <div class="content-self">
+                <h1 id="任務定義">任務定義</h1>
+<p>將裝飾器綁到函數</p>
+<pre tabindex="0"><code>
+celery = Celery(__name__,broker=broker)
+
+
+@celery.task
+def add(x: int, y: int) -&gt; int:
+    time.sleep(5)
+    return x + y
+
+
+add 就是一個task
+</code></pre><h1 id="任務使用">任務使用</h1>
+<h2 id="完整版">完整版</h2>
+<pre tabindex="0"><code>apply_async(args[, kwargs[, …]])
+
+ex:
+add.apply_async(args=[arg1, arg2], kwargs={&#39;kwarg1&#39;: &#39;x&#39;, &#39;kwarg2&#39;: &#39;y&#39;},countdown=10))
+</code></pre><h1 id="簡化版當你不想帶選項類型參數控制任務相關的">簡化版(當你不想帶選項類型參數=&gt;控制任務相關的)</h1>
+<pre tabindex="0"><code>delay(*args, **kwargs)
+
+ex:
+add.delay(arg1, arg2, kwarg1=&#39;x&#39;, kwarg2=&#39;y&#39;)
+</code></pre><hr>
+<h1 id="signatureshttpsdocsceleryqdevenstableuserguidecanvashtmlid2-簽名將函數當成可傳遞"><a href="https://docs.celeryq.dev/en/stable/userguide/canvas.html#id2">Signatures</a> 簽名=⇒將函數當成可傳遞</h1>
+<h2 id="完整版-1">完整版</h2>
+<pre tabindex="0"><code>add.signature((2, 2), countdown=10)
+
+s = add.signature((2, 2), {&#39;debug&#39;: True}, countdown=10)
+
+可印出的方式
+s.args
+(2, 2)
+s.kwargs
+{&#39;debug&#39;: True}
+s.options
+{&#39;countdown&#39;: 10}
+</code></pre><h2 id="簡化版當你不想帶選項類型參數控制任務相關的-1">簡化版(當你不想帶選項類型參數=&gt;控制任務相關的)</h2>
+<pre tabindex="0"><code>add.s(2, 2, debug=True)
+
+簡化外掛版又加上參數
+
+add.s(1, 2, debug=True).set(countdown=5)
+</code></pre><h1 id="為何要有簽名">為何要有簽名？</h1>
+<p>直接啟動任務，不就可以執行？還要先變成可傳遞，再去調用一次</p>
+<p>因為要讓多個任務可以組合</p>
+<h1 id="task-flowprimitives">Task Flow(Primitives)</h1>
+<p>對多個任務的組合方式</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>組合方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>group</td>
+<td>一次等多個任務結束後，才回傳</td>
+</tr>
+<tr>
+<td>chain</td>
+<td>任務一個接一個</td>
+</tr>
+<tr>
+<td>chord</td>
+<td>group + callback任務</td>
+</tr>
+<tr>
+<td>map</td>
+<td>一個任務，處理多個不同參數，一次回傳多個結果</td>
+</tr>
+<tr>
+<td>starmap</td>
+<td>同map，參數帶入(tuple)</td>
+</tr>
+<tr>
+<td>chunks</td>
+<td>將可迭代參數自動區分成多個小任務</td>
+</tr>
+</tbody>
+</table>
+<h1 id="提醒">提醒:</h1>
+<h2 id="阻塞">阻塞</h2>
+<p>在celery 一個任務內，不可做其他任務等待，不能用阻塞的方式，所以chord才用callback，而rpc不會存結果，在這邊不能當後端使用</p>
+<h3 id="阻塞類型的定期程式">阻塞類型的定期程式</h3>
+<p>有阻塞類型的定期程式，就不能用beat，因為beat的啟動就是把定期本身當成一個任務丟出去到worker
+必須改用APScheduler的定期在裡面手動丟給celery任務</p>
+
+            </div>
             
-            <div class="terms-root">
-                
-                
-
-
-<div class="card-large">
-    <div class="card-large-img">
-
-        
-                <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt='image loading failed'>
-        
-    </div>
-    <div class="card-large-content">
-        <div class="up-title"><a href="https://hanksky12.github.io/posts/2023-11-18_rabbit_and_pika/">Message Queue[二] RabbitMq &amp; Pika Pika</a></div>
-        <div class="up-date">
-            <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2023-11-18 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2023-11-18 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-folder"></i>
-                
-                    includedIn:
+                <div class="tags">
                     
-                        <a href='
-                                        /categories/%E7%A8%8B%E5%BC%8F
+                    <span class="down-type-item">
+                        <div class="type-text">
+                            <a href='
+                                        /tags/celery
                                     '>
-                                程式
+                                <i class="fa fa-tag"></i> celery
                             </a>
-                
-            </span>
+                        </div>
+                    </span>
+                    
+                    <span class="down-type-item">
+                        <div class="type-text">
+                            <a href='
+                                        /tags/distributed-task-queue
+                                    '>
+                                <i class="fa fa-tag"></i> distributed task queue
+                            </a>
+                        </div>
+                    </span>
+                    
+                    <span class="down-type-item">
+                        <div class="type-text">
+                            <a href='
+                                        /tags/message-queue
+                                    '>
+                                <i class="fa fa-tag"></i> message queue
+                            </a>
+                        </div>
+                    </span>
+                    
+                </div>
+            
         </div>
-        <div class="down-summary">緣由 在工作上，因為需要導入發布訂閱模式，故在幾種常見的Mq中做選擇 發布/訂閱 速度 訊息保證 訊息大小 訊息</div>
-    </div>
-    <div class="card-readmore">
-        <a href="https://hanksky12.github.io/posts/2023-11-18_rabbit_and_pika/">
-            <span><i class="fa fa-arrow-right"></i></span>
+        
+            
+                <div class="pre-next">
+                    
+    
+        
+        <a href="https://hanksky12.github.io/posts/2024_01_27_celery/" class="pre pre-last" style="text-align: center;">
+            <span class="pre-icon"><i class="fa fa-hand-o-left"></i></span>
+            <div class="pre-title-root">
+                <span>Task queue[二] Celery</span>
+            </div>
         </a>
-    </div>
-</div>
-
-
-
+        
+    
     
 
+                </div>
+            
+        
+    
+</div>
 
-    <div class="down-type">
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/rabbit-mq
-                        '>
-                    <i class="fa fa-tag"></i> rabbit mq
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/pika
-                        '>
-                    <i class="fa fa-tag"></i> pika
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/message-queue
-                        '>
-                    <i class="fa fa-tag"></i> message queue
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/distributed-task-queue
-                        '>
-                    <i class="fa fa-tag"></i> distributed task queue
-                </a>
-            </div>
-        </span>
-        
-    </div>
-
-<div class="dang"></div>
-            </div>
+    
+        <div class="content-last">
+            
+                <button class="aixin content-last-item efct-button">
+                    <i class="fa fa-heart"></i>
+                </button>
+            
+            
+                <button class="pinglun content-last-item efct-button">
+                    <i class="fa fa-comment"></i>
+                </button>
             
         </div>
     
-</div>
 
 
             </div>
@@ -355,6 +428,11 @@
                 
 <div class="zhuti-r-0">
     <div class="zhuti-r-1">
+        
+            <div class="button-r">
+                <button class="button-mulu efct-button" type="button"><span><i class="fa fa-bars"></i></span><span class="bars-text"> content</span></button>
+                <button class="button-comment efct-button" type="button"><span><i class="fa fa-comment"></i></span><span class="comment-text"> comment</span></button>
+            </div>
         
         <div id="r1">
             
@@ -424,33 +502,16 @@
 
 
 
+    
+    
+
 
 <div class="other">
     <div class="other-up">
-        <div class="other-qita text-wbd">latest Posts</div>
+        <div class="other-qita text-wbd">Related Posts</div>
         <div class="xian"></div>
     </div>
     <div class="list">
-        
-            <a href="https://hanksky12.github.io/posts/2024_01_27_celery2/">
-                
-<a href="https://hanksky12.github.io/posts/2024_01_27_celery2/">
-    <div class="list-item">
-        <div class="icon-other-root">
-            
-                <div class="icon-other" style="background-image: url(  );"></div>
-            
-        </div>
-        <div class="list-right">
-            <div class="other-title">
-                Task queue[三] Celery(二)
-            </div>
-            <div class="other-summary">任務定義 將裝飾器綁到函數 celery = Celery(__name__,broker=broker) @celery.task def add(x: int, y: int) -&gt; int: time.sleep(5) return x + y add 就是一個task 任務使用 完整版 apply_async(args[, kwargs[, …]])</div>
-            <div class="other-date">2024-1-27</div>
-        </div>
-    </div>
-</a>
-            </a>
         
             <a href="https://hanksky12.github.io/posts/2024_01_27_celery/">
                 
@@ -532,17 +593,91 @@
 </a>
             </a>
         
+            <a href="https://hanksky12.github.io/posts/2023-09-30_python_flask/">
+                
+<a href="https://hanksky12.github.io/posts/2023-09-30_python_flask/">
+    <div class="list-item">
+        <div class="icon-other-root">
+            
+                <div class="icon-other" style="background-image: url(  );"></div>
+            
+        </div>
+        <div class="list-right">
+            <div class="other-title">
+                Python Flask 架構
+            </div>
+            <div class="other-summary">flask網站開發 之前讀過這本O&rsquo;Reilly的 Flask Web Development(2 Ed.)，就很喜歡裡面建構大型應用</div>
+            <div class="other-date">2023-9-30</div>
+        </div>
+    </div>
+</a>
+            </a>
+        
     </div>
 </div>
         </div>
         <div id="r2">
-            
+            <div id="vcomments"></div>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        appId: "BbBzDAiKcoWMhYtxAf4UQe2j-MdYXbMMI",
+        appKey: "iBFYxS5U7Zno8VbVhCicaAaL",
+        avatar: "robohash",
+        placeholder: "输入你的想法",
+        requiredFields: ["nick"],
+        visitor:  true ,
+        pageSize:  5 ,
+});
+</script>
+
         </div> 
     </div>
 </div>
 
             </div>
         </div>
+    </div>
+</div>
+
+    
+
+<div class="sponsor">
+    <div class="sponsor-self">
+        <div class="sponsor-title">Sponsor</div>
+        <div class="sponsor-btn">
+            
+                
+                    
+                        <div class="sponsor-btn-1 border-r">Wechat</div>
+                    
+                
+                
+            
+                
+                    
+                        <div class="sponsor-btn-2 border-l">Alipay</div>
+                    
+                
+                
+            
+        </div>
+        
+        <div class="sponsor-img">
+            
+                
+                    <img class="sponsor-img-1" src="/images/sponsor/wechat.jpeg" alt="">
+                
+                
+            
+                
+                    <img class="sponsor-img-2" src="/images/sponsor/alipay.jpeg" alt="" style="display: none;">
+                
+                
+            
+        </div>
+        <div class="cancel efct-button">cancel</div>
     </div>
 </div>
 

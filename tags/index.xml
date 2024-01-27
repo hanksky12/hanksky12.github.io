@@ -6,7 +6,34 @@
     <description>Recent content in Tags on Sky Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 Nov 2023 07:09:33 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Jan 2024 09:10:43 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>celery</title>
+      <link>https://hanksky12.github.io/tags/celery/</link>
+      <pubDate>Sat, 27 Jan 2024 09:10:43 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/tags/celery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>distributed task queue</title>
+      <link>https://hanksky12.github.io/tags/distributed-task-queue/</link>
+      <pubDate>Sat, 27 Jan 2024 09:10:43 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/tags/distributed-task-queue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>message queue</title>
+      <link>https://hanksky12.github.io/tags/message-queue/</link>
+      <pubDate>Sat, 27 Jan 2024 09:10:43 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/tags/message-queue/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>pika</title>
       <link>https://hanksky12.github.io/tags/pika/</link>
