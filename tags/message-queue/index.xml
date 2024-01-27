@@ -22,7 +22,7 @@
       <pubDate>Sat, 27 Jan 2024 09:10:43 +0800</pubDate>
       
       <guid>https://hanksky12.github.io/posts/2024_01_27_celery/</guid>
-      <description>緣由 在工作上，因為單機已經承擔太多負荷，所以開始做分散式爬蟲 Celery 分散式任務隊列處理 任務流 任務發啟=&amp;g</description>
+      <description>緣由 在工作上，遇到單機已經過多負荷，所以開始做實作分散式爬蟲 Celery定義 分散式任務隊列處理 架構 任</description>
     </item>
     
     <item>
