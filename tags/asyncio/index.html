@@ -3,21 +3,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Sky Blog | MFA與OTP</title>
-    <meta name="description" content="源起 最近自己在很多地方的登入都需要2FA驗證，先用手機裝驗證軟體掃ＱRCode，之後的每次登入都要輸 ">
-    <link rel="canonical" href="https://hanksky12.github.io/posts/2023-05-31_otp/" />
+    <title>Sky Blog | asyncio</title>
+    <meta name="description" content=" ">
+    <link rel="canonical" href="https://hanksky12.github.io/tags/asyncio/" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <meta property="og:title" content="MFA與OTP" />
-<meta property="og:description" content="源起 最近自己在很多地方的登入都需要2FA驗證，先用手機裝驗證軟體掃ＱRCode，之後的每次登入都要輸" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://hanksky12.github.io/posts/2023-05-31_otp/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-05-31T08:17:32+08:00" />
-<meta property="article:modified_time" content="2023-05-31T08:17:32+08:00" />
+    <meta property="og:title" content="asyncio" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://hanksky12.github.io/tags/asyncio/" />
 
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="MFA與OTP"/>
-<meta name="twitter:description" content="源起 最近自己在很多地方的登入都需要2FA驗證，先用手機裝驗證軟體掃ＱRCode，之後的每次登入都要輸"/>
+<meta name="twitter:title" content="asyncio"/>
+<meta name="twitter:description" content=""/>
 
     
         
@@ -189,41 +187,29 @@
 
 
         <div id="content">
+    
 
 
 
 
+
+
+    
+        
+    
 
 
 
 
     <div class="hero">
         
-            <div class="hero-img">
-                <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt="">
-            </div>
-        
+            
+                <div class="hero-img">
+                    <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt="">
+                </div>
+            
         <div class="hero-content">
-            <div class="hero-title">MFA與OTP</div>
-            <div class="hero-subtitle"></div>
-            <div class="hero-date">
-                    <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2023-5-31 &nbsp;</span>
-                    <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2023-5-31 &nbsp;</span>
-                    <span class="no-wrap"><i class="fa fa-folder"></i>
-                        includedIn:
-                        
-                            <a href='
-                                /categories/%E7%A8%8B%E5%BC%8F
-                            '>
-                                程式
-                            </a>
-                    </span>    
-            </div>
-            <div class="timelong">
-                <span class="no-wrap"><i class="fa fa-pencil"></i> wordsCount: 758 &nbsp;</span>
-                <span class="no-wrap"><i class="fa fa-clock-o"></i> readingTime: 2 mins &nbsp;</span>
-                <span class="no-wrap"><i class="fa fa-eye"></i> viewers: <span id="busuanzi_value_page_pv"></span></span>
-            </div>
+            <h1 class="hero-title">Tag: asyncio</h1>
         </div>
     </div>
 
@@ -242,7 +228,7 @@
     
 
 
-<div class="content-root">
+<div class="terms-body">
     <div class="long">
         <button class="tosides-1 text-wbd">
             <i class="fa fa-arrow-right"></i>
@@ -255,135 +241,113 @@
         </button>
     </div>
     
-        <div class="content">
-            <div class="content-self">
-                <h1 id="源起">源起</h1>
-<p>最近自己在很多地方的登入都需要2FA驗證，先用手機裝驗證軟體掃ＱRCode，之後的每次登入都要輸入6位數字，
-一直沒搞懂原理，但又覺得很酷，剛好最近要做一個python私人用的密碼管理程式，就在想能不能結合這個東西來驗證，
-以下就是自己理解後名詞的介紹</p>
-<h4 id="實作的github">實作的Github</h4>
-<p><a href="https://github.com/hanksky12/Personal-Password-Manager">https://github.com/hanksky12/Personal-Password-Manager</a></p>
-<hr>
-<h1 id="mfamulti-factor-authentication">MFA(Multi-Factor Authentication)</h1>
-<p>除了密碼之外，在登入時有其他驗證須通過就可以稱為多重驗證(多因子驗證)</p>
-<p>例子：輸入手機收到的簡訊數字、線上銀行ATM提款卡、手機TOTP的六位數字</p>
-<h2 id="2fa">2FA</h2>
-<p>MFA的特例，兩種驗證就是2FA，以此類推</p>
-<hr>
-<h1 id="otpone-time-password">OTP(One Time Password)</h1>
-<p>一次性驗證碼，用完就丟，只能用一次，其中有名的演算法是HOTP和TOTP</p>
-<h2 id="hotphmac-based">HOTP(HMAC-based)</h2>
-<p>HMAC雜湊訊息驗證碼
-<a href="https://datatracker.ietf.org/doc/html/rfc4226#page-5">RFC4226</a></p>
-<pre tabindex="0"><code>HOTP(K,C) = Truncate(HMAC-SHA-1(K,C))
-
-   C       8-byte counter value, the moving factor.  This counter
-           MUST be synchronized between the HOTP generator (client)
-           and the HOTP validator (server).
-
-   K       shared secret between client and server; each HOTP
-           generator has a different and unique secret K.
-</code></pre><h3 id="白話文">白話文：</h3>
-<p>用一串key string 加上 counter計數器，做Hash之後，取特定位數做比對</p>
-<h3 id="實作">實作：</h3>
-<p>產出器將key傳到比對器之後，兩邊各自跑counter計數器，看最後出來的值是否一致</p>
-<ol>
-<li>兩邊各自跑counter，所以可能有前後落差要處理</li>
-<li>最後只取特定位數 ，所以要限制比對次數，避免被大量嘗試攻擊</li>
-<li>重點在key必須隱蔽的傳到對方的比對器，不能外流</li>
-</ol>
-<h2 id="totptime-based">TOTP(Time-based)</h2>
-<p>HOTP的特化版，counter計數器使用timestamp</p>
-<h3 id="why-30秒">why 30秒?</h3>
-<p>必然server跟手機不可能時間永遠同步， 在兩邊跑出來的結果可能有落差，通常使用30秒才換一次，
-來容納兩邊的時間不同步，否則驗證失敗可能性太高，server壓力太大，</p>
-<h3 id="why-6位數">why 6位數?</h3>
-<p>6位數，是一百萬組可能性，需在30秒內嘗試完成，每秒要驗證3.3萬次，server後台可以藉此鎖定黑名單</p>
-<h3 id="qrcode">QRCode</h3>
-<p>用來傳遞key string，所以要確保隱蔽，通常網站讓你掃完就會消失，無法存檔，確保只有你的手機有這個key</p>
-<h3 id="python實作套件">python實作套件</h3>
-<pre tabindex="0"><code>import pyotp  
-#限制base32的key才能使用
-_otp = pyotp.TOTP(base32_key)
-</code></pre><hr>
-<h1 id="參考資料">參考資料</h1>
-<p><a href="https://en.wikipedia.org/wiki/Time-based_one-time_password">https://en.wikipedia.org/wiki/Time-based_one-time_password</a></p>
-<p><a href="https://fullstackladder.dev/blog/2017/09/07/one-time-pass-introduce-with-hotp-totp-google-authenticator/">https://fullstackladder.dev/blog/2017/09/07/one-time-pass-introduce-with-hotp-totp-google-authenticator/</a></p>
-<p><a href="https://medium.com/starbugs/totp-2fa-algorithm-in-10-mins-25acc3c35df9">https://medium.com/starbugs/totp-2fa-algorithm-in-10-mins-25acc3c35df9</a></p>
-
-            </div>
+        <div class="terms-row">
             
-                <div class="tags">
+            <div class="terms-root">
+                
+                
+
+
+<div class="card-large">
+    <div class="card-large-img">
+
+        
+                <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt='image loading failed'>
+        
+    </div>
+    <div class="card-large-content">
+        <div class="up-title"><a href="https://hanksky12.github.io/posts/2024_02_17_olympus_camera/">Olympus_Camera</a></div>
+        <div class="up-date">
+            <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2024-2-17 &nbsp;</span>
+            <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2024-2-17 &nbsp;</span>
+            <span class="no-wrap"><i class="fa fa-folder"></i>
+                
+                    includedIn:
                     
-                    <span class="down-type-item">
-                        <div class="type-text">
-                            <a href='
-                                        /tags/%E7%9F%A5%E8%AD%98
+                        <a href='
+                                        /categories/%E7%A8%8B%E5%BC%8F
                                     '>
-                                <i class="fa fa-tag"></i> 知識
+                                程式
                             </a>
-                        </div>
-                    </span>
-                    
-                    <span class="down-type-item">
-                        <div class="type-text">
-                            <a href='
-                                        /tags/%E9%A9%97%E8%AD%89
-                                    '>
-                                <i class="fa fa-tag"></i> 驗證
-                            </a>
-                        </div>
-                    </span>
-                    
-                </div>
-            
+                
+            </span>
         </div>
-        
-            
-                <div class="pre-next">
-                    
-    
-        
-        <a href="https://hanksky12.github.io/posts/2023-05-18_hello_world/" class="pre">
-            <span class="pre-icon"><i class="fa fa-hand-o-left"></i></span>
-            <div class="pre-title-root">
-                <span>Hello World</span>
-            </div>
+        <div class="down-summary">緣由 自己的相機Olympus，平常要讀取照片，通常用電腦直接讀取sd記憶卡， 這次在mac筆電上想看照</div>
+    </div>
+    <div class="card-readmore">
+        <a href="https://hanksky12.github.io/posts/2024_02_17_olympus_camera/">
+            <span><i class="fa fa-arrow-right"></i></span>
         </a>
-        
-
-        
-        <a href="https://hanksky12.github.io/posts/2023-06-17_dp_templatemethod/" class="next">
-            <div class="next-title-root">
-                <span>設計模式-樣板模式</span>
-            </div>
-            <span class="next-icon"><i class="fa fa-hand-o-right"></i></span>
-        </a>
-        
-
-    
-    
-
-                </div>
-            
-        
-    
+    </div>
 </div>
 
+
+
     
-        <div class="content-last">
-            
-                <button class="aixin content-last-item efct-button">
-                    <i class="fa fa-heart"></i>
-                </button>
-            
-            
-                <button class="pinglun content-last-item efct-button">
-                    <i class="fa fa-comment"></i>
-                </button>
+
+
+    <div class="down-type">
+        
+        <span class="down-type-item">
+            <div class="shuxian-root">
+                <div class="shuxian"></div>
+            </div>
+            <div class="type-text">
+                <a href='
+                            /tags/python
+                        '>
+                    <i class="fa fa-tag"></i> Python
+                </a>
+            </div>
+        </span>
+        
+        <span class="down-type-item">
+            <div class="shuxian-root">
+                <div class="shuxian"></div>
+            </div>
+            <div class="type-text">
+                <a href='
+                            /tags/coroutine
+                        '>
+                    <i class="fa fa-tag"></i> coroutine
+                </a>
+            </div>
+        </span>
+        
+        <span class="down-type-item">
+            <div class="shuxian-root">
+                <div class="shuxian"></div>
+            </div>
+            <div class="type-text">
+                <a href='
+                            /tags/asyncio
+                        '>
+                    <i class="fa fa-tag"></i> asyncio
+                </a>
+            </div>
+        </span>
+        
+        <span class="down-type-item">
+            <div class="shuxian-root">
+                <div class="shuxian"></div>
+            </div>
+            <div class="type-text">
+                <a href='
+                            /tags/project
+                        '>
+                    <i class="fa fa-tag"></i> project
+                </a>
+            </div>
+        </span>
+        
+    </div>
+
+<div class="dang"></div>
+            </div>
             
         </div>
     
+</div>
 
 
             </div>
@@ -391,11 +355,6 @@ _otp = pyotp.TOTP(base32_key)
                 
 <div class="zhuti-r-0">
     <div class="zhuti-r-1">
-        
-            <div class="button-r">
-                <button class="button-mulu efct-button" type="button"><span><i class="fa fa-bars"></i></span><span class="bars-text"> content</span></button>
-                <button class="button-comment efct-button" type="button"><span><i class="fa fa-comment"></i></span><span class="comment-text"> comment</span></button>
-            </div>
         
         <div id="r1">
             
@@ -465,20 +424,17 @@ _otp = pyotp.TOTP(base32_key)
 
 
 
-    
-    
-
 
 <div class="other">
     <div class="other-up">
-        <div class="other-qita text-wbd">Related Posts</div>
+        <div class="other-qita text-wbd">latest Posts</div>
         <div class="xian"></div>
     </div>
     <div class="list">
         
-            <a href="https://hanksky12.github.io/posts/2023-09-30_python_flask/">
+            <a href="https://hanksky12.github.io/posts/2024_02_17_olympus_camera/">
                 
-<a href="https://hanksky12.github.io/posts/2023-09-30_python_flask/">
+<a href="https://hanksky12.github.io/posts/2024_02_17_olympus_camera/">
     <div class="list-item">
         <div class="icon-other-root">
             
@@ -487,18 +443,18 @@ _otp = pyotp.TOTP(base32_key)
         </div>
         <div class="list-right">
             <div class="other-title">
-                Python Flask 架構
+                Olympus_Camera
             </div>
-            <div class="other-summary">flask網站開發 之前讀過這本O&rsquo;Reilly的 Flask Web Development(2 Ed.)，就很喜歡裡面建構大型應用</div>
-            <div class="other-date">2023-9-30</div>
+            <div class="other-summary">緣由 自己的相機Olympus，平常要讀取照片，通常用電腦直接讀取sd記憶卡， 這次在mac筆電上想看照</div>
+            <div class="other-date">2024-2-17</div>
         </div>
     </div>
 </a>
             </a>
         
-            <a href="https://hanksky12.github.io/posts/2023-09-16_python_logging/">
+            <a href="https://hanksky12.github.io/posts/2024_01_27_celery2/">
                 
-<a href="https://hanksky12.github.io/posts/2023-09-16_python_logging/">
+<a href="https://hanksky12.github.io/posts/2024_01_27_celery2/">
     <div class="list-item">
         <div class="icon-other-root">
             
@@ -507,18 +463,18 @@ _otp = pyotp.TOTP(base32_key)
         </div>
         <div class="list-right">
             <div class="other-title">
-                Python Logging 在多線程進階應用
+                Task queue[三] Celery(二)
             </div>
-            <div class="other-summary">前言 最近工作上碰到自己的需求，想在定期專案中，對多線程中，同類型放同一個檔案，方便之後做trace code</div>
-            <div class="other-date">2023-9-16</div>
+            <div class="other-summary">任務定義 將裝飾器綁到函數 celery = Celery(__name__,broker=broker) @celery.task def add(x: int, y: int) -&gt; int: time.sleep(5) return x + y add 就是一個task 任務使用 完整版 apply_async(args[, kwargs[, …]])</div>
+            <div class="other-date">2024-1-27</div>
         </div>
     </div>
 </a>
             </a>
         
-            <a href="https://hanksky12.github.io/posts/2023-07-16_rpa/">
+            <a href="https://hanksky12.github.io/posts/2024_01_27_celery/">
                 
-<a href="https://hanksky12.github.io/posts/2023-07-16_rpa/">
+<a href="https://hanksky12.github.io/posts/2024_01_27_celery/">
     <div class="list-item">
         <div class="icon-other-root">
             
@@ -527,18 +483,18 @@ _otp = pyotp.TOTP(base32_key)
         </div>
         <div class="list-right">
             <div class="other-title">
-                RPA，過去工作經驗分享
+                Task queue[二] Celery
             </div>
-            <div class="other-summary">RPA 機器流程自動化，以程式模擬人類操作系統，去取代人工達成自動化 白話:能自動打怪的外掛 為何能存在 當公司</div>
-            <div class="other-date">2023-7-16</div>
+            <div class="other-summary">緣由 在工作上，遇到單機已經過多負荷，所以開始做實作分散式爬蟲 Celery定義 分散式任務隊列處理 架構 任</div>
+            <div class="other-date">2024-1-27</div>
         </div>
     </div>
 </a>
             </a>
         
-            <a href="https://hanksky12.github.io/posts/2023-06-24_python%E8%88%87c#%E8%A8%98%E6%86%B6%E9%AB%94%E6%AF%94%E8%BC%83/">
+            <a href="https://hanksky12.github.io/posts/2024_01_26_tq/">
                 
-<a href="https://hanksky12.github.io/posts/2023-06-24_python%E8%88%87c#%E8%A8%98%E6%86%B6%E9%AB%94%E6%AF%94%E8%BC%83/">
+<a href="https://hanksky12.github.io/posts/2024_01_26_tq/">
     <div class="list-item">
         <div class="icon-other-root">
             
@@ -547,18 +503,18 @@ _otp = pyotp.TOTP(base32_key)
         </div>
         <div class="list-right">
             <div class="other-title">
-                Python與C#記憶體比較
+                Task queue[一] Tq基礎
             </div>
-            <div class="other-summary">Python 基礎: 變數本身只有存參考地址（在Stack），物件全部都在Heap，變數只有指向作用，所以沒有任何</div>
-            <div class="other-date">2023-6-24</div>
+            <div class="other-summary">TaskQueue &amp; MessageQueue 傳送物件 抽象層級 主要設定 相同 Tq 任務 高(基於mq的封裝) 任務的使用方式與處理 異步與分散式 Mq 訊息 低</div>
+            <div class="other-date">2024-1-26</div>
         </div>
     </div>
 </a>
             </a>
         
-            <a href="https://hanksky12.github.io/posts/2023-06-24_pool/">
+            <a href="https://hanksky12.github.io/posts/2023-11-18_mq/">
                 
-<a href="https://hanksky12.github.io/posts/2023-06-24_pool/">
+<a href="https://hanksky12.github.io/posts/2023-11-18_mq/">
     <div class="list-item">
         <div class="icon-other-root">
             
@@ -567,10 +523,10 @@ _otp = pyotp.TOTP(base32_key)
         </div>
         <div class="list-right">
             <div class="other-title">
-                Pool池的概念
+                Message Queue[一] Mq基礎
             </div>
-            <div class="other-summary">What is Pool ? 一個用來管理某種資源，保持某個狀態，降低反覆創建資源的開銷，當你需要使用時，就到Pool拿取</div>
-            <div class="other-date">2023-6-24</div>
+            <div class="other-summary">MessageQueue(MQ) 訊息貯列，協助訊息以非同步方式溝通，常見協議MQTT,AMQP 訊息代理人 經紀人Broker 訊息發送</div>
+            <div class="other-date">2023-11-18</div>
         </div>
     </div>
 </a>
@@ -580,67 +536,13 @@ _otp = pyotp.TOTP(base32_key)
 </div>
         </div>
         <div id="r2">
-            <div id="vcomments"></div>
-<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
-<script type="text/javascript">
-    new Valine({
-        el: '#vcomments',
-        appId: "BbBzDAiKcoWMhYtxAf4UQe2j-MdYXbMMI",
-        appKey: "iBFYxS5U7Zno8VbVhCicaAaL",
-        avatar: "robohash",
-        placeholder: "输入你的想法",
-        requiredFields: ["nick"],
-        visitor:  true ,
-        pageSize:  5 ,
-});
-</script>
-
+            
         </div> 
     </div>
 </div>
 
             </div>
         </div>
-    </div>
-</div>
-
-    
-
-<div class="sponsor">
-    <div class="sponsor-self">
-        <div class="sponsor-title">Sponsor</div>
-        <div class="sponsor-btn">
-            
-                
-                    
-                        <div class="sponsor-btn-1 border-r">Wechat</div>
-                    
-                
-                
-            
-                
-                    
-                        <div class="sponsor-btn-2 border-l">Alipay</div>
-                    
-                
-                
-            
-        </div>
-        
-        <div class="sponsor-img">
-            
-                
-                    <img class="sponsor-img-1" src="/images/sponsor/wechat.jpeg" alt="">
-                
-                
-            
-                
-                    <img class="sponsor-img-2" src="/images/sponsor/alipay.jpeg" alt="" style="display: none;">
-                
-                
-            
-        </div>
-        <div class="cancel efct-button">cancel</div>
     </div>
 </div>
 

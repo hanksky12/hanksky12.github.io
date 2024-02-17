@@ -6,7 +6,16 @@
     <description>Recent content in Python on Sky Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Sep 2023 15:31:47 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Feb 2024 12:48:31 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Olympus_Camera</title>
+      <link>https://hanksky12.github.io/posts/2024_02_17_olympus_camera/</link>
+      <pubDate>Sat, 17 Feb 2024 12:48:31 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2024_02_17_olympus_camera/</guid>
+      <description>緣由 自己的相機Olympus，平常要讀取照片，通常用電腦直接讀取sd記憶卡， 這次在mac筆電上想看照</description>
+    </item>
+    
     <item>
       <title>Python Flask 架構</title>
       <link>https://hanksky12.github.io/posts/2023-09-30_python_flask/</link>
