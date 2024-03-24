@@ -6,9 +6,27 @@
     <description>Recent content in Posts on Sky Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 17 Feb 2024 12:48:31 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 24 Mar 2024 08:25:11 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Olympus_Camera</title>
+      <title>Cors [一]同源政策</title>
+      <link>https://hanksky12.github.io/posts/2024_03_24_cors/</link>
+      <pubDate>Sun, 24 Mar 2024 08:25:11 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2024_03_24_cors/</guid>
+      <description>緣由 在工作上，因為整體設計分散式架構和前後端分離，所以有一個前端，對多個後端服務，一個網域的cook</description>
+    </item>
+    
+    <item>
+      <title>Cors [二]跨網域資源共享</title>
+      <link>https://hanksky12.github.io/posts/2024_03_24_cors2/</link>
+      <pubDate>Sun, 24 Mar 2024 08:25:11 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2024_03_24_cors2/</guid>
+      <description>基本認知 以下討論都是在瀏覽器上的限制，如果是自己寫程式，或postman，服務間的呼叫都不受限，這是</description>
+    </item>
+    
+    <item>
+      <title>Olympus Camera</title>
       <link>https://hanksky12.github.io/posts/2024_02_17_olympus_camera/</link>
       <pubDate>Sat, 17 Feb 2024 12:48:31 +0800</pubDate>
       
