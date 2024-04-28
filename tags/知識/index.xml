@@ -6,7 +6,25 @@
     <description>Recent content in 知識 on Sky Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Sep 2023 15:31:47 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/tags/%E7%9F%A5%E8%AD%98/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Apr 2024 10:41:58 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/tags/%E7%9F%A5%E8%AD%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Storage [一] 基礎</title>
+      <link>https://hanksky12.github.io/posts/2024_04_28_storage/</link>
+      <pubDate>Sun, 28 Apr 2024 10:41:58 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2024_04_28_storage/</guid>
+      <description>三大儲存類型 區塊block 檔案file 物件object 儲存層次(從底層到抽象) 物件object&amp;gt</description>
+    </item>
+    
+    <item>
+      <title>Storage [二] Object Storage</title>
+      <link>https://hanksky12.github.io/posts/2024_04_28_storage2/</link>
+      <pubDate>Sun, 28 Apr 2024 10:41:58 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2024_04_28_storage2/</guid>
+      <description>Oss 因公司主要使用阿里雲，所以從Oss介紹一些名詞，其他家應該也差不多 Bucket儲存桶 每個用戶，可以</description>
+    </item>
+    
     <item>
       <title>Python Flask 架構</title>
       <link>https://hanksky12.github.io/posts/2023-09-30_python_flask/</link>

@@ -3,19 +3,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Sky Blog | celery</title>
-    <meta name="description" content=" ">
-    <link rel="canonical" href="https://hanksky12.github.io/tags/celery/" />
+    <title>Sky Blog | Storage [一] 基礎</title>
+    <meta name="description" content="三大儲存類型 區塊block 檔案file 物件object 儲存層次(從底層到抽象) 物件object&gt ">
+    <link rel="canonical" href="https://hanksky12.github.io/posts/2024_04_28_storage/" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <meta property="og:title" content="celery" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://hanksky12.github.io/tags/celery/" />
+    <meta property="og:title" content="Storage [一] 基礎" />
+<meta property="og:description" content="三大儲存類型 區塊block 檔案file 物件object 儲存層次(從底層到抽象) 物件object&gt" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hanksky12.github.io/posts/2024_04_28_storage/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-04-28T10:41:58+08:00" />
+<meta property="article:modified_time" content="2024-04-28T10:41:58+08:00" />
+<meta property="og:see_also" content="https://hanksky12.github.io/posts/2024_04_28_storage2/" />
 
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="celery"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="Storage [一] 基礎"/>
+<meta name="twitter:description" content="三大儲存類型 區塊block 檔案file 物件object 儲存層次(從底層到抽象) 物件object&gt"/>
 
     
         
@@ -187,29 +190,41 @@
 
 
         <div id="content">
-    
 
 
 
 
-
-
-    
-        
-    
 
 
 
 
     <div class="hero">
         
-            
-                <div class="hero-img">
-                    <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt="">
-                </div>
-            
+            <div class="hero-img">
+                <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt="">
+            </div>
+        
         <div class="hero-content">
-            <h1 class="hero-title">Tag: celery</h1>
+            <div class="hero-title">Storage [一] 基礎</div>
+            <div class="hero-subtitle"></div>
+            <div class="hero-date">
+                    <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2024-4-28 &nbsp;</span>
+                    <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2024-4-28 &nbsp;</span>
+                    <span class="no-wrap"><i class="fa fa-folder"></i>
+                        includedIn:
+                        
+                            <a href='
+                                /categories/%E7%A8%8B%E5%BC%8F
+                            '>
+                                程式
+                            </a>
+                    </span>    
+            </div>
+            <div class="timelong">
+                <span class="no-wrap"><i class="fa fa-pencil"></i> wordsCount: 412 &nbsp;</span>
+                <span class="no-wrap"><i class="fa fa-clock-o"></i> readingTime: 1 min &nbsp;</span>
+                <span class="no-wrap"><i class="fa fa-eye"></i> viewers: <span id="busuanzi_value_page_pv"></span></span>
+            </div>
         </div>
     </div>
 
@@ -228,7 +243,7 @@
     
 
 
-<div class="terms-body">
+<div class="content-root">
     <div class="long">
         <button class="tosides-1 text-wbd">
             <i class="fa fa-arrow-right"></i>
@@ -241,278 +256,126 @@
         </button>
     </div>
     
-        <div class="terms-row">
+        <div class="content">
+            <div class="content-self">
+                <h1 id="三大儲存類型">三大儲存類型</h1>
+<ol>
+<li>區塊block</li>
+<li>檔案file</li>
+<li>物件object</li>
+</ol>
+<h1 id="儲存層次從底層到抽象">儲存層次(從底層到抽象)</h1>
+<p>物件object&gt;檔案file&gt;區塊block</p>
+<h1 id="區塊儲存block-storage">區塊儲存block storage</h1>
+<ul>
+<li>適合使用者:系統(作業系統，虛擬機，資料庫)</li>
+<li>架構:Volume，LUN</li>
+<li>協議:SCSI，iSCSI，STAT，NVMe，FC</li>
+<li>是所有儲存類型的根本</li>
+<li>資料切割放在區塊中</li>
+<li>用LBA定位，區塊大小固定</li>
+<li>沒有元數據</li>
+<li>適合結構性資料</li>
+<li>高效率，高頻率</li>
+<li>更新資料的一部分，只會更新對應區塊</li>
+<li>ex:SAN</li>
+</ul>
+<h1 id="檔案儲存file-storage">檔案儲存file storage</h1>
+<ul>
+<li>適合使用者:人類用戶</li>
+<li>架構:階層式，樹狀</li>
+<li>協議:SMB(windows),NFS(linux)</li>
+<li>資料用檔案呈現</li>
+<li>適合人類操作</li>
+<li>ex:NAS</li>
+</ul>
+<h1 id="物件儲存object-storage">物件儲存object storage</h1>
+<ul>
+<li>適合使用者:應用款體</li>
+<li>架構:key-value</li>
+<li>協議:Restful http</li>
+<li>扁平式，無階層</li>
+<li>資料用物件呈現</li>
+<li>適合非結構性資料</li>
+<li>擴充性強</li>
+<li>更新資料的一部分，就要更新整個物件</li>
+<li>ex:aws s3,ali cloud oss</li>
+</ul>
+<h1 id="san">SAN</h1>
+<ul>
+<li>檔案系統在client端</li>
+<li></li>
+</ul>
+<h1 id="nas">NAS</h1>
+<ul>
+<li>檔案系統在server端</li>
+<li>client沒有控制權</li>
+<li>適用檔案協同合作</li>
+</ul>
+
+            </div>
             
-            <div class="terms-root">
-                
-                
-
-
-<div class="card-large">
-    <div class="card-large-img">
-
-        
-                <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt='image loading failed'>
-        
-    </div>
-    <div class="card-large-content">
-        <div class="up-title"><a href="https://hanksky12.github.io/posts/2024_01_27_celery2/">Task queue[三] Celery(二)</a></div>
-        <div class="up-date">
-            <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2024-1-27 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2024-1-27 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-folder"></i>
-                
-                    includedIn:
+                <div class="tags">
                     
-                        <a href='
-                                        /categories/%E7%A8%8B%E5%BC%8F
+                    <span class="down-type-item">
+                        <div class="type-text">
+                            <a href='
+                                        /tags/storage
                                     '>
-                                程式
+                                <i class="fa fa-tag"></i> storage
                             </a>
-                
-            </span>
-        </div>
-        <div class="down-summary">任務定義 將裝飾器綁到函數 celery = Celery(__name__,broker=broker) @celery.task def add(x: int, y: int) -&gt; int: time.sleep(5) return x + y add 就是一個task 任務使用 完整版 apply_async(args[, kwargs[, …]])</div>
-    </div>
-    <div class="card-readmore">
-        <a href="https://hanksky12.github.io/posts/2024_01_27_celery2/">
-            <span><i class="fa fa-arrow-right"></i></span>
-        </a>
-    </div>
-</div>
-
-
-
-    
-
-
-    <div class="down-type">
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/celery
-                        '>
-                    <i class="fa fa-tag"></i> celery
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/distributed-task-queue
-                        '>
-                    <i class="fa fa-tag"></i> distributed task queue
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/message-queue
-                        '>
-                    <i class="fa fa-tag"></i> message queue
-                </a>
-            </div>
-        </span>
-        
-    </div>
-
-<div class="dang"></div>
-            </div>
-            
-            <div class="terms-root">
-                
-                
-
-
-<div class="card-large">
-    <div class="card-large-img">
-
-        
-                <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt='image loading failed'>
-        
-    </div>
-    <div class="card-large-content">
-        <div class="up-title"><a href="https://hanksky12.github.io/posts/2024_01_27_celery/">Task queue[二] Celery</a></div>
-        <div class="up-date">
-            <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2024-1-27 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2024-1-27 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-folder"></i>
-                
-                    includedIn:
+                        </div>
+                    </span>
                     
-                        <a href='
-                                        /categories/%E7%A8%8B%E5%BC%8F
+                    <span class="down-type-item">
+                        <div class="type-text">
+                            <a href='
+                                        /tags/%E7%9F%A5%E8%AD%98
                                     '>
-                                程式
+                                <i class="fa fa-tag"></i> 知識
                             </a>
-                
-            </span>
-        </div>
-        <div class="down-summary">緣由 在工作上，遇到單機已經過多負荷，所以開始做實作分散式爬蟲 Celery定義 分散式任務隊列處理 架構 任</div>
-    </div>
-    <div class="card-readmore">
-        <a href="https://hanksky12.github.io/posts/2024_01_27_celery/">
-            <span><i class="fa fa-arrow-right"></i></span>
-        </a>
-    </div>
-</div>
-
-
-
-    
-
-
-    <div class="down-type">
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/celery
-                        '>
-                    <i class="fa fa-tag"></i> celery
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/distributed-task-queue
-                        '>
-                    <i class="fa fa-tag"></i> distributed task queue
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/message-queue
-                        '>
-                    <i class="fa fa-tag"></i> message queue
-                </a>
-            </div>
-        </span>
-        
-    </div>
-
-<div class="dang"></div>
-            </div>
-            
-            <div class="terms-root">
-                
-                
-
-
-<div class="card-large">
-    <div class="card-large-img">
-
-        
-                <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt='image loading failed'>
-        
-    </div>
-    <div class="card-large-content">
-        <div class="up-title"><a href="https://hanksky12.github.io/posts/2024_01_26_tq/">Task queue[一] Tq基礎</a></div>
-        <div class="up-date">
-            <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2024-1-26 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2024-1-26 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-folder"></i>
-                
-                    includedIn:
+                        </div>
+                    </span>
                     
-                        <a href='
-                                        /categories/%E7%A8%8B%E5%BC%8F
-                                    '>
-                                程式
-                            </a>
-                
-            </span>
+                </div>
+            
         </div>
-        <div class="down-summary">TaskQueue &amp; MessageQueue 傳送物件 抽象層級 主要設定 相同 Tq 任務 高(基於mq的封裝) 任務的使用方式與處理 異步與分散式 Mq 訊息 低</div>
-    </div>
-    <div class="card-readmore">
-        <a href="https://hanksky12.github.io/posts/2024_01_26_tq/">
-            <span><i class="fa fa-arrow-right"></i></span>
+        
+            
+                <div class="pre-next">
+                    
+    
+        
+        <a href="https://hanksky12.github.io/posts/2024_04_28_storage2/" class="pre pre-last" style="text-align: center;">
+            <span class="pre-icon"><i class="fa fa-hand-o-left"></i></span>
+            <div class="pre-title-root">
+                <span>Storage [二] Object Storage</span>
+            </div>
         </a>
-    </div>
-</div>
-
-
-
+        
+    
     
 
+                </div>
+            
+        
+    
+</div>
 
-    <div class="down-type">
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/celery
-                        '>
-                    <i class="fa fa-tag"></i> celery
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/distributed-task-queue
-                        '>
-                    <i class="fa fa-tag"></i> distributed task queue
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/message-queue
-                        '>
-                    <i class="fa fa-tag"></i> message queue
-                </a>
-            </div>
-        </span>
-        
-    </div>
-
-<div class="dang"></div>
-            </div>
+    
+        <div class="content-last">
+            
+                <button class="aixin content-last-item efct-button">
+                    <i class="fa fa-heart"></i>
+                </button>
+            
+            
+                <button class="pinglun content-last-item efct-button">
+                    <i class="fa fa-comment"></i>
+                </button>
             
         </div>
     
-</div>
 
 
             </div>
@@ -520,6 +383,11 @@
                 
 <div class="zhuti-r-0">
     <div class="zhuti-r-1">
+        
+            <div class="button-r">
+                <button class="button-mulu efct-button" type="button"><span><i class="fa fa-bars"></i></span><span class="bars-text"> content</span></button>
+                <button class="button-comment efct-button" type="button"><span><i class="fa fa-comment"></i></span><span class="comment-text"> comment</span></button>
+            </div>
         
         <div id="r1">
             
@@ -589,33 +457,16 @@
 
 
 
+    
+    
+
 
 <div class="other">
     <div class="other-up">
-        <div class="other-qita text-wbd">latest Posts</div>
+        <div class="other-qita text-wbd">Related Posts</div>
         <div class="xian"></div>
     </div>
     <div class="list">
-        
-            <a href="https://hanksky12.github.io/posts/2024_04_28_storage/">
-                
-<a href="https://hanksky12.github.io/posts/2024_04_28_storage/">
-    <div class="list-item">
-        <div class="icon-other-root">
-            
-                <div class="icon-other" style="background-image: url(  );"></div>
-            
-        </div>
-        <div class="list-right">
-            <div class="other-title">
-                Storage [一] 基礎
-            </div>
-            <div class="other-summary">三大儲存類型 區塊block 檔案file 物件object 儲存層次(從底層到抽象) 物件object&gt</div>
-            <div class="other-date">2024-4-28</div>
-        </div>
-    </div>
-</a>
-            </a>
         
             <a href="https://hanksky12.github.io/posts/2024_04_28_storage2/">
                 
@@ -637,9 +488,9 @@
 </a>
             </a>
         
-            <a href="https://hanksky12.github.io/posts/2024_03_24_cors/">
+            <a href="https://hanksky12.github.io/posts/2023-09-30_python_flask/">
                 
-<a href="https://hanksky12.github.io/posts/2024_03_24_cors/">
+<a href="https://hanksky12.github.io/posts/2023-09-30_python_flask/">
     <div class="list-item">
         <div class="icon-other-root">
             
@@ -648,18 +499,18 @@
         </div>
         <div class="list-right">
             <div class="other-title">
-                Cors [一]同源政策
+                Python Flask 架構
             </div>
-            <div class="other-summary">緣由 在工作上，因為整體設計分散式架構和前後端分離，所以有一個前端，對多個後端服務，一個網域的cook</div>
-            <div class="other-date">2024-3-24</div>
+            <div class="other-summary">flask網站開發 之前讀過這本O&rsquo;Reilly的 Flask Web Development(2 Ed.)，就很喜歡裡面建構大型應用</div>
+            <div class="other-date">2023-9-30</div>
         </div>
     </div>
 </a>
             </a>
         
-            <a href="https://hanksky12.github.io/posts/2024_03_24_cors2/">
+            <a href="https://hanksky12.github.io/posts/2023-09-16_python_logging/">
                 
-<a href="https://hanksky12.github.io/posts/2024_03_24_cors2/">
+<a href="https://hanksky12.github.io/posts/2023-09-16_python_logging/">
     <div class="list-item">
         <div class="icon-other-root">
             
@@ -668,18 +519,18 @@
         </div>
         <div class="list-right">
             <div class="other-title">
-                Cors [二]跨網域資源共享
+                Python Logging 在多線程進階應用
             </div>
-            <div class="other-summary">基本認知 以下討論都是在瀏覽器上的限制，如果是自己寫程式，或postman，服務間的呼叫都不受限，這是</div>
-            <div class="other-date">2024-3-24</div>
+            <div class="other-summary">前言 最近工作上碰到自己的需求，想在定期專案中，對多線程中，同類型放同一個檔案，方便之後做trace code</div>
+            <div class="other-date">2023-9-16</div>
         </div>
     </div>
 </a>
             </a>
         
-            <a href="https://hanksky12.github.io/posts/2024_02_17_olympus_camera/">
+            <a href="https://hanksky12.github.io/posts/2023-07-16_rpa/">
                 
-<a href="https://hanksky12.github.io/posts/2024_02_17_olympus_camera/">
+<a href="https://hanksky12.github.io/posts/2023-07-16_rpa/">
     <div class="list-item">
         <div class="icon-other-root">
             
@@ -688,10 +539,30 @@
         </div>
         <div class="list-right">
             <div class="other-title">
-                Olympus Camera
+                RPA，過去工作經驗分享
             </div>
-            <div class="other-summary">緣由 自己的相機Olympus，平常要讀取照片，通常用電腦直接讀取sd記憶卡， 這次在mac筆電上想看照</div>
-            <div class="other-date">2024-2-17</div>
+            <div class="other-summary">RPA 機器流程自動化，以程式模擬人類操作系統，去取代人工達成自動化 白話:能自動打怪的外掛 為何能存在 當公司</div>
+            <div class="other-date">2023-7-16</div>
+        </div>
+    </div>
+</a>
+            </a>
+        
+            <a href="https://hanksky12.github.io/posts/2023-06-24_python%E8%88%87c#%E8%A8%98%E6%86%B6%E9%AB%94%E6%AF%94%E8%BC%83/">
+                
+<a href="https://hanksky12.github.io/posts/2023-06-24_python%E8%88%87c#%E8%A8%98%E6%86%B6%E9%AB%94%E6%AF%94%E8%BC%83/">
+    <div class="list-item">
+        <div class="icon-other-root">
+            
+                <div class="icon-other" style="background-image: url(  );"></div>
+            
+        </div>
+        <div class="list-right">
+            <div class="other-title">
+                Python與C#記憶體比較
+            </div>
+            <div class="other-summary">Python 基礎: 變數本身只有存參考地址（在Stack），物件全部都在Heap，變數只有指向作用，所以沒有任何</div>
+            <div class="other-date">2023-6-24</div>
         </div>
     </div>
 </a>
@@ -701,13 +572,67 @@
 </div>
         </div>
         <div id="r2">
-            
+            <div id="vcomments"></div>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        appId: "BbBzDAiKcoWMhYtxAf4UQe2j-MdYXbMMI",
+        appKey: "iBFYxS5U7Zno8VbVhCicaAaL",
+        avatar: "robohash",
+        placeholder: "输入你的想法",
+        requiredFields: ["nick"],
+        visitor:  true ,
+        pageSize:  5 ,
+});
+</script>
+
         </div> 
     </div>
 </div>
 
             </div>
         </div>
+    </div>
+</div>
+
+    
+
+<div class="sponsor">
+    <div class="sponsor-self">
+        <div class="sponsor-title">Sponsor</div>
+        <div class="sponsor-btn">
+            
+                
+                    
+                        <div class="sponsor-btn-1 border-r">Wechat</div>
+                    
+                
+                
+            
+                
+                    
+                        <div class="sponsor-btn-2 border-l">Alipay</div>
+                    
+                
+                
+            
+        </div>
+        
+        <div class="sponsor-img">
+            
+                
+                    <img class="sponsor-img-1" src="/images/sponsor/wechat.jpeg" alt="">
+                
+                
+            
+                
+                    <img class="sponsor-img-2" src="/images/sponsor/alipay.jpeg" alt="" style="display: none;">
+                
+                
+            
+        </div>
+        <div class="cancel efct-button">cancel</div>
     </div>
 </div>
 

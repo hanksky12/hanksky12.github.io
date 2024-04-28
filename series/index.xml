@@ -6,7 +6,16 @@
     <description>Recent content in Series on Sky Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 24 Mar 2024 08:25:11 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 28 Apr 2024 10:41:58 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Storage</title>
+      <link>https://hanksky12.github.io/series/storage/</link>
+      <pubDate>Sun, 28 Apr 2024 10:41:58 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/series/storage/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Cors</title>
       <link>https://hanksky12.github.io/series/cors/</link>
