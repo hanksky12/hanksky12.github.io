@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>企業級軟體架構模式 on Sky Blog</title>
+    <link>https://hanksky12.github.io/tags/%E4%BC%81%E6%A5%AD%E7%B4%9A%E8%BB%9F%E9%AB%94%E6%9E%B6%E6%A7%8B%E6%A8%A1%E5%BC%8F/</link>
+    <description>Recent content in 企業級軟體架構模式 on Sky Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 09 Jun 2024 10:46:19 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/tags/%E4%BC%81%E6%A5%AD%E7%B4%9A%E8%BB%9F%E9%AB%94%E6%9E%B6%E6%A7%8B%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PoEAA Layer分層</title>
+      <link>https://hanksky12.github.io/posts/2024_06_09_poeaa_layer/</link>
+      <pubDate>Sun, 09 Jun 2024 10:46:19 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2024_06_09_poeaa_layer/</guid>
+      <description>分層 在不管是軟體的開發或硬體架構，分層的作法到處都是，雖然分層讓層與層之間，多了一個轉換的動作， 但一</description>
+    </item>
+    
+  </channel>
+</rss>
