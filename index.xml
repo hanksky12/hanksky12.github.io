@@ -6,7 +6,25 @@
     <description>Recent content on Sky Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Jul 2024 21:27:34 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Nov 2024 10:23:51 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Message Queue[三] Kafka</title>
+      <link>https://hanksky12.github.io/posts/2024_11_23_kafka/</link>
+      <pubDate>Sat, 23 Nov 2024 10:23:51 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2024_11_23_kafka/</guid>
+      <description>緣由 因為工作學了rabbitMQ，所以閒暇之餘來學kafka，想知道兩者的差異 比較 速度 訊息保證 訊息大</description>
+    </item>
+    
+    <item>
+      <title>Architecture_Patterns_With_Python基礎概念</title>
+      <link>https://hanksky12.github.io/posts/2024_09_01_architecture_patterns_with_python/</link>
+      <pubDate>Sun, 01 Sep 2024 09:55:08 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2024_09_01_architecture_patterns_with_python/</guid>
+      <description>Value Object 值物件 定義:單存資料，沒有特定身份，通常讓他不可變 兩個物件相等的條件是:所有值相等 python 實作方式 dataclass 例</description>
+    </item>
+    
     <item>
       <title>Process &amp; Thread [一]</title>
       <link>https://hanksky12.github.io/posts/2024_07_25_process_thread1/</link>

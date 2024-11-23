@@ -6,7 +6,52 @@
     <description>Recent content in Tags on Sky Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Jul 2024 21:27:34 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Nov 2024 10:23:51 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>distributed task queue</title>
+      <link>https://hanksky12.github.io/tags/distributed-task-queue/</link>
+      <pubDate>Sat, 23 Nov 2024 10:23:51 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/tags/distributed-task-queue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kafka</title>
+      <link>https://hanksky12.github.io/tags/kafka/</link>
+      <pubDate>Sat, 23 Nov 2024 10:23:51 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/tags/kafka/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>message queue</title>
+      <link>https://hanksky12.github.io/tags/message-queue/</link>
+      <pubDate>Sat, 23 Nov 2024 10:23:51 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/tags/message-queue/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>DDD</title>
+      <link>https://hanksky12.github.io/tags/ddd/</link>
+      <pubDate>Sun, 01 Sep 2024 09:55:08 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/tags/ddd/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>知識</title>
+      <link>https://hanksky12.github.io/tags/%E7%9F%A5%E8%AD%98/</link>
+      <pubDate>Sun, 01 Sep 2024 09:55:08 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/tags/%E7%9F%A5%E8%AD%98/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Coroutines</title>
       <link>https://hanksky12.github.io/tags/coroutines/</link>
@@ -40,15 +85,6 @@
       <pubDate>Thu, 25 Jul 2024 21:27:34 +0800</pubDate>
       
       <guid>https://hanksky12.github.io/tags/thread/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>知識</title>
-      <link>https://hanksky12.github.io/tags/%E7%9F%A5%E8%AD%98/</link>
-      <pubDate>Thu, 25 Jul 2024 21:27:34 +0800</pubDate>
-      
-      <guid>https://hanksky12.github.io/tags/%E7%9F%A5%E8%AD%98/</guid>
       <description></description>
     </item>
     
@@ -157,24 +193,6 @@
       <pubDate>Sat, 27 Jan 2024 09:10:43 +0800</pubDate>
       
       <guid>https://hanksky12.github.io/tags/celery/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>distributed task queue</title>
-      <link>https://hanksky12.github.io/tags/distributed-task-queue/</link>
-      <pubDate>Sat, 27 Jan 2024 09:10:43 +0800</pubDate>
-      
-      <guid>https://hanksky12.github.io/tags/distributed-task-queue/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>message queue</title>
-      <link>https://hanksky12.github.io/tags/message-queue/</link>
-      <pubDate>Sat, 27 Jan 2024 09:10:43 +0800</pubDate>
-      
-      <guid>https://hanksky12.github.io/tags/message-queue/</guid>
       <description></description>
     </item>
     

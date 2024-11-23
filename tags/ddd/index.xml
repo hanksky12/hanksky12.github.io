@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DDD on Sky Blog</title>
+    <link>https://hanksky12.github.io/tags/ddd/</link>
+    <description>Recent content in DDD on Sky Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Sep 2024 09:55:08 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/tags/ddd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Architecture_Patterns_With_Python基礎概念</title>
+      <link>https://hanksky12.github.io/posts/2024_09_01_architecture_patterns_with_python/</link>
+      <pubDate>Sun, 01 Sep 2024 09:55:08 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2024_09_01_architecture_patterns_with_python/</guid>
+      <description>Value Object 值物件 定義:單存資料，沒有特定身份，通常讓他不可變 兩個物件相等的條件是:所有值相等 python 實作方式 dataclass 例</description>
+    </item>
+    
+  </channel>
+</rss>

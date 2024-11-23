@@ -6,7 +6,16 @@
     <description>Recent content in Queue on Sky Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 Jan 2024 09:10:43 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/series/queue/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 23 Nov 2024 10:23:51 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/series/queue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Message Queue[三] Kafka</title>
+      <link>https://hanksky12.github.io/posts/2024_11_23_kafka/</link>
+      <pubDate>Sat, 23 Nov 2024 10:23:51 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2024_11_23_kafka/</guid>
+      <description>緣由 因為工作學了rabbitMQ，所以閒暇之餘來學kafka，想知道兩者的差異 比較 速度 訊息保證 訊息大</description>
+    </item>
+    
     <item>
       <title>Task queue[三] Celery(二)</title>
       <link>https://hanksky12.github.io/posts/2024_01_27_celery2/</link>
