@@ -6,7 +6,25 @@
     <description>Recent content in Tags on Sky Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 Nov 2024 10:23:51 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Jan 2025 10:23:51 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>爬蟲</title>
+      <link>https://hanksky12.github.io/tags/%E7%88%AC%E8%9F%B2/</link>
+      <pubDate>Mon, 27 Jan 2025 10:23:51 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/tags/%E7%88%AC%E8%9F%B2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>電子書</title>
+      <link>https://hanksky12.github.io/tags/%E9%9B%BB%E5%AD%90%E6%9B%B8/</link>
+      <pubDate>Mon, 27 Jan 2025 10:23:51 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/tags/%E9%9B%BB%E5%AD%90%E6%9B%B8/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>distributed task queue</title>
       <link>https://hanksky12.github.io/tags/distributed-task-queue/</link>
