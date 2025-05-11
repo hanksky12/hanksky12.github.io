@@ -6,7 +6,16 @@
     <description>Recent content in Computer Science on Sky Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 24 Jun 2023 09:09:32 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/series/computer-science/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 May 2025 11:23:51 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/series/computer-science/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WebSocket</title>
+      <link>https://hanksky12.github.io/posts/2025_05_11_websocket/</link>
+      <pubDate>Sun, 11 May 2025 11:23:51 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2025_05_11_websocket/</guid>
+      <description>緣由 因寫side project重新接觸到WebSocket，順便理清以前模糊的概念 關於WebSock</description>
+    </item>
+    
     <item>
       <title>Pool池的概念</title>
       <link>https://hanksky12.github.io/posts/2023-06-24_pool/</link>

@@ -3,19 +3,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Sky Blog | rabbit mq</title>
-    <meta name="description" content=" ">
-    <link rel="canonical" href="https://hanksky12.github.io/tags/rabbit-mq/" />
+    <title>Sky Blog | WebSocket</title>
+    <meta name="description" content="緣由 因寫side project重新接觸到WebSocket，順便理清以前模糊的概念 關於WebSock ">
+    <link rel="canonical" href="https://hanksky12.github.io/posts/2025_05_11_websocket/" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <meta property="og:title" content="rabbit mq" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://hanksky12.github.io/tags/rabbit-mq/" />
+    <meta property="og:title" content="WebSocket" />
+<meta property="og:description" content="緣由 因寫side project重新接觸到WebSocket，順便理清以前模糊的概念 關於WebSock" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hanksky12.github.io/posts/2025_05_11_websocket/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-05-11T11:23:51+08:00" />
+<meta property="article:modified_time" content="2025-05-11T11:23:51+08:00" />
+<meta property="og:see_also" content="https://hanksky12.github.io/posts/2023-06-24_pool/" />
 
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="rabbit mq"/>
-<meta name="twitter:description" content=""/>
+<meta name="twitter:title" content="WebSocket"/>
+<meta name="twitter:description" content="緣由 因寫side project重新接觸到WebSocket，順便理清以前模糊的概念 關於WebSock"/>
 
     
         
@@ -187,29 +190,41 @@
 
 
         <div id="content">
-    
 
 
 
 
-
-
-    
-        
-    
 
 
 
 
     <div class="hero">
         
-            
-                <div class="hero-img">
-                    <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt="">
-                </div>
-            
+            <div class="hero-img">
+                <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt="">
+            </div>
+        
         <div class="hero-content">
-            <h1 class="hero-title">Tag: rabbit mq</h1>
+            <div class="hero-title">WebSocket</div>
+            <div class="hero-subtitle"></div>
+            <div class="hero-date">
+                    <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2025-5-11 &nbsp;</span>
+                    <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2025-5-11 &nbsp;</span>
+                    <span class="no-wrap"><i class="fa fa-folder"></i>
+                        includedIn:
+                        
+                            <a href='
+                                /categories/%E7%A8%8B%E5%BC%8F
+                            '>
+                                程式
+                            </a>
+                    </span>    
+            </div>
+            <div class="timelong">
+                <span class="no-wrap"><i class="fa fa-pencil"></i> wordsCount: 769 &nbsp;</span>
+                <span class="no-wrap"><i class="fa fa-clock-o"></i> readingTime: 2 mins &nbsp;</span>
+                <span class="no-wrap"><i class="fa fa-eye"></i> viewers: <span id="busuanzi_value_page_pv"></span></span>
+            </div>
         </div>
     </div>
 
@@ -228,7 +243,7 @@
     
 
 
-<div class="terms-body">
+<div class="content-root">
     <div class="long">
         <button class="tosides-1 text-wbd">
             <i class="fa fa-arrow-right"></i>
@@ -241,202 +256,98 @@
         </button>
     </div>
     
-        <div class="terms-row">
+        <div class="content">
+            <div class="content-self">
+                <h1 id="緣由">緣由</h1>
+<p>因寫side project重新接觸到WebSocket，順便理清以前模糊的概念</p>
+<h1 id="關於websocket-vs-http">關於WebSocket Vs HTTP</h1>
+<h3 id="一樣">一樣</h3>
+<ol>
+<li>都是應用層的協定</li>
+<li>都是基於TCP的連線</li>
+<li>都走在80/443 port</li>
+<li>都有未加密版本ws://  http:// 和加密版本wss:// https://</li>
+</ol>
+<h3 id="不一樣">不一樣</h3>
+<ol>
+<li>WebSocket是雙向通訊(server可以主動向client)，HTTP是單向通訊</li>
+<li>WebSocket是持久連線，HTTP是短暫連線</li>
+<li>WebSocket是基於事件(OnOpen,OnMsg)，HTTP是基於請求</li>
+<li>WebSocket是基於frame，HTTP是基於request/response</li>
+</ol>
+<h1 id="解決什麼問題">解決什麼問題?</h1>
+<ol>
+<li>HTTP協定是單向，如果server端有事件要通知前端，只能等client端不斷的輪詢server端</li>
+<li>而WebSocket是雙向的，初步建立連線後，後續的溝通是即時且不用重建TCP連線</li>
+</ol>
+<h1 id="建立連線">建立連線</h1>
+<p>雖然協議是ws://或wss://，但實際建立連線是基於HTTP升級，所以port才會跟http相同</p>
+<h3 id="client端">Client端</h3>
+<ol>
+<li>client溝通時握手階段一定是http get方法，header裡面會有一個Upgrade的欄位和相關資訊(套件實作會自動帶)</li>
+<li>因為是雙向溝通，也要定義當server傳事件OnOpen,OnMsg,OnClose,OnError的處理方式</li>
+</ol>
+<h3 id="server端">Server端</h3>
+<ol>
+<li>server端啟動的時候，先啟動一個HTTP server，使用ws套件去定義當有ws請求時，對每種事件的處理方式OnOpen,OnMsg,OnClose,OnError</li>
+<li>在特定路由get方法下，將HTTP請求轉換成ws請求，通常此時會將http get帶過來的身份驗證token內容放入ws內，提供後續OnOpen的使用</li>
+<li>不管哪一個http路由升級成ws，在OnMsg的請求內是無法分辨從哪一個路由過來的，所以要自己去實作</li>
+<li>因為是長連線，不用每個訊息都帶身份驗證</li>
+</ol>
+
+            </div>
             
-            <div class="terms-root">
-                
-                
-
-
-<div class="card-large">
-    <div class="card-large-img">
-
-        
-                <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt='image loading failed'>
-        
-    </div>
-    <div class="card-large-content">
-        <div class="up-title"><a href="https://hanksky12.github.io/posts/2023-11-18_mq/">Message Queue[一] Mq基礎</a></div>
-        <div class="up-date">
-            <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2023-11-18 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2023-11-18 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-folder"></i>
-                
-                    includedIn:
+                <div class="tags">
                     
-                        <a href='
-                                        /categories/%E7%A8%8B%E5%BC%8F
+                    <span class="down-type-item">
+                        <div class="type-text">
+                            <a href='
+                                        /tags/%E7%9F%A5%E8%AD%98
                                     '>
-                                程式
+                                <i class="fa fa-tag"></i> 知識
                             </a>
-                
-            </span>
-        </div>
-        <div class="down-summary">MessageQueue(MQ) 訊息貯列，協助訊息以非同步方式溝通，常見協議MQTT,AMQP 訊息代理人 經紀人Broker 訊息發送</div>
-    </div>
-    <div class="card-readmore">
-        <a href="https://hanksky12.github.io/posts/2023-11-18_mq/">
-            <span><i class="fa fa-arrow-right"></i></span>
-        </a>
-    </div>
-</div>
-
-
-
-    
-
-
-    <div class="down-type">
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/rabbit-mq
-                        '>
-                    <i class="fa fa-tag"></i> rabbit mq
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/message-queue
-                        '>
-                    <i class="fa fa-tag"></i> message queue
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/distributed-task-queue
-                        '>
-                    <i class="fa fa-tag"></i> distributed task queue
-                </a>
-            </div>
-        </span>
-        
-    </div>
-
-<div class="dang"></div>
-            </div>
-            
-            <div class="terms-root">
-                
-                
-
-
-<div class="card-large">
-    <div class="card-large-img">
-
-        
-                <img class="lazyload" src="/images/thumbnail.gif" data-src="" alt='image loading failed'>
-        
-    </div>
-    <div class="card-large-content">
-        <div class="up-title"><a href="https://hanksky12.github.io/posts/2023-11-18_rabbit_and_pika/">Message Queue[二] RabbitMq &amp; Pika Pika</a></div>
-        <div class="up-date">
-            <span class="no-wrap"><i class="fa fa-calendar"></i> postedOn: 2023-11-18 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-calendar-check-o"></i> updatedOn: 2023-11-18 &nbsp;</span>
-            <span class="no-wrap"><i class="fa fa-folder"></i>
-                
-                    includedIn:
+                        </div>
+                    </span>
                     
-                        <a href='
-                                        /categories/%E7%A8%8B%E5%BC%8F
-                                    '>
-                                程式
-                            </a>
-                
-            </span>
+                </div>
+            
         </div>
-        <div class="down-summary">緣由 在工作上，因為需要導入發布訂閱模式，故在幾種常見的Mq中做選擇 發布/訂閱 速度 訊息保證 訊息大小 訊息</div>
-    </div>
-    <div class="card-readmore">
-        <a href="https://hanksky12.github.io/posts/2023-11-18_rabbit_and_pika/">
-            <span><i class="fa fa-arrow-right"></i></span>
+        
+            
+                <div class="pre-next">
+                    
+    
+        
+        <a href="https://hanksky12.github.io/posts/2025_05_11_stop_program/" class="pre pre-last" style="text-align: center;">
+            <span class="pre-icon"><i class="fa fa-hand-o-left"></i></span>
+            <div class="pre-title-root">
+                <span>優雅停止程式</span>
+            </div>
         </a>
-    </div>
-</div>
-
-
-
+        
+    
     
 
+                </div>
+            
+        
+    
+</div>
 
-    <div class="down-type">
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/rabbit-mq
-                        '>
-                    <i class="fa fa-tag"></i> rabbit mq
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/pika
-                        '>
-                    <i class="fa fa-tag"></i> pika
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/message-queue
-                        '>
-                    <i class="fa fa-tag"></i> message queue
-                </a>
-            </div>
-        </span>
-        
-        <span class="down-type-item">
-            <div class="shuxian-root">
-                <div class="shuxian"></div>
-            </div>
-            <div class="type-text">
-                <a href='
-                            /tags/distributed-task-queue
-                        '>
-                    <i class="fa fa-tag"></i> distributed task queue
-                </a>
-            </div>
-        </span>
-        
-    </div>
-
-<div class="dang"></div>
-            </div>
+    
+        <div class="content-last">
+            
+                <button class="aixin content-last-item efct-button">
+                    <i class="fa fa-heart"></i>
+                </button>
+            
+            
+                <button class="pinglun content-last-item efct-button">
+                    <i class="fa fa-comment"></i>
+                </button>
             
         </div>
     
-</div>
 
 
             </div>
@@ -444,6 +355,11 @@
                 
 <div class="zhuti-r-0">
     <div class="zhuti-r-1">
+        
+            <div class="button-r">
+                <button class="button-mulu efct-button" type="button"><span><i class="fa fa-bars"></i></span><span class="bars-text"> content</span></button>
+                <button class="button-comment efct-button" type="button"><span><i class="fa fa-comment"></i></span><span class="comment-text"> comment</span></button>
+            </div>
         
         <div id="r1">
             
@@ -513,33 +429,16 @@
 
 
 
+    
+    
+
 
 <div class="other">
     <div class="other-up">
-        <div class="other-qita text-wbd">latest Posts</div>
+        <div class="other-qita text-wbd">Related Posts</div>
         <div class="xian"></div>
     </div>
     <div class="list">
-        
-            <a href="https://hanksky12.github.io/posts/2025_05_11_websocket/">
-                
-<a href="https://hanksky12.github.io/posts/2025_05_11_websocket/">
-    <div class="list-item">
-        <div class="icon-other-root">
-            
-                <div class="icon-other" style="background-image: url(  );"></div>
-            
-        </div>
-        <div class="list-right">
-            <div class="other-title">
-                WebSocket
-            </div>
-            <div class="other-summary">緣由 因寫side project重新接觸到WebSocket，順便理清以前模糊的概念 關於WebSock</div>
-            <div class="other-date">2025-5-11</div>
-        </div>
-    </div>
-</a>
-            </a>
         
             <a href="https://hanksky12.github.io/posts/2025_05_11_stop_program/">
                 
@@ -561,9 +460,9 @@
 </a>
             </a>
         
-            <a href="https://hanksky12.github.io/posts/2025_01_27_book_highlights_crawler/">
+            <a href="https://hanksky12.github.io/posts/2024_09_01_architecture_patterns_with_python/">
                 
-<a href="https://hanksky12.github.io/posts/2025_01_27_book_highlights_crawler/">
+<a href="https://hanksky12.github.io/posts/2024_09_01_architecture_patterns_with_python/">
     <div class="list-item">
         <div class="icon-other-root">
             
@@ -572,18 +471,18 @@
         </div>
         <div class="list-right">
             <div class="other-title">
-                ReadMoo 電子書爬蟲
+                Architecture_Patterns_With_Python基礎概念
             </div>
-            <div class="other-summary">緣由 因閱讀電子書，一直有畫重點的習慣，但官方提供的匯出csv或html，沒有排序，也有輸出總量的限制</div>
-            <div class="other-date">2025-1-27</div>
+            <div class="other-summary">Value Object 值物件 定義:單存資料，沒有特定身份，通常讓他不可變 兩個物件相等的條件是:所有值相等 python 實作方式 dataclass 例</div>
+            <div class="other-date">2024-9-1</div>
         </div>
     </div>
 </a>
             </a>
         
-            <a href="https://hanksky12.github.io/posts/2025_01_28_book_highlights/">
+            <a href="https://hanksky12.github.io/posts/2024_07_25_process_thread1/">
                 
-<a href="https://hanksky12.github.io/posts/2025_01_28_book_highlights/">
+<a href="https://hanksky12.github.io/posts/2024_07_25_process_thread1/">
     <div class="list-item">
         <div class="icon-other-root">
             
@@ -592,18 +491,18 @@
         </div>
         <div class="list-right">
             <div class="other-title">
-                電子書重點整理
+                Process &amp; Thread [一]
             </div>
-            <div class="other-summary">總書單 致富覺察 多巴胺國度 勝算 快思慢想 晶片戰爭 給予 花掉的錢都會自己流回來 一個投機者的告白之金錢遊戲 一個</div>
-            <div class="other-date">2025-1-27</div>
+            <div class="other-summary">前言 之前在工作上，已經運用多線程，協程，但對於底層運行，還不到通透的地步，重新整理知識 基礎知識 Program 程式</div>
+            <div class="other-date">2024-7-25</div>
         </div>
     </div>
 </a>
             </a>
         
-            <a href="https://hanksky12.github.io/posts/2024_11_23_kafka/">
+            <a href="https://hanksky12.github.io/posts/2024_07_25_process_thread2/">
                 
-<a href="https://hanksky12.github.io/posts/2024_11_23_kafka/">
+<a href="https://hanksky12.github.io/posts/2024_07_25_process_thread2/">
     <div class="list-item">
         <div class="icon-other-root">
             
@@ -612,10 +511,30 @@
         </div>
         <div class="list-right">
             <div class="other-title">
-                Message Queue[三] Kafka
+                Process &amp; Thread [二]
             </div>
-            <div class="other-summary">緣由 因為工作學了rabbitMQ，所以閒暇之餘來學kafka，想知道兩者的差異 比較 速度 訊息保證 訊息大</div>
-            <div class="other-date">2024-11-23</div>
+            <div class="other-summary">Python Global Interpreter Lock 一個GIL鎖，主要是在Cpython的解釋器上，在每個進程生成時，會有一個解釋器負責解釋 ，對</div>
+            <div class="other-date">2024-7-25</div>
+        </div>
+    </div>
+</a>
+            </a>
+        
+            <a href="https://hanksky12.github.io/posts/2024_06_09_poeaa_layer/">
+                
+<a href="https://hanksky12.github.io/posts/2024_06_09_poeaa_layer/">
+    <div class="list-item">
+        <div class="icon-other-root">
+            
+                <div class="icon-other" style="background-image: url(  );"></div>
+            
+        </div>
+        <div class="list-right">
+            <div class="other-title">
+                PoEAA Layer分層
+            </div>
+            <div class="other-summary">分層 在不管是軟體的開發或硬體架構，分層的作法到處都是，雖然分層讓層與層之間，多了一個轉換的動作， 但一</div>
+            <div class="other-date">2024-6-9</div>
         </div>
     </div>
 </a>
@@ -625,13 +544,67 @@
 </div>
         </div>
         <div id="r2">
-            
+            <div id="vcomments"></div>
+<script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+<script type="text/javascript">
+    new Valine({
+        el: '#vcomments',
+        appId: "BbBzDAiKcoWMhYtxAf4UQe2j-MdYXbMMI",
+        appKey: "iBFYxS5U7Zno8VbVhCicaAaL",
+        avatar: "robohash",
+        placeholder: "输入你的想法",
+        requiredFields: ["nick"],
+        visitor:  true ,
+        pageSize:  5 ,
+});
+</script>
+
         </div> 
     </div>
 </div>
 
             </div>
         </div>
+    </div>
+</div>
+
+    
+
+<div class="sponsor">
+    <div class="sponsor-self">
+        <div class="sponsor-title">Sponsor</div>
+        <div class="sponsor-btn">
+            
+                
+                    
+                        <div class="sponsor-btn-1 border-r">Wechat</div>
+                    
+                
+                
+            
+                
+                    
+                        <div class="sponsor-btn-2 border-l">Alipay</div>
+                    
+                
+                
+            
+        </div>
+        
+        <div class="sponsor-img">
+            
+                
+                    <img class="sponsor-img-1" src="/images/sponsor/wechat.jpeg" alt="">
+                
+                
+            
+                
+                    <img class="sponsor-img-2" src="/images/sponsor/alipay.jpeg" alt="" style="display: none;">
+                
+                
+            
+        </div>
+        <div class="cancel efct-button">cancel</div>
     </div>
 </div>
 

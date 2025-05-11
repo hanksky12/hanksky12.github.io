@@ -6,7 +6,25 @@
     <description>Recent content on Sky Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jan 2025 10:23:51 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 11 May 2025 11:23:51 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WebSocket</title>
+      <link>https://hanksky12.github.io/posts/2025_05_11_websocket/</link>
+      <pubDate>Sun, 11 May 2025 11:23:51 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2025_05_11_websocket/</guid>
+      <description>緣由 因寫side project重新接觸到WebSocket，順便理清以前模糊的概念 關於WebSock</description>
+    </item>
+    
+    <item>
+      <title>優雅停止程式</title>
+      <link>https://hanksky12.github.io/posts/2025_05_11_stop_program/</link>
+      <pubDate>Sun, 11 May 2025 10:23:51 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2025_05_11_stop_program/</guid>
+      <description>緣由 因為工作加入新專案，看到對停止程式有專門做處理，才回頭思考自己對這部分的研究不足 關於OS訊號 通常</description>
+    </item>
+    
     <item>
       <title>ReadMoo 電子書爬蟲</title>
       <link>https://hanksky12.github.io/posts/2025_01_27_book_highlights_crawler/</link>
