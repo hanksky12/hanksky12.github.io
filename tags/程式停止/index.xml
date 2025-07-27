@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>程式停止 on Sky Blog</title>
+    <link>https://hanksky12.github.io/tags/%E7%A8%8B%E5%BC%8F%E5%81%9C%E6%AD%A2/</link>
+    <description>Recent content in 程式停止 on Sky Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 27 Jul 2025 10:23:51 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/tags/%E7%A8%8B%E5%BC%8F%E5%81%9C%E6%AD%A2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>優雅停止程式2</title>
+      <link>https://hanksky12.github.io/posts/2025_07_27_stop_program2/</link>
+      <pubDate>Sun, 27 Jul 2025 10:23:51 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2025_07_27_stop_program2/</guid>
+      <description>Go 實作Demo 單一goroutine的優雅停止，當接收到中斷信號時，能夠讓程式在完成當前任務後正常退</description>
+    </item>
+    
+    <item>
+      <title>優雅停止程式</title>
+      <link>https://hanksky12.github.io/posts/2025_05_11_stop_program1/</link>
+      <pubDate>Sun, 11 May 2025 10:23:51 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2025_05_11_stop_program1/</guid>
+      <description>緣由 因為工作加入新專案，看到對停止程式有專門做處理，才回頭思考自己對這部分的研究不足 關於OS訊號 通常</description>
+    </item>
+    
+  </channel>
+</rss>
