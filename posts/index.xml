@@ -6,7 +6,25 @@
     <description>Recent content in Posts on Sky Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 11 May 2025 11:23:51 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 27 Jul 2025 10:23:51 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Process &amp; Thread [三] Coroutines</title>
+      <link>https://hanksky12.github.io/posts/2025_07_27_process_thread3/</link>
+      <pubDate>Sun, 27 Jul 2025 10:23:51 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2025_07_27_process_thread3/</guid>
+      <description>共享資源 優點: 減少記憶體使用量，因為多個協程或線程可以用同一個資源。 提高速度，因為資源已經存在，而不</description>
+    </item>
+    
+    <item>
+      <title>優雅停止程式2</title>
+      <link>https://hanksky12.github.io/posts/2025_07_27_stop_program2/</link>
+      <pubDate>Sun, 27 Jul 2025 10:23:51 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2025_07_27_stop_program2/</guid>
+      <description>Go 實作Demo 單一goroutine的優雅停止，當接收到中斷信號時，能夠讓程式在完成當前任務後正常退</description>
+    </item>
+    
     <item>
       <title>WebSocket</title>
       <link>https://hanksky12.github.io/posts/2025_05_11_websocket/</link>
@@ -18,10 +36,10 @@
     
     <item>
       <title>優雅停止程式</title>
-      <link>https://hanksky12.github.io/posts/2025_05_11_stop_program/</link>
+      <link>https://hanksky12.github.io/posts/2025_05_11_stop_program1/</link>
       <pubDate>Sun, 11 May 2025 10:23:51 +0800</pubDate>
       
-      <guid>https://hanksky12.github.io/posts/2025_05_11_stop_program/</guid>
+      <guid>https://hanksky12.github.io/posts/2025_05_11_stop_program1/</guid>
       <description>緣由 因為工作加入新專案，看到對停止程式有專門做處理，才回頭思考自己對這部分的研究不足 關於OS訊號 通常</description>
     </item>
     
