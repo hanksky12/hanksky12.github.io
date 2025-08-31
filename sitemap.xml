@@ -3,21 +3,39 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://hanksky12.github.io/categories/</loc>
-    <lastmod>2025-07-27T10:23:51+08:00</lastmod>
+    <lastmod>2025-08-31T10:23:51+08:00</lastmod>
   </url><url>
-    <loc>https://hanksky12.github.io/tags/coroutines/</loc>
+    <loc>https://hanksky12.github.io/posts/</loc>
+    <lastmod>2025-08-31T10:23:51+08:00</lastmod>
+  </url><url>
+    <loc>https://hanksky12.github.io/tags/redis/</loc>
+    <lastmod>2025-08-31T10:23:51+08:00</lastmod>
+  </url><url>
+    <loc>https://hanksky12.github.io/posts/2025_08_31_redis%E5%AF%A6%E5%8B%99%E5%BF%83%E5%BE%97/</loc>
+    <lastmod>2025-08-31T10:23:51+08:00</lastmod>
+  </url><url>
+    <loc>https://hanksky12.github.io/</loc>
+    <lastmod>2025-08-31T10:23:51+08:00</lastmod>
+  </url><url>
+    <loc>https://hanksky12.github.io/tags/</loc>
+    <lastmod>2025-08-31T10:23:51+08:00</lastmod>
+  </url><url>
+    <loc>https://hanksky12.github.io/tags/%E7%9F%A5%E8%AD%98/</loc>
+    <lastmod>2025-08-31T10:23:51+08:00</lastmod>
+  </url><url>
+    <loc>https://hanksky12.github.io/categories/%E7%A8%8B%E5%BC%8F/</loc>
+    <lastmod>2025-08-31T10:23:51+08:00</lastmod>
+  </url><url>
+    <loc>https://hanksky12.github.io/tags/%E8%B3%87%E6%96%99%E5%BA%AB/</loc>
+    <lastmod>2025-08-31T10:23:51+08:00</lastmod>
+  </url><url>
+    <loc>https://hanksky12.github.io/tags/coroutine/</loc>
     <lastmod>2025-07-27T10:23:51+08:00</lastmod>
   </url><url>
     <loc>https://hanksky12.github.io/tags/go/</loc>
     <lastmod>2025-07-27T10:23:51+08:00</lastmod>
   </url><url>
-    <loc>https://hanksky12.github.io/posts/</loc>
-    <lastmod>2025-07-27T10:23:51+08:00</lastmod>
-  </url><url>
     <loc>https://hanksky12.github.io/tags/process/</loc>
-    <lastmod>2025-07-27T10:23:51+08:00</lastmod>
-  </url><url>
-    <loc>https://hanksky12.github.io/posts/2025_07_27_process_thread3/</loc>
     <lastmod>2025-07-27T10:23:51+08:00</lastmod>
   </url><url>
     <loc>https://hanksky12.github.io/tags/python/</loc>
@@ -26,22 +44,16 @@
     <loc>https://hanksky12.github.io/series/</loc>
     <lastmod>2025-07-27T10:23:51+08:00</lastmod>
   </url><url>
-    <loc>https://hanksky12.github.io/</loc>
+    <loc>https://hanksky12.github.io/tags/synchronization/</loc>
     <lastmod>2025-07-27T10:23:51+08:00</lastmod>
   </url><url>
-    <loc>https://hanksky12.github.io/tags/</loc>
+    <loc>https://hanksky12.github.io/posts/2025_07_27_synchronization_problem1/</loc>
     <lastmod>2025-07-27T10:23:51+08:00</lastmod>
   </url><url>
     <loc>https://hanksky12.github.io/tags/thread/</loc>
     <lastmod>2025-07-27T10:23:51+08:00</lastmod>
   </url><url>
     <loc>https://hanksky12.github.io/posts/2025_07_27_stop_program2/</loc>
-    <lastmod>2025-07-27T10:23:51+08:00</lastmod>
-  </url><url>
-    <loc>https://hanksky12.github.io/tags/%E7%9F%A5%E8%AD%98/</loc>
-    <lastmod>2025-07-27T10:23:51+08:00</lastmod>
-  </url><url>
-    <loc>https://hanksky12.github.io/categories/%E7%A8%8B%E5%BC%8F/</loc>
     <lastmod>2025-07-27T10:23:51+08:00</lastmod>
   </url><url>
     <loc>https://hanksky12.github.io/tags/%E7%A8%8B%E5%BC%8F%E5%81%9C%E6%AD%A2/</loc>
@@ -159,9 +171,6 @@
     <lastmod>2024-03-24T08:25:11+08:00</lastmod>
   </url><url>
     <loc>https://hanksky12.github.io/tags/asyncio/</loc>
-    <lastmod>2024-02-17T12:48:31+08:00</lastmod>
-  </url><url>
-    <loc>https://hanksky12.github.io/tags/coroutine/</loc>
     <lastmod>2024-02-17T12:48:31+08:00</lastmod>
   </url><url>
     <loc>https://hanksky12.github.io/posts/2024_02_17_olympus_camera/</loc>

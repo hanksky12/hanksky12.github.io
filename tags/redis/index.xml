@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>redis on Sky Blog</title>
+    <link>https://hanksky12.github.io/tags/redis/</link>
+    <description>Recent content in redis on Sky Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 31 Aug 2025 10:23:51 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Redis Time out問題實務心得</title>
+      <link>https://hanksky12.github.io/posts/2025_08_31_redis%E5%AF%A6%E5%8B%99%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Sun, 31 Aug 2025 10:23:51 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2025_08_31_redis%E5%AF%A6%E5%8B%99%E5%BF%83%E5%BE%97/</guid>
+      <description>緣起 工作上接手一個redis相關專案，幫專案做一些優化與維護，分享一些實務經驗，該專案只是單純將資料</description>
+    </item>
+    
+  </channel>
+</rss>
