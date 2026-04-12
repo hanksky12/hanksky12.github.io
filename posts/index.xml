@@ -6,7 +6,61 @@
     <description>Recent content in Posts on Sky Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 31 Aug 2025 10:23:51 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Apr 2026 14:06:36 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>設計模式-工廠模式</title>
+      <link>https://hanksky12.github.io/posts/2026-04-12_dp_factory/</link>
+      <pubDate>Sun, 12 Apr 2026 14:06:36 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2026-04-12_dp_factory/</guid>
+      <description>Factory -工廠模式 分類 建立模式-Creational Patterns 主要角色 Product (產品介面)、Concrete Product (具體產品</description>
+    </item>
+    
+    <item>
+      <title>設計模式-工廠模式</title>
+      <link>https://hanksky12.github.io/posts/2026-04-12_dp_strategy/</link>
+      <pubDate>Sun, 12 Apr 2026 14:06:36 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2026-04-12_dp_strategy/</guid>
+      <description>Strategy-策略模式 分類 行為模式-Behavioral Patterns 主要角色 Strategy (策略介面)、Concret</description>
+    </item>
+    
+    <item>
+      <title>Mysql 的 Repeatable Read &amp; 幻讀</title>
+      <link>https://hanksky12.github.io/posts/2026-04-12_tx_mysql_rr/</link>
+      <pubDate>Sun, 12 Apr 2026 11:23:51 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2026-04-12_tx_mysql_rr/</guid>
+      <description>定義 快照讀 : select 當前讀 : select xxx lock in share mode select xxx for update insert (先select 當前) update (先select 當前) delete (先se</description>
+    </item>
+    
+    <item>
+      <title>交易併發問題</title>
+      <link>https://hanksky12.github.io/posts/2026-04-12_tx_isolation_level/</link>
+      <pubDate>Sun, 12 Apr 2026 11:23:51 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2026-04-12_tx_isolation_level/</guid>
+      <description>交易併發常見問題 定義： 問題類型 定義 直覺理解 PostgreSQL RR MySQL RR 備註 Dirty Read 讀到未提交資料 別人還沒 commit 你就看到 ❌不會 ❌不</description>
+    </item>
+    
+    <item>
+      <title>交易快照比較</title>
+      <link>https://hanksky12.github.io/posts/2026-04-12_tx_snapshot/</link>
+      <pubDate>Sun, 12 Apr 2026 11:23:51 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2026-04-12_tx_snapshot/</guid>
+      <description>MVCC (Multi-Version Concurrency Control) 多版本併發控制，核心在於使用版本來代替鎖來解決並行問題 快照定義 PostgreSQL：Snap</description>
+    </item>
+    
+    <item>
+      <title>交易隔離等級</title>
+      <link>https://hanksky12.github.io/posts/2026-04-12_tx_concurrency_problem/</link>
+      <pubDate>Sun, 12 Apr 2026 11:23:51 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2026-04-12_tx_concurrency_problem/</guid>
+      <description>Isolation Level 交易隔離等級 併發性能&amp;amp;資料一致性成反比 隔離級別 Dirty Read Non-Rep. Read Phantom Read Write Skew 實作機制 / 特性 適用情境 Read Uncommitted</description>
+    </item>
+    
     <item>
       <title>Redis Time out問題實務心得</title>
       <link>https://hanksky12.github.io/posts/2025_08_31_redis%E5%AF%A6%E5%8B%99%E5%BF%83%E5%BE%97/</link>

@@ -6,7 +6,25 @@
     <description>Recent content in 設計模式 on Sky Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 17 Jun 2023 14:06:36 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/series/%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Apr 2026 14:06:36 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/series/%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>設計模式-工廠模式</title>
+      <link>https://hanksky12.github.io/posts/2026-04-12_dp_factory/</link>
+      <pubDate>Sun, 12 Apr 2026 14:06:36 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2026-04-12_dp_factory/</guid>
+      <description>Factory -工廠模式 分類 建立模式-Creational Patterns 主要角色 Product (產品介面)、Concrete Product (具體產品</description>
+    </item>
+    
+    <item>
+      <title>設計模式-工廠模式</title>
+      <link>https://hanksky12.github.io/posts/2026-04-12_dp_strategy/</link>
+      <pubDate>Sun, 12 Apr 2026 14:06:36 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2026-04-12_dp_strategy/</guid>
+      <description>Strategy-策略模式 分類 行為模式-Behavioral Patterns 主要角色 Strategy (策略介面)、Concret</description>
+    </item>
+    
     <item>
       <title>設計模式-備忘錄模式</title>
       <link>https://hanksky12.github.io/posts/2023-06-17_dp_memento/</link>

@@ -6,7 +6,25 @@
     <description>Recent content in Series on Sky Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 27 Jul 2025 10:23:51 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 12 Apr 2026 14:06:36 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/series/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>設計模式</title>
+      <link>https://hanksky12.github.io/series/%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sun, 12 Apr 2026 14:06:36 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/series/%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sql</title>
+      <link>https://hanksky12.github.io/series/sql/</link>
+      <pubDate>Sun, 12 Apr 2026 11:23:51 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/series/sql/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>計算機基礎</title>
       <link>https://hanksky12.github.io/series/%E8%A8%88%E7%AE%97%E6%A9%9F%E5%9F%BA%E7%A4%8E/</link>
@@ -76,15 +94,6 @@
       <pubDate>Sun, 24 Mar 2024 08:25:11 +0800</pubDate>
       
       <guid>https://hanksky12.github.io/series/cors/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>設計模式</title>
-      <link>https://hanksky12.github.io/series/%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F/</link>
-      <pubDate>Sat, 17 Jun 2023 14:06:36 +0800</pubDate>
-      
-      <guid>https://hanksky12.github.io/series/%E8%A8%AD%E8%A8%88%E6%A8%A1%E5%BC%8F/</guid>
       <description></description>
     </item>
     
