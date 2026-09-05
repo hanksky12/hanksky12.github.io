@@ -6,7 +6,16 @@
     <description>Recent content in 心情 on Sky Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Sep 2023 16:29:23 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/tags/%E5%BF%83%E6%83%85/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Aug 2026 12:23:51 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/tags/%E5%BF%83%E6%83%85/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI_Impact</title>
+      <link>https://hanksky12.github.io/posts/2026_08_29_ai_impact/</link>
+      <pubDate>Sat, 29 Aug 2026 12:23:51 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2026_08_29_ai_impact/</guid>
+      <description>緣由 自己從幾年前開始用ai輔助開發，那時候還是一段code貼到gpt給我反饋，再貼回IDE，現在都已</description>
+    </item>
+    
     <item>
       <title>Python語言 與 工程師的職涯</title>
       <link>https://hanksky12.github.io/posts/2023-09-30_python%E8%AA%9E%E8%A8%80%E8%88%87%E5%BF%83%E5%BE%97/</link>

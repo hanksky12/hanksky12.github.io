@@ -6,7 +6,16 @@
     <description>Recent content in Computer Science on Sky Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 11 May 2025 11:23:51 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/series/computer-science/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Aug 2026 11:23:51 +0800</lastBuildDate><atom:link href="https://hanksky12.github.io/series/computer-science/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>WebSocket</title>
+      <link>https://hanksky12.github.io/posts/2026_08_29_websocket2/</link>
+      <pubDate>Sat, 29 Aug 2026 11:23:51 +0800</pubDate>
+      
+      <guid>https://hanksky12.github.io/posts/2026_08_29_websocket2/</guid>
+      <description>緣由 Ws server接觸一年後，之前剛好經手一個功能，讓我對ws和http的資源的建立和釋放有更深的理</description>
+    </item>
+    
     <item>
       <title>WebSocket</title>
       <link>https://hanksky12.github.io/posts/2025_05_11_websocket/</link>
